@@ -1,55 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/09/24/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>java笔记(1)-对象导论</title>
-    <url>/2021/10/27/java%E7%AC%94%E8%AE%B0-1-%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</url>
-    <content><![CDATA[<p>参考书籍《Java编程思想》</p>
-<h2 id="1-如何理解“对象”和“类”"><a href="#1-如何理解“对象”和“类”" class="headerlink" title="1. 如何理解“对象”和“类”"></a>1. 如何理解“对象”和“类”</h2><p>定义</p>
-<ul>
-<li><p>类： 是一个模板，它描述一类对象的行为和状态。</p>
-</li>
-<li><p>对象：对象 ：对象是类的一个实例（ 对象不是找个女朋友🤣），有状态和行为。</p>
-</li>
-</ul>
-<p>“类”其实就是“类型”，比如“int”就是整数类型，9是int类型的一个实例，可以称之为“对象”。类可以理解为具有某些共有特点的物品的集合（比如“马”这个类），对象就是该集合中的一个例子。</p>
-<p>Java是面向对象的编程，面向对象 ( Object Oriented )就是将现实问题构建关系，然后抽象成 类 ( class )，给类定义属性和方法后，再将类实例化成 实例 ( instance ) ，通过访问实例（也就是对象）的属性和调用方法来进行使用。</p>
-<p>也就是说对象其实可以理解为：每一个对象其实就是一个<strong>服务提供着</strong>。编程的过程中只需要考虑自己需要哪些服务，然后引用对应的对象来解决问题。所以编程的重点不在于思考具体过程，而是“<strong>类</strong>”和“<strong>对象</strong>”的抽象所以称之为“<strong>面想对象编程</strong>”</p>
-<h2 id="2-封装"><a href="#2-封装" class="headerlink" title="2.封装"></a>2.封装</h2><p>在面向对象程式设计方法中，封装（Encapsulation）是指一种将抽象性函式接口的实现细节部分包装、隐藏起来的方法。（就是告诉你本类可以提供的服务是什么，单不告诉你具体实现，你只管用就行了，如sort()函数）</p>
-<p>封装可以被认为是一个保护屏障，防止该类的代码和数据被外部类定义的代码随机访问。</p>
-<p>要访问该类的代码和数据，必须通过严格的接口控制。（程序通过接口来访问类及其属性和方法）</p>
-<p>封装最主要的功能在于我们能修改自己的实现代码，而不用修改那些调用我们代码的程序片段。（如国别的类可以直接访问本类的方法以及重写本类方法那么会导致你在修改本类时要考虑调用这个类的其他类的代码）</p>
-<p>适当的封装可以让程式码更容易理解与维护，也加强了程式码的安全性。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// private 关键字限制了此类的属性只有本类可以访问</span><br><span class="line">public class Person &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一个例子</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Juice&#123;</span><br><span class="line">	private String juicename;  //如果这里private换成public那么会恢复正常</span><br><span class="line">	public Juice(String name) &#123;</span><br><span class="line">		this.juicename=name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public String printname() &#123;</span><br><span class="line">		System.out.println(juicename);</span><br><span class="line">		return juicename;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class test1 &#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">        Juice myjuice=new Juice(&quot;橘子水&quot;);</span><br><span class="line">        System.out.println(myjuice.juicename); //无法访问myjuice.name，报错</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="3-继承"><a href="#3-继承" class="headerlink" title="3.继承"></a>3.继承</h2><h2 id="4-多态"><a href="#4-多态" class="headerlink" title="4.多态"></a>4.多态</h2>]]></content>
-      <categories>
-        <category>java笔记</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>我的第一篇博客文章</title>
     <url>/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p><a href="https://baidu.com/" title="你知道我要说什么吧">百度</a></p>
@@ -76,7 +27,7 @@
 </blockquote>
 <p>这是我是邮箱地址</p>
 <blockquote>
-<p><a href="mailto:&#50;&#53;&#x36;&#x37;&#49;&#49;&#52;&#51;&#54;&#51;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;">&#50;&#53;&#x36;&#x37;&#49;&#49;&#52;&#51;&#54;&#51;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;</a><br><strong><a href="http://baidu.com/"><code>baidu</code></a></strong></p>
+<p><a href="mailto:&#x32;&#53;&#54;&#x37;&#x31;&#49;&#x34;&#x33;&#x36;&#x33;&#x40;&#x71;&#113;&#x2e;&#x63;&#111;&#109;">&#x32;&#53;&#54;&#x37;&#x31;&#49;&#x34;&#x33;&#x36;&#x33;&#x40;&#x71;&#113;&#x2e;&#x63;&#111;&#109;</a><br><strong><a href="http://baidu.com/"><code>baidu</code></a></strong></p>
 </blockquote>
 </blockquote>
 <p><img src="/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/beijing.png" alt="这是图片" title="这是图片"></p>
@@ -87,6 +38,83 @@
       <tags>
         <tag>练习</tag>
         <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/09/24/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>java笔记(0)-对象导论</title>
+    <url>/2021/10/27/java%E7%AC%94%E8%AE%B0-1-%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</url>
+    <content><![CDATA[<p>参考书籍《Java编程思想》</p>
+<p>参考网页<a href="http://c.biancheng.net/java/" title="特好用的编程学习网站">编程网</a></p>
+<h2 id="如何理解“对象”和“类”"><a href="#如何理解“对象”和“类”" class="headerlink" title="如何理解“对象”和“类”"></a>如何理解“对象”和“类”</h2><p>定义</p>
+<ul>
+<li><p>类： 是一个模板，它描述一类对象的行为和状态。</p>
+</li>
+<li><p>对象：对象 ：对象是类的一个实例（ 对象不是找个女朋友🤣），有状态和行为。</p>
+</li>
+</ul>
+<p>“类”其实就是“类型”，比如“int”就是整数类型，9是int类型的一个实例，可以称之为“对象”。类可以理解为具有某些共有特点的物品的集合（比如“马”这个类），对象就是该集合中的一个例子。</p>
+<p>Java是面向对象的编程，面向对象 ( Object Oriented )就是将现实问题构建关系，然后抽象成 类 ( class )，给类定义属性和方法后，再将类实例化成 实例 ( instance ) ，通过访问实例（也就是对象）的属性和调用方法来进行使用。</p>
+<p>也就是说对象其实可以理解为：每一个对象其实就是一个<strong>服务提供着</strong>。编程的过程中只需要考虑自己需要哪些服务，然后引用对应的对象来解决问题。所以编程的重点不在于思考具体过程，而是“<strong>类</strong>”和“<strong>对象</strong>”的抽象所以称之为“<strong>面想对象编程</strong>”</p>
+<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>在面向对象程式设计方法中，封装（Encapsulation）是指一种将抽象性函式接口的实现细节部分包装、隐藏起来的方法。（就是告诉你本类可以提供的服务是什么，单不告诉你具体实现，你只管用就行了，如sort()函数）</p>
+<p>封装可以被认为是一个保护屏障，防止该类的代码和数据被外部类定义的代码随机访问。</p>
+<p>要访问该类的代码和数据，必须通过严格的接口控制。（程序通过接口来访问类及其属性和方法）</p>
+<p>封装最主要的功能在于我们能修改自己的实现代码，而不用修改那些调用我们代码的程序片段。（如国别的类可以直接访问本类的方法以及重写本类方法那么会导致你在修改本类时要考虑调用这个类的其他类的代码）</p>
+<p>适当的封装可以让程式码更容易理解与维护，也加强了程式码的安全性。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// private 关键字限制了此类的属性只有本类可以访问</span><br><span class="line">public class Person &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一个例子</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Juice&#123;</span><br><span class="line">	private String juicename;  //如果这里private换成public那么会恢复正常</span><br><span class="line">	public Juice(String name) &#123;</span><br><span class="line">		this.juicename=name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public String printname() &#123;</span><br><span class="line">		System.out.println(juicename);</span><br><span class="line">		return juicename;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class test1 &#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">        Juice myjuice=new Juice(&quot;橘子水&quot;);</span><br><span class="line">        System.out.println(myjuice.juicename); //无法访问myjuice.juicename，报错</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>继承是面向对象的三大特征之一。继承和现实生活中的“继承”的相似之处是保留一些父辈的特性（属性或者方法），从而减少代码冗余，提高程序运行效率。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">修饰符 class class_name extends extend_class &#123;</span><br><span class="line">    // 类的主体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>java中的继承是使用的extends关键字，更好的描述了子类其实是对父类的一种扩展，子类其实是一种特殊的父类。</p>
+<ul>
+<li>一个例子</li>
+</ul>
+<p>父类<strong>people</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class People &#123;</span><br><span class="line">    public String name; // 姓名</span><br><span class="line">    public int age; // 年龄</span><br><span class="line">    public String sex; // 性别</span><br><span class="line">    public String sn; // 身份证号</span><br><span class="line">    public People(String name, int age, String sex, String sn) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.age = age;</span><br><span class="line">        this.sex = sex;</span><br><span class="line">        this.sn = sn;</span><br><span class="line">    &#125;</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;姓名：&quot; + name + &quot;\n年龄：&quot; + age + &quot;\n性别：&quot; + sex + &quot;\n身份证号：&quot; + sn;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>子类<strong>student</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Student extends People &#123;</span><br><span class="line">    private String stuNo; // 学号</span><br><span class="line">    private String department; // 所学专业</span><br><span class="line">    public Student(String name, int age, String sex, String sn, String stuno, String department) &#123;</span><br><span class="line">        super(name, age, sex, sn); // 调用父类中的构造方法</span><br><span class="line">        this.stuNo = stuno;</span><br><span class="line">        this.department = department;</span><br><span class="line">    &#125;</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;姓名：&quot; + name + &quot;\n年龄：&quot; + age + &quot;\n性别：&quot; + sex + &quot;\n身份证号：&quot; + sn + &quot;\n学号：&quot; + stuNo + &quot;\n所学专业：&quot; + department;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里重写了父类toString方法</p>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>多态性是面向对象编程的又一个重要特征，它是指在父类中定义的属性和方法被子类继承之后，可以具有不同的数据类型或表现出不同的行为，这使得同一个属性或方法在父类及其各个子类中具有不同的含义。</p>
+<p>简单来说，多态其实就是子类重写了父类的方法，而且子类储存在了父类之中。结果导致系统不确定引用数据的具体类型和具体方法，表现为具有多个状态，只有在运行时才可以确定具体状态，称为多态性。多态性提高了代码的复用性。</p>
+<p>Java 实现多态有 3 个必要条件</p>
+<ul>
+<li>继承</li>
+<li>重写</li>
+<li>父类引用指向子类</li>
+</ul>
+<p><strong>一个例子</strong></p>
+<p>创建 Figure 类</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Figure &#123;</span><br><span class="line">    double dim1;</span><br><span class="line">    double dim2;</span><br><span class="line">    Figure(double d1, double d2) &#123;</span><br><span class="line">        // 有参的构造方法</span><br><span class="line">        this.dim1 = d1;</span><br><span class="line">        this.dim2 = d2;</span><br><span class="line">    &#125;</span><br><span class="line">    double area() &#123;</span><br><span class="line">        // 用于计算对象的面积</span><br><span class="line">        System.out.println(&quot;父类中计算对象面积的方法，没有实际意义，需要在子类中重写。&quot;);</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>创建子类，并重写方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Rectangle extends Figure &#123;</span><br><span class="line">    Rectangle(double d1, double d2) &#123;</span><br><span class="line">        super(d1, d2);   //向上转型，意思就是子类也可以是是父类</span><br><span class="line">    &#125;</span><br><span class="line">    double area() &#123;</span><br><span class="line">        System.out.println(&quot;长方形的面积：&quot;);</span><br><span class="line">        return super.dim1 * super.dim2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>父类引用指向子类</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Figure figure; // 声明Figure类的变量</span><br><span class="line">        figure = new Rectangle(9, 9); //父类引用指向子类</span><br><span class="line">        System.out.println(figure.area());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从上述代码可以发现，figure 变量的对象是 Rectangle 但Rectangle类是Figure的子类，而且可以向上转型为该类，从而实现多态。</p>
+]]></content>
+      <categories>
+        <category>java笔记</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>学习笔记</tag>
       </tags>
   </entry>
 </search>
