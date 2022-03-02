@@ -19,39 +19,55 @@
 ]]></content>
   </entry>
   <entry>
-    <title>java笔记(2)-快速排序</title>
-    <url>/2021/11/01/java%E7%AC%94%E8%AE%B0-2-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h2 id="什么是快速排序"><a href="#什么是快速排序" class="headerlink" title="什么是快速排序"></a>什么是快速排序</h2><p>快速排序是一种效率很高的排序方式，假设对于某一数列进行增序排列，那么这个过程（快排）可以概括为：</p>
-<blockquote>
-<p>1．先从数列中取出一个数作为基准数。</p>
-<p>2．分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。</p>
-<p>3．再对左右区间重复第二步，直到各区间只有一个数。</p>
-</blockquote>
-<p>假设数列为<code>&#123;4,9,1,5,3,8,7,6,2&#125;</code></p>
-<p>我们先选取4为基准数，进行第二步排序可以得到的新数列为</p>
-<p><code>&#123;1,3,2,4,9,5,8,7,6&#125;</code></p>
-<p>那么此时可以得到2个字数列</p>
-<p><code>&#123;1,3,2&#125;,4,&#123;9,5,8,7,6&#125;</code></p>
-<p>并且也确定了2个数子列的位置，接下来继续用同样的法方法处理子序列直到所有子数列都只有一个值，那么排序便完成了。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void QuickSort(int[] arr,int low ,int high ) &#123;    //low代表数组第一个值的下表，high代表最后一个</span><br><span class="line"></span><br><span class="line">    if (low &gt;= high) &#123;      //结束条件，传入函数的数组只有一个元素</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    int key = arr[low];        //选取关键字</span><br><span class="line">    int i = low;</span><br><span class="line">    int j = high;</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">    在i，j相遇之前</span><br><span class="line">    j从数列尾部开始从右往左找，在不和i相遇的情况下找到一个比key小的数字后，i就开始从0开始从前往后找在在和j相遇之前如果找到一个比key大的值。那么交换他们的指向的值</span><br><span class="line">    如果i，j相遇了，那么把i指向的元素赋给arr[low]，把key赋值给指向的元素.</span><br><span class="line">    */</span><br><span class="line">    while (i &lt; j) &#123;             </span><br><span class="line">        while (arr[j] &gt;= key &amp;&amp; i &lt; j) &#123;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        while (arr[i] &lt;= key &amp;&amp; i &lt; j) &#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        if (i &lt; j) &#123;</span><br><span class="line">            int tem = arr[i];      //交换值</span><br><span class="line">            arr[i] = arr[j];</span><br><span class="line">            arr[j] = tem;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    arr[low] = arr[i];      </span><br><span class="line">    arr[i] = key;           </span><br><span class="line">    QuickSort(arr, low, i - 1);        //处理子数组</span><br><span class="line">    QuickSort(arr, i + 1, high);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="算法时间复杂度"><a href="#算法时间复杂度" class="headerlink" title="算法时间复杂度"></a>算法时间复杂度</h2><ul>
-<li>快速排序最优的情况下时间复杂度为：O( nlogn )</li>
-</ul>
-<blockquote>
-<p>（快速排序最优的情况就是每一次取到的元素都刚好平分整个数组）</p>
-</blockquote>
+    <title>java笔记(0)-对象导论</title>
+    <url>/2021/10/27/java%E7%AC%94%E8%AE%B0-1-%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</url>
+    <content><![CDATA[<p>参考书籍《Java编程思想》</p>
+<p>参考网页<a href="http://c.biancheng.net/java/" title="特好用的编程学习网站">编程网</a></p>
+<h2 id="如何理解“对象”和“类”"><a href="#如何理解“对象”和“类”" class="headerlink" title="如何理解“对象”和“类”"></a>如何理解“对象”和“类”</h2><p>定义</p>
 <ul>
-<li>快速排序最差的情况下时间复杂度为：O( n^2 )</li>
+<li><p>类： 是一个模板，它描述一类对象的行为和状态。</p>
+</li>
+<li><p>对象：对象 ：对象是类的一个实例（ 对象不是找个女朋友🤣），有状态和行为。</p>
+</li>
 </ul>
-<blockquote>
-<p>（最差的情况就是每一次取到的元素就是数组中最小/最大的，这种情况其实就是冒泡排序了）</p>
-</blockquote>
+<p>“类”其实就是“类型”，比如“int”就是整数类型，9是int类型的一个实例，可以称之为“对象”。类可以理解为具有某些共有特点的物品的集合（比如“马”这个类），对象就是该集合中的一个例子。</p>
+<p>Java是面向对象的编程，面向对象 ( Object Oriented )就是将现实问题构建关系，然后抽象成 类 ( class )，给类定义属性和方法后，再将类实例化成 实例 ( instance ) ，通过访问实例（也就是对象）的属性和调用方法来进行使用。</p>
+<p>也就是说对象其实可以理解为：每一个对象其实就是一个<strong>服务提供着</strong>。编程的过程中只需要考虑自己需要哪些服务，然后引用对应的对象来解决问题。所以编程的重点不在于思考具体过程，而是“<strong>类</strong>”和“<strong>对象</strong>”的抽象所以称之为“<strong>面想对象编程</strong>”</p>
+<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>在面向对象程式设计方法中，封装（Encapsulation）是指一种将抽象性函式接口的实现细节部分包装、隐藏起来的方法。（就是告诉你本类可以提供的服务是什么，单不告诉你具体实现，你只管用就行了，如sort()函数）</p>
+<p>封装可以被认为是一个保护屏障，防止该类的代码和数据被外部类定义的代码随机访问。</p>
+<p>要访问该类的代码和数据，必须通过严格的接口控制。（程序通过接口来访问类及其属性和方法）</p>
+<p>封装最主要的功能在于我们能修改自己的实现代码，而不用修改那些调用我们代码的程序片段。（如国别的类可以直接访问本类的方法以及重写本类方法那么会导致你在修改本类时要考虑调用这个类的其他类的代码）</p>
+<p>适当的封装可以让程式码更容易理解与维护，也加强了程式码的安全性。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// private 关键字限制了此类的属性只有本类可以访问</span><br><span class="line">public class Person &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一个例子</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Juice&#123;</span><br><span class="line">	private String juicename;  //如果这里private换成public那么会恢复正常</span><br><span class="line">	public Juice(String name) &#123;</span><br><span class="line">		this.juicename=name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public String printname() &#123;</span><br><span class="line">		System.out.println(juicename);</span><br><span class="line">		return juicename;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class test1 &#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">        Juice myjuice=new Juice(&quot;橘子水&quot;);</span><br><span class="line">        System.out.println(myjuice.juicename); //无法访问myjuice.juicename，报错</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>继承是面向对象的三大特征之一。继承和现实生活中的“继承”的相似之处是保留一些父辈的特性（属性或者方法），从而减少代码冗余，提高程序运行效率。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">修饰符 class class_name extends extend_class &#123;</span><br><span class="line">    // 类的主体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>java中的继承是使用的extends关键字，更好的描述了子类其实是对父类的一种扩展，子类其实是一种特殊的父类。</p>
 <ul>
-<li>快速排序的平均时间复杂度也是：O(nlogn)</li>
+<li>一个例子</li>
 </ul>
-<h2 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h2><p>最优的情况下空间复杂度为：O(logn)  ；每一次都平分数组的情况</p>
-<p> 最差的情况下空间复杂度为：O( n )      ；退化为冒泡排序的情况</p>
+<p>父类<strong>people</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class People &#123;</span><br><span class="line">    public String name; // 姓名</span><br><span class="line">    public int age; // 年龄</span><br><span class="line">    public String sex; // 性别</span><br><span class="line">    public String sn; // 身份证号</span><br><span class="line">    public People(String name, int age, String sex, String sn) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.age = age;</span><br><span class="line">        this.sex = sex;</span><br><span class="line">        this.sn = sn;</span><br><span class="line">    &#125;</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;姓名：&quot; + name + &quot;\n年龄：&quot; + age + &quot;\n性别：&quot; + sex + &quot;\n身份证号：&quot; + sn;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>子类<strong>student</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Student extends People &#123;</span><br><span class="line">    private String stuNo; // 学号</span><br><span class="line">    private String department; // 所学专业</span><br><span class="line">    public Student(String name, int age, String sex, String sn, String stuno, String department) &#123;</span><br><span class="line">        super(name, age, sex, sn); // 调用父类中的构造方法</span><br><span class="line">        this.stuNo = stuno;</span><br><span class="line">        this.department = department;</span><br><span class="line">    &#125;</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;姓名：&quot; + name + &quot;\n年龄：&quot; + age + &quot;\n性别：&quot; + sex + &quot;\n身份证号：&quot; + sn + &quot;\n学号：&quot; + stuNo + &quot;\n所学专业：&quot; + department;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里重写了父类toString方法</p>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>多态性是面向对象编程的又一个重要特征，它是指在父类中定义的属性和方法被子类继承之后，可以具有不同的数据类型或表现出不同的行为，这使得同一个属性或方法在父类及其各个子类中具有不同的含义。</p>
+<p>简单来说，多态其实就是子类重写了父类的方法，而且子类储存在了父类之中。结果导致系统不确定引用数据的具体类型和具体方法，表现为具有多个状态，只有在运行时才可以确定具体状态，称为多态性。多态性提高了代码的复用性。</p>
+<p>Java 实现多态有 3 个必要条件</p>
+<ul>
+<li>继承</li>
+<li>重写</li>
+<li>父类引用指向子类</li>
+</ul>
+<p><strong>一个例子</strong></p>
+<p>创建 Figure 类</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Figure &#123;</span><br><span class="line">    double dim1;</span><br><span class="line">    double dim2;</span><br><span class="line">    Figure(double d1, double d2) &#123;</span><br><span class="line">        // 有参的构造方法</span><br><span class="line">        this.dim1 = d1;</span><br><span class="line">        this.dim2 = d2;</span><br><span class="line">    &#125;</span><br><span class="line">    double area() &#123;</span><br><span class="line">        // 用于计算对象的面积</span><br><span class="line">        System.out.println(&quot;父类中计算对象面积的方法，没有实际意义，需要在子类中重写。&quot;);</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>创建子类，并重写方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Rectangle extends Figure &#123;</span><br><span class="line">    Rectangle(double d1, double d2) &#123;</span><br><span class="line">        super(d1, d2);   //向上转型，意思就是子类也可以是是父类</span><br><span class="line">    &#125;</span><br><span class="line">    double area() &#123;</span><br><span class="line">        System.out.println(&quot;长方形的面积：&quot;);</span><br><span class="line">        return super.dim1 * super.dim2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>父类引用指向子类</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Figure figure; // 声明Figure类的变量</span><br><span class="line">        figure = new Rectangle(9, 9); //父类引用指向子类</span><br><span class="line">        System.out.println(figure.area());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从上述代码可以发现，figure 变量的对象是 Rectangle 但Rectangle类是Figure的子类，而且可以向上转型为该类，从而实现多态。</p>
 ]]></content>
       <categories>
         <category>java笔记</category>
@@ -88,7 +104,7 @@
 </blockquote>
 <p>这是我是邮箱地址</p>
 <blockquote>
-<p><a href="mailto:&#x32;&#x35;&#x36;&#55;&#x31;&#x31;&#52;&#51;&#x36;&#51;&#x40;&#113;&#x71;&#46;&#99;&#111;&#x6d;">&#x32;&#x35;&#x36;&#55;&#x31;&#x31;&#52;&#51;&#x36;&#51;&#x40;&#113;&#x71;&#46;&#99;&#111;&#x6d;</a><br><strong><a href="http://baidu.com/"><code>baidu</code></a></strong></p>
+<p><a href="mailto:&#50;&#53;&#x36;&#x37;&#49;&#49;&#52;&#x33;&#x36;&#51;&#x40;&#113;&#x71;&#46;&#x63;&#111;&#x6d;">&#50;&#53;&#x36;&#x37;&#49;&#49;&#52;&#x33;&#x36;&#51;&#x40;&#113;&#x71;&#46;&#x63;&#111;&#x6d;</a><br><strong><a href="http://baidu.com/"><code>baidu</code></a></strong></p>
 </blockquote>
 </blockquote>
 <p><img src="/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/beijing.png" alt="这是图片" title="这是图片"></p>
@@ -140,55 +156,39 @@
       </tags>
   </entry>
   <entry>
-    <title>java笔记(0)-对象导论</title>
-    <url>/2021/10/27/java%E7%AC%94%E8%AE%B0-1-%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</url>
-    <content><![CDATA[<p>参考书籍《Java编程思想》</p>
-<p>参考网页<a href="http://c.biancheng.net/java/" title="特好用的编程学习网站">编程网</a></p>
-<h2 id="如何理解“对象”和“类”"><a href="#如何理解“对象”和“类”" class="headerlink" title="如何理解“对象”和“类”"></a>如何理解“对象”和“类”</h2><p>定义</p>
-<ul>
-<li><p>类： 是一个模板，它描述一类对象的行为和状态。</p>
-</li>
-<li><p>对象：对象 ：对象是类的一个实例（ 对象不是找个女朋友🤣），有状态和行为。</p>
-</li>
+    <title>java笔记(2)-快速排序</title>
+    <url>/2021/11/01/java%E7%AC%94%E8%AE%B0-2-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h2 id="什么是快速排序"><a href="#什么是快速排序" class="headerlink" title="什么是快速排序"></a>什么是快速排序</h2><p>快速排序是一种效率很高的排序方式，假设对于某一数列进行增序排列，那么这个过程（快排）可以概括为：</p>
+<blockquote>
+<p>1．先从数列中取出一个数作为基准数。</p>
+<p>2．分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。</p>
+<p>3．再对左右区间重复第二步，直到各区间只有一个数。</p>
+</blockquote>
+<p>假设数列为<code>&#123;4,9,1,5,3,8,7,6,2&#125;</code></p>
+<p>我们先选取4为基准数，进行第二步排序可以得到的新数列为</p>
+<p><code>&#123;1,3,2,4,9,5,8,7,6&#125;</code></p>
+<p>那么此时可以得到2个字数列</p>
+<p><code>&#123;1,3,2&#125;,4,&#123;9,5,8,7,6&#125;</code></p>
+<p>并且也确定了2个数子列的位置，接下来继续用同样的法方法处理子序列直到所有子数列都只有一个值，那么排序便完成了。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void QuickSort(int[] arr,int low ,int high ) &#123;    //low代表数组第一个值的下表，high代表最后一个</span><br><span class="line"></span><br><span class="line">    if (low &gt;= high) &#123;      //结束条件，传入函数的数组只有一个元素</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    int key = arr[low];        //选取关键字</span><br><span class="line">    int i = low;</span><br><span class="line">    int j = high;</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">    在i，j相遇之前</span><br><span class="line">    j从数列尾部开始从右往左找，在不和i相遇的情况下找到一个比key小的数字后，i就开始从0开始从前往后找在在和j相遇之前如果找到一个比key大的值。那么交换他们的指向的值</span><br><span class="line">    如果i，j相遇了，那么把i指向的元素赋给arr[low]，把key赋值给指向的元素.</span><br><span class="line">    */</span><br><span class="line">    while (i &lt; j) &#123;             </span><br><span class="line">        while (arr[j] &gt;= key &amp;&amp; i &lt; j) &#123;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        while (arr[i] &lt;= key &amp;&amp; i &lt; j) &#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        if (i &lt; j) &#123;</span><br><span class="line">            int tem = arr[i];      //交换值</span><br><span class="line">            arr[i] = arr[j];</span><br><span class="line">            arr[j] = tem;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    arr[low] = arr[i];      </span><br><span class="line">    arr[i] = key;           </span><br><span class="line">    QuickSort(arr, low, i - 1);        //处理子数组</span><br><span class="line">    QuickSort(arr, i + 1, high);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="算法时间复杂度"><a href="#算法时间复杂度" class="headerlink" title="算法时间复杂度"></a>算法时间复杂度</h2><ul>
+<li>快速排序最优的情况下时间复杂度为：O( nlogn )</li>
 </ul>
-<p>“类”其实就是“类型”，比如“int”就是整数类型，9是int类型的一个实例，可以称之为“对象”。类可以理解为具有某些共有特点的物品的集合（比如“马”这个类），对象就是该集合中的一个例子。</p>
-<p>Java是面向对象的编程，面向对象 ( Object Oriented )就是将现实问题构建关系，然后抽象成 类 ( class )，给类定义属性和方法后，再将类实例化成 实例 ( instance ) ，通过访问实例（也就是对象）的属性和调用方法来进行使用。</p>
-<p>也就是说对象其实可以理解为：每一个对象其实就是一个<strong>服务提供着</strong>。编程的过程中只需要考虑自己需要哪些服务，然后引用对应的对象来解决问题。所以编程的重点不在于思考具体过程，而是“<strong>类</strong>”和“<strong>对象</strong>”的抽象所以称之为“<strong>面想对象编程</strong>”</p>
-<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>在面向对象程式设计方法中，封装（Encapsulation）是指一种将抽象性函式接口的实现细节部分包装、隐藏起来的方法。（就是告诉你本类可以提供的服务是什么，单不告诉你具体实现，你只管用就行了，如sort()函数）</p>
-<p>封装可以被认为是一个保护屏障，防止该类的代码和数据被外部类定义的代码随机访问。</p>
-<p>要访问该类的代码和数据，必须通过严格的接口控制。（程序通过接口来访问类及其属性和方法）</p>
-<p>封装最主要的功能在于我们能修改自己的实现代码，而不用修改那些调用我们代码的程序片段。（如国别的类可以直接访问本类的方法以及重写本类方法那么会导致你在修改本类时要考虑调用这个类的其他类的代码）</p>
-<p>适当的封装可以让程式码更容易理解与维护，也加强了程式码的安全性。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// private 关键字限制了此类的属性只有本类可以访问</span><br><span class="line">public class Person &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一个例子</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Juice&#123;</span><br><span class="line">	private String juicename;  //如果这里private换成public那么会恢复正常</span><br><span class="line">	public Juice(String name) &#123;</span><br><span class="line">		this.juicename=name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public String printname() &#123;</span><br><span class="line">		System.out.println(juicename);</span><br><span class="line">		return juicename;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class test1 &#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">        Juice myjuice=new Juice(&quot;橘子水&quot;);</span><br><span class="line">        System.out.println(myjuice.juicename); //无法访问myjuice.juicename，报错</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>继承是面向对象的三大特征之一。继承和现实生活中的“继承”的相似之处是保留一些父辈的特性（属性或者方法），从而减少代码冗余，提高程序运行效率。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">修饰符 class class_name extends extend_class &#123;</span><br><span class="line">    // 类的主体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>java中的继承是使用的extends关键字，更好的描述了子类其实是对父类的一种扩展，子类其实是一种特殊的父类。</p>
+<blockquote>
+<p>（快速排序最优的情况就是每一次取到的元素都刚好平分整个数组）</p>
+</blockquote>
 <ul>
-<li>一个例子</li>
+<li>快速排序最差的情况下时间复杂度为：O( n^2 )</li>
 </ul>
-<p>父类<strong>people</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class People &#123;</span><br><span class="line">    public String name; // 姓名</span><br><span class="line">    public int age; // 年龄</span><br><span class="line">    public String sex; // 性别</span><br><span class="line">    public String sn; // 身份证号</span><br><span class="line">    public People(String name, int age, String sex, String sn) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.age = age;</span><br><span class="line">        this.sex = sex;</span><br><span class="line">        this.sn = sn;</span><br><span class="line">    &#125;</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;姓名：&quot; + name + &quot;\n年龄：&quot; + age + &quot;\n性别：&quot; + sex + &quot;\n身份证号：&quot; + sn;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>子类<strong>student</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Student extends People &#123;</span><br><span class="line">    private String stuNo; // 学号</span><br><span class="line">    private String department; // 所学专业</span><br><span class="line">    public Student(String name, int age, String sex, String sn, String stuno, String department) &#123;</span><br><span class="line">        super(name, age, sex, sn); // 调用父类中的构造方法</span><br><span class="line">        this.stuNo = stuno;</span><br><span class="line">        this.department = department;</span><br><span class="line">    &#125;</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;姓名：&quot; + name + &quot;\n年龄：&quot; + age + &quot;\n性别：&quot; + sex + &quot;\n身份证号：&quot; + sn + &quot;\n学号：&quot; + stuNo + &quot;\n所学专业：&quot; + department;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里重写了父类toString方法</p>
-<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>多态性是面向对象编程的又一个重要特征，它是指在父类中定义的属性和方法被子类继承之后，可以具有不同的数据类型或表现出不同的行为，这使得同一个属性或方法在父类及其各个子类中具有不同的含义。</p>
-<p>简单来说，多态其实就是子类重写了父类的方法，而且子类储存在了父类之中。结果导致系统不确定引用数据的具体类型和具体方法，表现为具有多个状态，只有在运行时才可以确定具体状态，称为多态性。多态性提高了代码的复用性。</p>
-<p>Java 实现多态有 3 个必要条件</p>
+<blockquote>
+<p>（最差的情况就是每一次取到的元素就是数组中最小/最大的，这种情况其实就是冒泡排序了）</p>
+</blockquote>
 <ul>
-<li>继承</li>
-<li>重写</li>
-<li>父类引用指向子类</li>
+<li>快速排序的平均时间复杂度也是：O(nlogn)</li>
 </ul>
-<p><strong>一个例子</strong></p>
-<p>创建 Figure 类</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Figure &#123;</span><br><span class="line">    double dim1;</span><br><span class="line">    double dim2;</span><br><span class="line">    Figure(double d1, double d2) &#123;</span><br><span class="line">        // 有参的构造方法</span><br><span class="line">        this.dim1 = d1;</span><br><span class="line">        this.dim2 = d2;</span><br><span class="line">    &#125;</span><br><span class="line">    double area() &#123;</span><br><span class="line">        // 用于计算对象的面积</span><br><span class="line">        System.out.println(&quot;父类中计算对象面积的方法，没有实际意义，需要在子类中重写。&quot;);</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>创建子类，并重写方法</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Rectangle extends Figure &#123;</span><br><span class="line">    Rectangle(double d1, double d2) &#123;</span><br><span class="line">        super(d1, d2);   //向上转型，意思就是子类也可以是是父类</span><br><span class="line">    &#125;</span><br><span class="line">    double area() &#123;</span><br><span class="line">        System.out.println(&quot;长方形的面积：&quot;);</span><br><span class="line">        return super.dim1 * super.dim2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>父类引用指向子类</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Figure figure; // 声明Figure类的变量</span><br><span class="line">        figure = new Rectangle(9, 9); //父类引用指向子类</span><br><span class="line">        System.out.println(figure.area());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>从上述代码可以发现，figure 变量的对象是 Rectangle 但Rectangle类是Figure的子类，而且可以向上转型为该类，从而实现多态。</p>
+<h2 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h2><p>最优的情况下空间复杂度为：O(logn)  ；每一次都平分数组的情况</p>
+<p> 最差的情况下空间复杂度为：O( n )      ；退化为冒泡排序的情况</p>
 ]]></content>
       <categories>
         <category>java笔记</category>
