@@ -19,6 +19,43 @@
 ]]></content>
   </entry>
   <entry>
+    <title>java笔记(1)-用Java输出杨辉三角</title>
+    <url>/2021/10/29/java%E7%AC%94%E8%AE%B0-2-java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<p>参考网页<a href="http://c.biancheng.net/java/" title="特好用的编程学习网站">编程网</a></p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>输入：打印的行数。</p>
+<p>输出：对应行数的杨辉三角。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><hr>
+<p>杨辉三角示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">      1</span><br><span class="line">     1 1</span><br><span class="line">    1 2 1</span><br><span class="line">   1 3 3 1</span><br><span class="line">  1 4 6 4 1</span><br><span class="line"> 1 5 10 10 5 1</span><br><span class="line">1 6 15 20 15 6 1 </span><br></pre></td></tr></table></figure>
+<p>假设需要打印的行数是row ，num(i，j)代表第i行第j个数。</p>
+<p>通过分析不难得知： </p>
+<ul>
+<li>第i行要打印的空格数量为row-i</li>
+<li>第i行要打印i个数字，<strong>且</strong>每行第一个和最后一个（第i个都是1）</li>
+<li>当num(i,j)不是1时， <strong>num(i,j)=num(i-1,j)+num(i-1,j-1)即</strong>该数字等于上一行同一位置数字(都是第对应行第j个数字)和上一行前一个数字之和。</li>
+</ul>
+<p>首先定义num用来方法确定每一个值</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static int num(int a,int b) &#123;   //a,b代表第a行，第b个数</span><br><span class="line">	if(b==1||b==a) &#123;</span><br><span class="line">		return 1;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">	return c;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>定义calu方法输出杨辉三角</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void calu(int row) &#123;</span><br><span class="line">	for (int i=1;i&lt;=row;i++) &#123;                 //i代表行</span><br><span class="line">		for(int j=1;j&lt;=row-i;j++) &#123;            //j代表列</span><br><span class="line">			System.out.print(&quot; &quot;);             //输出每一行的空格</span><br><span class="line">		&#125;</span><br><span class="line">		for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">			System.out.print(num(i,j)+&quot; &quot;);    //输出每一行的数字</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>main方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);    //使用类时要先导入模块： import java。util.*; </span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);    </span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">				</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><hr>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package test1;</span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">public class test1&#123;</span><br><span class="line">	//num方法</span><br><span class="line">	public static int num(int a,int b) &#123;</span><br><span class="line">		if(b==1||b==a) &#123;</span><br><span class="line">			return 1;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">		return c;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	//calu方法</span><br><span class="line">	public static void calu(int row) &#123;</span><br><span class="line">		for (int i=1;i&lt;=row;i++) &#123;</span><br><span class="line">			for(int j=1;j&lt;=row-i;j++) &#123;</span><br><span class="line">				System.out.print(&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">				System.out.print(num(i,j)+&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);</span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);</span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结果示例"><a href="#结果示例" class="headerlink" title="结果示例"></a>结果示例</h2><p><img src="/2021/10/29/java%E7%AC%94%E8%AE%B0-2-java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/%E8%BE%93%E5%87%BA%E7%A4%BA%E4%BE%8B.png" alt="输出" title="纳尼？"> </p>
+]]></content>
+      <categories>
+        <category>java笔记</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>java笔记(0)-对象导论</title>
     <url>/2021/10/27/java%E7%AC%94%E8%AE%B0-1-%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</url>
     <content><![CDATA[<p>参考书籍《Java编程思想》</p>
@@ -68,43 +105,6 @@
 <p>父类引用指向子类</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Figure figure; // 声明Figure类的变量</span><br><span class="line">        figure = new Rectangle(9, 9); //父类引用指向子类</span><br><span class="line">        System.out.println(figure.area());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>从上述代码可以发现，figure 变量的对象是 Rectangle 但Rectangle类是Figure的子类，而且可以向上转型为该类，从而实现多态。</p>
-]]></content>
-      <categories>
-        <category>java笔记</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>java笔记(1)-用Java输出杨辉三角</title>
-    <url>/2021/10/29/java%E7%AC%94%E8%AE%B0-2-java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<p>参考网页<a href="http://c.biancheng.net/java/" title="特好用的编程学习网站">编程网</a></p>
-<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>输入：打印的行数。</p>
-<p>输出：对应行数的杨辉三角。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><hr>
-<p>杨辉三角示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">      1</span><br><span class="line">     1 1</span><br><span class="line">    1 2 1</span><br><span class="line">   1 3 3 1</span><br><span class="line">  1 4 6 4 1</span><br><span class="line"> 1 5 10 10 5 1</span><br><span class="line">1 6 15 20 15 6 1 </span><br></pre></td></tr></table></figure>
-<p>假设需要打印的行数是row ，num(i，j)代表第i行第j个数。</p>
-<p>通过分析不难得知： </p>
-<ul>
-<li>第i行要打印的空格数量为row-i</li>
-<li>第i行要打印i个数字，<strong>且</strong>每行第一个和最后一个（第i个都是1）</li>
-<li>当num(i,j)不是1时， <strong>num(i,j)=num(i-1,j)+num(i-1,j-1)即</strong>该数字等于上一行同一位置数字(都是第对应行第j个数字)和上一行前一个数字之和。</li>
-</ul>
-<p>首先定义num用来方法确定每一个值</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static int num(int a,int b) &#123;   //a,b代表第a行，第b个数</span><br><span class="line">	if(b==1||b==a) &#123;</span><br><span class="line">		return 1;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">	return c;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>定义calu方法输出杨辉三角</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void calu(int row) &#123;</span><br><span class="line">	for (int i=1;i&lt;=row;i++) &#123;                 //i代表行</span><br><span class="line">		for(int j=1;j&lt;=row-i;j++) &#123;            //j代表列</span><br><span class="line">			System.out.print(&quot; &quot;);             //输出每一行的空格</span><br><span class="line">		&#125;</span><br><span class="line">		for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">			System.out.print(num(i,j)+&quot; &quot;);    //输出每一行的数字</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>main方法</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);    //使用类时要先导入模块： import java。util.*; </span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);    </span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">				</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><hr>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package test1;</span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">public class test1&#123;</span><br><span class="line">	//num方法</span><br><span class="line">	public static int num(int a,int b) &#123;</span><br><span class="line">		if(b==1||b==a) &#123;</span><br><span class="line">			return 1;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">		return c;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	//calu方法</span><br><span class="line">	public static void calu(int row) &#123;</span><br><span class="line">		for (int i=1;i&lt;=row;i++) &#123;</span><br><span class="line">			for(int j=1;j&lt;=row-i;j++) &#123;</span><br><span class="line">				System.out.print(&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">				System.out.print(num(i,j)+&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);</span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);</span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="结果示例"><a href="#结果示例" class="headerlink" title="结果示例"></a>结果示例</h2><p><img src="/2021/10/29/java%E7%AC%94%E8%AE%B0-2-java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/%E8%BE%93%E5%87%BA%E7%A4%BA%E4%BE%8B.png" alt="输出" title="纳尼？"> </p>
 ]]></content>
       <categories>
         <category>java笔记</category>
@@ -184,7 +184,7 @@
 </blockquote>
 <p>这是我是邮箱地址</p>
 <blockquote>
-<p><a href="mailto:&#50;&#x35;&#54;&#55;&#x31;&#49;&#x34;&#51;&#x36;&#51;&#64;&#x71;&#113;&#46;&#x63;&#111;&#109;">&#50;&#x35;&#54;&#55;&#x31;&#49;&#x34;&#51;&#x36;&#51;&#64;&#x71;&#113;&#46;&#x63;&#111;&#109;</a><br><strong><a href="http://baidu.com/"><code>baidu</code></a></strong></p>
+<p><a href="mailto:&#50;&#53;&#54;&#x37;&#x31;&#49;&#52;&#51;&#x36;&#51;&#64;&#x71;&#113;&#46;&#x63;&#111;&#109;">&#50;&#53;&#54;&#x37;&#x31;&#49;&#52;&#51;&#x36;&#51;&#64;&#x71;&#113;&#46;&#x63;&#111;&#109;</a><br><strong><a href="http://baidu.com/"><code>baidu</code></a></strong></p>
 </blockquote>
 </blockquote>
 <p><img src="/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/beijing.png" alt="这是图片" title="这是图片"></p>
@@ -199,39 +199,55 @@
       </tags>
   </entry>
   <entry>
-    <title>java笔记(2)-快速排序</title>
-    <url>/2021/11/01/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97/</url>
-    <content><![CDATA[<h2 id="什么是快速排序"><a href="#什么是快速排序" class="headerlink" title="什么是快速排序"></a>什么是快速排序</h2><p>快速排序是一种效率很高的排序方式，假设对于某一数列进行增序排列，那么这个过程（快排）可以概括为：</p>
-<blockquote>
-<p>1．先从数列中取出一个数作为基准数。</p>
-<p>2．分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。</p>
-<p>3．再对左右区间重复第二步，直到各区间只有一个数。</p>
-</blockquote>
-<p>假设数列为<code>&#123;4,9,1,5,3,8,7,6,2&#125;</code></p>
-<p>我们先选取4为基准数，进行第二步排序可以得到的新数列为</p>
-<p><code>&#123;1,3,2,4,9,5,8,7,6&#125;</code></p>
-<p>那么此时可以得到2个字数列</p>
-<p><code>&#123;1,3,2&#125;,4,&#123;9,5,8,7,6&#125;</code></p>
-<p>并且也确定了2个数子列的位置，接下来继续用同样的法方法处理子序列直到所有子数列都只有一个值，那么排序便完成了。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void QuickSort(int[] arr,int low ,int high ) &#123;    //low代表数组第一个值的下表，high代表最后一个</span><br><span class="line"></span><br><span class="line">    if (low &gt;= high) &#123;      //结束条件，传入函数的数组只有一个元素</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    int key = arr[low];        //选取关键字</span><br><span class="line">    int i = low;</span><br><span class="line">    int j = high;</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">    在i，j相遇之前</span><br><span class="line">    j从数列尾部开始从右往左找，在不和i相遇的情况下找到一个比key小的数字后，i就开始从0开始从前往后找在在和j相遇之前如果找到一个比key大的值。那么交换他们的指向的值</span><br><span class="line">    如果i，j相遇了，那么把i指向的元素赋给arr[low]，把key赋值给指向的元素.</span><br><span class="line">    */</span><br><span class="line">    while (i &lt; j) &#123;             </span><br><span class="line">        while (arr[j] &gt;= key &amp;&amp; i &lt; j) &#123;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        while (arr[i] &lt;= key &amp;&amp; i &lt; j) &#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        if (i &lt; j) &#123;</span><br><span class="line">            int tem = arr[i];      //交换值</span><br><span class="line">            arr[i] = arr[j];</span><br><span class="line">            arr[j] = tem;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    arr[low] = arr[i];      </span><br><span class="line">    arr[i] = key;           </span><br><span class="line">    QuickSort(arr, low, i - 1);        //处理子数组</span><br><span class="line">    QuickSort(arr, i + 1, high);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>算法笔记-数组实现循环队列</title>
+    <url>/2022/03/16/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97-1/</url>
+    <content><![CDATA[<h2 id="队列介绍"><a href="#队列介绍" class="headerlink" title="队列介绍"></a>队列介绍</h2><p>队列是一个有序列表，可以用数组和链表来实现（这里采用数组实现的方式）</p>
+<p>​ 队列有一个原则。即：先存入队列的数据要先取出。后存入的要后取出。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><p>因为队列的输出、输入分别从前后端来处理，因此需要两个变量front及rear分别记录队列前后端的下标，front会随着输出而改变，而rear则是随着数据输入而改变。而MaxSize则是数组队列的大小。</p>
+<p>创建一个数组队列的类，其中需要包含以下几个方法：</p>
+<ul>
+<li><p>oolean isFull():判断队列是否已满</p>
+</li>
+<li><p>boolean isEmpty():判断队列是否为空</p>
+</li>
+<li><p>void add(int date):添加数据</p>
+</li>
+<li><p>int get():取出数据</p>
+</li>
+<li><p>void show():遍历队列</p>
+</li>
+</ul>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>要用Java实现的话，首先定义一个数组队列的类ArryQueue，其中含有四个属性：</p>
+<ul>
+<li><p>int front:指向队列第一个数据的位置</p>
+</li>
+<li><p>int rear:指向队列最后一个数据后一个的位置</p>
+</li>
+<li><p>int MAXSIZE:表示队列的大小</p>
+</li>
+<li><p>int arr[]:用于存储队列数据</p>
+</li>
+</ul>
+<p>以及一个带参构造方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Arryqueue &#123;</span><br><span class="line"></span><br><span class="line">    private int front = 0;//指向队列第一个数据的位置</span><br><span class="line">    private int rear = 0;//指向队列最后一个数据后一位的位置</span><br><span class="line">    private final int max_size;//表示队列的大小</span><br><span class="line">    private int[] arry;//用于存储队列数据</span><br><span class="line"></span><br><span class="line">    public Arryqueue(int max)&#123;</span><br><span class="line">        arry=new int[max];</span><br><span class="line">        max_size=max;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>判断队列是否已满的条件是：rear % MAXSIZE == front &amp;&amp; rear != front，所以is_Full方法实现如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public boolean is_full()&#123;</span><br><span class="line">        if(rear%max_size==front&amp;&amp;front!=rear)&#123;</span><br><span class="line">            return(true);</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>判断队列是否为空的条件是：rear == front，isEmpty方法实现如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public boolean is_empty()&#123;</span><br><span class="line">    if(rear==front)&#123;</span><br><span class="line">        return(true);</span><br><span class="line">    &#125;</span><br><span class="line">    return(false);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="算法时间复杂度"><a href="#算法时间复杂度" class="headerlink" title="算法时间复杂度"></a>算法时间复杂度</h2><ul>
-<li>快速排序最优的情况下时间复杂度为：O( nlogn )</li>
-</ul>
-<blockquote>
-<p>（快速排序最优的情况就是每一次取到的元素都刚好平分整个数组）</p>
-</blockquote>
-<ul>
-<li>快速排序最差的情况下时间复杂度为：O( n^2 )</li>
-</ul>
-<blockquote>
-<p>（最差的情况就是每一次取到的元素就是数组中最小/最大的，这种情况其实就是冒泡排序了）</p>
-</blockquote>
-<ul>
-<li>快速排序的平均时间复杂度也是：O(nlogn)</li>
-</ul>
-<h2 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h2><p>最优的情况下空间复杂度为：O(logn)  ；每一次都平分数组的情况</p>
-<p> 最差的情况下空间复杂度为：O( n )      ；退化为冒泡排序的情况</p>
+<p>添加数据时，先判断队列是否已满。若未满，则将数据存入arry[rear % max_size]，将rear向后移动一位。代码实现如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void add(int num)&#123;</span><br><span class="line">    if(is_full())&#123;</span><br><span class="line">        throw new RuntimeException(&quot;队列已满&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    arry[rear%max_size]=num;</span><br><span class="line">    rear++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>获取数据时，先判断队列是否为空。若非空，则将front向后移动，将arr[(front - 1) % max_size]取出。代码实现如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public int get()&#123;</span><br><span class="line">        if(is_empty())&#123;</span><br><span class="line">            throw new RuntimeException(&quot;队列是空的&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        front++;</span><br><span class="line">        return(arry[(front-1)%max_size]);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>遍历队列，先判断是否为空，空的话输出“队列是空的”如果非空，那么从front遍历到rear取数据时将front和rear对max_size取余就行。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void  show()&#123;</span><br><span class="line"></span><br><span class="line">        if(is_empty())&#123;</span><br><span class="line"></span><br><span class="line">            System.out.println(&quot;队列是空的&quot;);</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        for(int i=front;i&lt;rear;i++)&#123;</span><br><span class="line"></span><br><span class="line">            System.out.println(arry[i%max_size]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>编写main函数与简单的数据测试效果：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class ArryQueneDemo &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)throws Exception &#123;</span><br><span class="line"></span><br><span class="line">        Arryqueue q =new Arryqueue(3);</span><br><span class="line">        q.show();</span><br><span class="line">        System.out.println(&quot;1,2,3入队&quot;);</span><br><span class="line">        q.add(1);</span><br><span class="line">        q.add(2);</span><br><span class="line">        q.add(3);</span><br><span class="line">        q.show();</span><br><span class="line">        System.out.println(&quot;出队1,2，入队4,5:&quot;);</span><br><span class="line">        q.get();</span><br><span class="line">        q.add(4);</span><br><span class="line">        q.get();</span><br><span class="line">        q.add(5);</span><br><span class="line">        q.get();</span><br><span class="line">        q.show();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试效果：</p>
+<p><img src="/2022/03/16/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97-1/a.png,%22%E5%A5%BD%E9%9A%8F%E6%84%8F%E7%9A%84%E4%BE%8B%E5%AD%90%22" alt="效果图"></p>
 ]]></content>
       <categories>
         <category>java笔记</category>
