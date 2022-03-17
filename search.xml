@@ -1,63 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/09/24/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>java笔记(1)-用Java输出杨辉三角</title>
-    <url>/2021/10/29/java%E7%AC%94%E8%AE%B0-2-java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<p>参考网页<a href="http://c.biancheng.net/java/" title="特好用的编程学习网站">编程网</a></p>
-<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>输入：打印的行数。</p>
-<p>输出：对应行数的杨辉三角。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><hr>
-<p>杨辉三角示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">      1</span><br><span class="line">     1 1</span><br><span class="line">    1 2 1</span><br><span class="line">   1 3 3 1</span><br><span class="line">  1 4 6 4 1</span><br><span class="line"> 1 5 10 10 5 1</span><br><span class="line">1 6 15 20 15 6 1 </span><br></pre></td></tr></table></figure>
-<p>假设需要打印的行数是row ，num(i，j)代表第i行第j个数。</p>
-<p>通过分析不难得知： </p>
-<ul>
-<li>第i行要打印的空格数量为row-i</li>
-<li>第i行要打印i个数字，<strong>且</strong>每行第一个和最后一个（第i个都是1）</li>
-<li>当num(i,j)不是1时， <strong>num(i,j)=num(i-1,j)+num(i-1,j-1)即</strong>该数字等于上一行同一位置数字(都是第对应行第j个数字)和上一行前一个数字之和。</li>
-</ul>
-<p>首先定义num用来方法确定每一个值</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static int num(int a,int b) &#123;   //a,b代表第a行，第b个数</span><br><span class="line">	if(b==1||b==a) &#123;</span><br><span class="line">		return 1;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">	return c;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>定义calu方法输出杨辉三角</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void calu(int row) &#123;</span><br><span class="line">	for (int i=1;i&lt;=row;i++) &#123;                 //i代表行</span><br><span class="line">		for(int j=1;j&lt;=row-i;j++) &#123;            //j代表列</span><br><span class="line">			System.out.print(&quot; &quot;);             //输出每一行的空格</span><br><span class="line">		&#125;</span><br><span class="line">		for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">			System.out.print(num(i,j)+&quot; &quot;);    //输出每一行的数字</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>main方法</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);    //使用类时要先导入模块： import java。util.*; </span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);    </span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">				</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><hr>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package test1;</span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">public class test1&#123;</span><br><span class="line">	//num方法</span><br><span class="line">	public static int num(int a,int b) &#123;</span><br><span class="line">		if(b==1||b==a) &#123;</span><br><span class="line">			return 1;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">		return c;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	//calu方法</span><br><span class="line">	public static void calu(int row) &#123;</span><br><span class="line">		for (int i=1;i&lt;=row;i++) &#123;</span><br><span class="line">			for(int j=1;j&lt;=row-i;j++) &#123;</span><br><span class="line">				System.out.print(&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">				System.out.print(num(i,j)+&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);</span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);</span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="结果示例"><a href="#结果示例" class="headerlink" title="结果示例"></a>结果示例</h2><p><img src="/2021/10/29/java%E7%AC%94%E8%AE%B0-2-java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/%E8%BE%93%E5%87%BA%E7%A4%BA%E4%BE%8B.png" alt="输出" title="纳尼？"> </p>
-]]></content>
-      <categories>
-        <category>java笔记</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>java笔记(0)-对象导论</title>
-    <url>/2021/10/27/java%E7%AC%94%E8%AE%B0-1-%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</url>
+    <url>/2021/10/27/java%E7%AC%94%E8%AE%B0-0-%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</url>
     <content><![CDATA[<p>参考书籍《Java编程思想》</p>
 <p>参考网页<a href="http://c.biancheng.net/java/" title="特好用的编程学习网站">编程网</a></p>
 <h2 id="如何理解“对象”和“类”"><a href="#如何理解“对象”和“类”" class="headerlink" title="如何理解“对象”和“类”"></a>如何理解“对象”和“类”</h2><p>定义</p>
@@ -115,6 +60,61 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2021/09/24/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>java笔记(1)-用Java输出杨辉三角</title>
+    <url>/2021/10/29/java%E7%AC%94%E8%AE%B0-1-%E7%94%A8Java%E8%BE%93%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/</url>
+    <content><![CDATA[<p>参考网页<a href="http://c.biancheng.net/java/" title="特好用的编程学习网站">编程网</a></p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>输入：打印的行数。</p>
+<p>输出：对应行数的杨辉三角。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><hr>
+<p>杨辉三角示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">      1</span><br><span class="line">     1 1</span><br><span class="line">    1 2 1</span><br><span class="line">   1 3 3 1</span><br><span class="line">  1 4 6 4 1</span><br><span class="line"> 1 5 10 10 5 1</span><br><span class="line">1 6 15 20 15 6 1 </span><br></pre></td></tr></table></figure>
+<p>假设需要打印的行数是row ，num(i，j)代表第i行第j个数。</p>
+<p>通过分析不难得知： </p>
+<ul>
+<li>第i行要打印的空格数量为row-i</li>
+<li>第i行要打印i个数字，<strong>且</strong>每行第一个和最后一个（第i个都是1）</li>
+<li>当num(i,j)不是1时， <strong>num(i,j)=num(i-1,j)+num(i-1,j-1)即</strong>该数字等于上一行同一位置数字(都是第对应行第j个数字)和上一行前一个数字之和。</li>
+</ul>
+<p>首先定义num用来方法确定每一个值</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static int num(int a,int b) &#123;   //a,b代表第a行，第b个数</span><br><span class="line">	if(b==1||b==a) &#123;</span><br><span class="line">		return 1;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">	return c;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>定义calu方法输出杨辉三角</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void calu(int row) &#123;</span><br><span class="line">	for (int i=1;i&lt;=row;i++) &#123;                 //i代表行</span><br><span class="line">		for(int j=1;j&lt;=row-i;j++) &#123;            //j代表列</span><br><span class="line">			System.out.print(&quot; &quot;);             //输出每一行的空格</span><br><span class="line">		&#125;</span><br><span class="line">		for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">			System.out.print(num(i,j)+&quot; &quot;);    //输出每一行的数字</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>main方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);    //使用类时要先导入模块： import java。util.*; </span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);    </span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">				</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><hr>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package test1;</span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">public class test1&#123;</span><br><span class="line">	//num方法</span><br><span class="line">	public static int num(int a,int b) &#123;</span><br><span class="line">		if(b==1||b==a) &#123;</span><br><span class="line">			return 1;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">		return c;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	//calu方法</span><br><span class="line">	public static void calu(int row) &#123;</span><br><span class="line">		for (int i=1;i&lt;=row;i++) &#123;</span><br><span class="line">			for(int j=1;j&lt;=row-i;j++) &#123;</span><br><span class="line">				System.out.print(&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">				System.out.print(num(i,j)+&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);</span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);</span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结果示例"><a href="#结果示例" class="headerlink" title="结果示例"></a>结果示例</h2><p><img src="/2021/10/29/java%E7%AC%94%E8%AE%B0-1-%E7%94%A8Java%E8%BE%93%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/%E8%BE%93%E5%87%BA%E7%A4%BA%E4%BE%8B.png" alt="输出" title="纳尼？"> </p>
+]]></content>
+      <categories>
+        <category>java笔记</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>java笔记(2)-快速排序</title>
     <url>/2021/11/01/java%E7%AC%94%E8%AE%B0-2-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<h2 id="什么是快速排序"><a href="#什么是快速排序" class="headerlink" title="什么是快速排序"></a>什么是快速排序</h2><p>快速排序是一种效率很高的排序方式，假设对于某一数列进行增序排列，那么这个过程（快排）可以概括为：</p>
@@ -158,6 +158,136 @@
       </tags>
   </entry>
   <entry>
+    <title>java笔记(3)常用集合</title>
+    <url>/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/</url>
+    <content><![CDATA[<h2 id="Java中集合的作用"><a href="#Java中集合的作用" class="headerlink" title="Java中集合的作用"></a>Java中集合的作用</h2><p>为了保存数量不确定的数据，以及保存具有映射关系的数据Java 提供了集合类。<strong>集合类主要负责保存、盛装其他数据，因此集合类也被称为容器类</strong>。</p>
+<p>集合类和数组不一样，数组元素既可以是基本类型的值，也可以是对象（实际上保存的是对象的引用变量），而集合里只能保存对象（实际上只是保存对象的引用变量，但通常习惯上认为集合里保存的是对象）</p>
+<h2 id="集合类型"><a href="#集合类型" class="headerlink" title="集合类型"></a>集合类型</h2><p>Java 集合类型分为 Collection 和 Map，它们是 Java 集合的根接口，这两个接口又包含了一些子接口或实现类</p>
+<ul>
+<li> Collection的子接口及其实现类<br><img src="/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/1.png" alt="collection"></li>
+<li> Map 的子接口及其实现类<br><img src="/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/map.png" alt="collection"></li>
+</ul>
+<p> 上图中接口所代表的作用如下表</p>
+<table>
+<thead>
+<tr>
+<th align="center">接口</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Iterator 接口</td>
+<td align="center">集合的输出接口，主要用于遍历输出（即迭代访问）Collection 集合中的元素，Iterator 对象被称之为迭代器。迭代器接口是集合接口的父接口，实现类实现 Collection 时就必须实现 Iterator 接口。</td>
+</tr>
+<tr>
+<td align="center">Collection 接口</td>
+<td align="center">是 List、Set 和 Queue 的父接口，是存放一组单值的最大接口。所谓的单值是指集合中的每个元素都是一个对象。一般很少直接使用此接口直接操作</td>
+</tr>
+<tr>
+<td align="center">Queue 接口</td>
+<td align="center">Queue 是 Java 提供的队列实现，有点类似于 List</td>
+</tr>
+<tr>
+<td align="center">Dueue 接口</td>
+<td align="center">是 Queue 的一个子接口，为双向队列。</td>
+</tr>
+<tr>
+<td align="center">List 接口</td>
+<td align="center">是最常用的接口。是有序集合，允许有相同的元素。使用 List 能够精确地控制每个元素插入的位置，用户能够使用索引（元素在 List 中的位置，类似于数组下标）来访问 List 中的元素，与数组类似。</td>
+</tr>
+<tr>
+<td align="center">Set 接口</td>
+<td align="center">不能包含重复的元素。</td>
+</tr>
+<tr>
+<td align="center">Map 接口</td>
+<td align="center">是存放一对值的最大接口，即接口中的每个元素都是一对，以 key➡value 的形式保存。</td>
+</tr>
+</tbody></table>
+<p>对于 Set、List、Queue 和 Map 这 4 种集合，Java 最常用的实现类分别是 HashSet、TreeSet、ArrayList、ArrayDueue、LinkedList 和 HashMap、TreeMap 等。下表介绍了集合中这些常用的实现类</p>
+<table>
+<thead>
+<tr>
+<th align="center">类名称</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">HashSet</td>
+<td align="center">为优化査询速度而设计的 Set。它是基于 HashMap 实现的，HashSet 底层使用 HashMap 来保存所有元素，实现比较简单</td>
+</tr>
+<tr>
+<td align="center">TreeSet</td>
+<td align="center">实现了 Set 接口，是一个有序的 Set，这样就能从 Set 里面提取一个有序序列</td>
+</tr>
+<tr>
+<td align="center">ArrayList</td>
+<td align="center">一个用数组实现的 List，能进行快速的随机访问，效率高而且实现了可变大小的数组</td>
+</tr>
+<tr>
+<td align="center">ArrayDueue</td>
+<td align="center">是一个基于数组实现的双端队列，按“先进先出”的方式操作集合元素</td>
+</tr>
+<tr>
+<td align="center">LinkedList</td>
+<td align="center">对顺序访问进行了优化，但随机访问的速度相对较慢。此外它还有 addFirst()、addLast()、getFirst()、getLast()、removeFirst() 和 removeLast() 等方法，能把它当成栈（Stack）或队列（Queue）来用</td>
+</tr>
+<tr>
+<td align="center">HsahMap</td>
+<td align="center">按哈希算法来存取键对象</td>
+</tr>
+<tr>
+<td align="center">TreeMap</td>
+<td align="center">可以对键对象进行排序</td>
+</tr>
+</tbody></table>
+<h2 id="java-Collection-接口"><a href="#java-Collection-接口" class="headerlink" title="java Collection 接口"></a>java Collection 接口</h2><p>Collection 接口是 List、Set 和 Queue 接口的父接口，通常情况下不被直接使用。Collection 接口定义了一些通用的方法，通过这些方法可以实现对集合的基本操作。定义的方法既可用于操作 Set 集合，也可用于操作 List 和 Queue 集合<br>（常用的方法有add，clear，isEmpty等，可查询API，但基本的存取要熟记于心，集合类就像容器，现实生活中容器的功能，就是添加对象、删除对象、清空容器和判断容器是否为空等，集合类为这些功能都提供了对应的方法）</p>
+<p>应用：创建2个Collection接口的实现类Arrylist的实例对象，并测试基本的存取方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    ArrayList list1 = new ArrayList(); // 创建集合 list1</span><br><span class="line">    ArrayList list2 = new ArrayList(); // 创建集合 list2</span><br><span class="line">    list1.add(&quot;one&quot;);</span><br><span class="line">    list1.add(&quot;two&quot;);</span><br><span class="line">    list1.add(&quot;three&quot;);</span><br><span class="line">    System.out.println(&quot;list1 集合中的元素数量：&quot; + list1.size()); // 输出list1中的元素数量</span><br><span class="line">    list2.add(&quot;two&quot;);</span><br><span class="line">    list2.add(&quot;four&quot;);</span><br><span class="line">    list2.add(&quot;six&quot;);</span><br><span class="line">    System.out.println(&quot;list2 集合中的元素数量：&quot; + list2.size()); // 输出list2中的元素数量</span><br><span class="line">    list2.remove(2); // 删除第 3 个元素</span><br><span class="line">    System.out.println(&quot;\nremoveAll() 方法之后 list2 集合中的元素数量：&quot; + list2.size());</span><br><span class="line">    System.out.println(&quot;list2 集合中的元素如下：&quot;);</span><br><span class="line">    Iterator it1 = list2.iterator();</span><br><span class="line">    while (it1.hasNext()) &#123;</span><br><span class="line">        System.out.print(it1.next() + &quot;、&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    list1.removeAll(list2);</span><br><span class="line">    System.out.println(&quot;\nremoveAll() 方法之后 list1 集合中的元素数量：&quot; + list1.size());</span><br><span class="line">    System.out.println(&quot;list1 集合中的元素如下：&quot;);</span><br><span class="line">    Iterator it2 = list1.iterator();</span><br><span class="line">    while (it2.hasNext()) &#123;</span><br><span class="line">        System.out.print(it2.next() + &quot;、&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：<br><img src="/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/out1.png" alt="结果"></p>
+<h2 id="List集合：Arrylist类和Linkedlist类"><a href="#List集合：Arrylist类和Linkedlist类" class="headerlink" title="List集合：Arrylist类和Linkedlist类"></a>List集合：Arrylist类和Linkedlist类</h2><p>List 是一个有序、可重复的集合，集合中每个元素都有其对应的顺序索引。List 集合允许使用重复元素，可以通过索引来访问指定位置的集合元素。List 集合默认按元素的添加顺序设置元素的索引，第一个添加到 List 集合中的元素的索引为 0，第二个为 1，依此类推。</p>
+<p>ArrayList 与 LinkedList 都是 List 接口的实现类，因此都实现了 List 的所有未实现的方法，只是实现的方式有所不同。</p>
+<p>ArrayList 是基于动态数组数据结构的实现，访问元素速度优于 LinkedList。LinkedList 是基于链表数据结构的实现，占用的内存空间比较大，但在批量插入或删除数据时优于 ArrayList。</p>
+<p>对于快速访问对象的需求，使用 ArrayList 实现执行效率上会比较好。需要频繁向集合中插入和删除元素时，使用 LinkedList 类比 ArrayList 类效果高。</p>
+<h2 id="Set集合-Hashset和Treeset"><a href="#Set集合-Hashset和Treeset" class="headerlink" title="Set集合:Hashset和Treeset"></a>Set集合:Hashset和Treeset</h2><p>Set 集合类似于一个罐子，程序可以依次把多个对象“丢进”Set 集合，而 Set 集合通常不能记住元素的添加顺序。也就是说 Set 集合中的对象不按特定的方式排序，只是简单地把对象加入集合。<strong>Set 集合中不能包含重复的对象</strong>（<em>最重要的特点</em>），并且最多只允许包含一个 null 元素</p>
+<h3 id="HashSet-类"><a href="#HashSet-类" class="headerlink" title="HashSet 类"></a>HashSet 类</h3><p>HashSet 是 Set 接口的典型实现，大多数时候使用 Set 集合时就是使用这个实现类。HashSet 是按照 Hash 算法来存储集合中的元素。因此具有很好的存取和查找性能。</p>
+<p>HashSet 具有以下特点：</p>
+<ul>
+<li>不能保证元素的排列顺序，顺序可能与添加顺序不同，顺序也有可能发生变化。</li>
+<li>HashSet 不是同步的，如果多个线程同时访问或修改一个 HashSet，则必须通过代码来保证其同步。</li>
+<li>集合元素值可以是 null。</li>
+</ul>
+<p>当向 HashSet 集合中存入一个元素时，HashSet 会调用该对象的 hashCode() 方法来得到该对象的 hashCode 值，然后根据该 hashCode 值决定该对象在 HashSet 中的存储位置。如果有两个元素通过 equals() 方法比较返回的结果为 true，但它们的 hashCode 不相等，HashSet 将会把它们存储在不同的位置，依然可以添加成功。</p>
+<p>也就是说，两个对象的 hashCode 值相等且通过 equals() 方法比较返回结果为 true，则 HashSet 集合认为两个元素相等。（<strong>此时元素不存入集合</strong>）</p>
+<p>创建Hashset对象：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HashSet hs = new HashSet();    // 调用无参的构造函数创建HashSet对象</span><br><span class="line">HashSet&lt;String&gt; hss = new HashSet&lt;String&gt;();    // 创建泛型的 HashSet 集合对象</span><br></pre></td></tr></table></figure>
+<p>Hashset存取的代码实现：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    HashSet&lt;String&gt; courseSet = new HashSet&lt;String&gt;(); // 创建一个空的 Set 集合</span><br><span class="line">    String course1 = new String(&quot;语文&quot;);</span><br><span class="line">    String course2 = new String(&quot;数学&quot;);</span><br><span class="line">    String course3 = new String(&quot;英语&quot;);</span><br><span class="line">    String course4 = new String(&quot;理综&quot;);</span><br><span class="line">    courseSet.add(course1); // 将 course1 存储到 Set 集合中</span><br><span class="line">    courseSet.add(course2); // 将 course2 存储到 Set 集合中</span><br><span class="line">    courseSet.add(course3); // 将 course3 存储到 Set 集合中</span><br><span class="line">    courseSet.add(course4); // 将 course4 存储到 Set 集合中</span><br><span class="line">    System.out.println(&quot;高考要考：&quot;);</span><br><span class="line">    Iterator&lt;String&gt; it = courseSet.iterator();</span><br><span class="line">    while (it.hasNext()) &#123;</span><br><span class="line">        System.out.println(&quot;《&quot; + (String) it.next() + &quot;》&quot;); // 输出 Set 集合中的元素</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println( &quot;这&quot;+courseSet.size() + &quot;门课&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出示例：<br><img src="/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/out2.png" alt="图片"></p>
+<h2 id="Treeset类"><a href="#Treeset类" class="headerlink" title="Treeset类"></a>Treeset类</h2><p>TreeSet 类同时实现了 Set 接口和 SortedSet 接口。SortedSet 接口是 Set 接口的子接口，可以实现对集合进行自然排序，因此使用 TreeSet 类实现的 Set 接口默认情况下是自然排序的，这里的自然排序指的是升序排序。</p>
+<p>TreeSet 只能对实现了 Comparable 接口的类对象进行排序（如果类不可比较那么必须重写CompareTo方法，不然无法存入Treeset），因为 Comparable 接口中有一个 compareTo(Object o) 方法用于比较两个对象的大小。例如 a.compareTo(b)，如果 a 和 b 相等，则该方法返回 0；如果 a 大于 b，则该方法返回大于 0 的值；如果 a 小于 b，则该方法返回小于 0 的值（返回值是正数那么后一个数存入前一个数前面，如果是负数则相反）。</p>
+<p>代码示例：（创建person类，并重写compareTo方法，使其可比较）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package pratice;</span><br><span class="line"></span><br><span class="line">public class preson  implements Comparable&#123;</span><br><span class="line">    private int age;</span><br><span class="line">    private String  name;</span><br><span class="line">    public  preson(String  name,int age )&#123;</span><br><span class="line">        this.age=age;</span><br><span class="line">        this.name=name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getAge()&#123;</span><br><span class="line">        return this.age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getName()&#123;</span><br><span class="line">        return this.name;</span><br><span class="line">    &#125;</span><br><span class="line">    //方法重写</span><br><span class="line">    @Override</span><br><span class="line">    public int compareTo(Object o) &#123;</span><br><span class="line">        preson p=(preson)o;</span><br><span class="line">        return (this.age-p.age);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>main函数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    TreeSet st=new TreeSet&lt;preson&gt;();</span><br><span class="line">    preson p1=new preson(&quot;褪色者&quot;,21);</span><br><span class="line">    preson p2=new preson(&quot;菈妮&quot;,23);</span><br><span class="line">    preson p3=new preson(&quot;梅玲娜&quot;,22);</span><br><span class="line">    preson p4=new preson(&quot;狼哥&quot;,24);</span><br><span class="line">    st.add(p1);</span><br><span class="line">    st.add(p2);</span><br><span class="line">    st.add(p3);</span><br><span class="line">    st.add(p4);</span><br><span class="line">    //创建一个迭代器</span><br><span class="line">    Iterator it=st.iterator();</span><br><span class="line">    while(it.hasNext())&#123;</span><br><span class="line">        preson p=(preson) it.next();</span><br><span class="line">        System.out.println(p.getName()+&quot;  &quot;+p.getAge()+&quot;岁&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出示例<br><img src="/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/out3.png" alt="图片"></p>
+<h2 id="map集合：Hashmap和Treemap"><a href="#map集合：Hashmap和Treemap" class="headerlink" title="map集合：Hashmap和Treemap"></a>map集合：Hashmap和Treemap</h2><p>Map 是一种键-值对（key-value）集合，Map 集合中的每一个元素都包含一个键（key）对象和一个值（value）对象。用于保存具有映射关系的数据。</p>
+<p>Map 集合里保存着两组值，一组值用于保存 Map 里的 key，另外一组值用于保存 Map 里的 value，key 和 value 都可以是任何引用类型的数据。Map 的 key 不允许重复，value 可以重复，即同一个 Map 对象的任何两个 key 通过 equals 方法比较总是返回 false。</p>
+<p>Map 中的 key 和 value 之间存在单向一对一关系，即通过指定的 key，总能找到唯一的、确定的 value。从 Map 中取出数据时，只要给出指定的 key，就可以取出对应的 value。</p>
+<p>Map 集合最典型的用法就是成对地添加、删除 key-value 对，接下来即可判断该 Map 中是否包含指定 key，也可以通过 Map 提供的 keySet() 方法获取所有 key 组成的集合，进而遍历 Map 中所有的 key-value 对。下面程序示范了 Map 的基本功能。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    HashMap users = new HashMap();</span><br><span class="line">    users.put(&quot;11&quot;, &quot;张浩太&quot;); // 将学生信息键值对存储到Map中</span><br><span class="line">    users.put(&quot;22&quot;, &quot;刘思诚&quot;);</span><br><span class="line">    users.put(&quot;33&quot;, &quot;王强文&quot;);</span><br><span class="line">    users.put(&quot;44&quot;, &quot;李国量&quot;);</span><br><span class="line">    users.put(&quot;55&quot;, &quot;王路路&quot;);</span><br><span class="line">    System.out.println(&quot;******** 学生列表 ********&quot;);</span><br><span class="line">    Iterator it = users.keySet().iterator();</span><br><span class="line">    while (it.hasNext()) &#123;</span><br><span class="line">        // 遍历 Map</span><br><span class="line">        Object key = it.next();</span><br><span class="line">        Object val = users.get(key);</span><br><span class="line">        System.out.println(&quot;学号：&quot; + key + &quot;，姓名:&quot; + val);</span><br><span class="line">    &#125;</span><br><span class="line">    Scanner input = new Scanner(System.in);</span><br><span class="line">    System.out.println(&quot;请输入要删除的学号：&quot;);</span><br><span class="line">    int num = input.nextInt();</span><br><span class="line">    if (users.containsKey(String.valueOf(num))) &#123; // 判断是否包含指定键</span><br><span class="line">        users.remove(String.valueOf(num)); // 如果包含就删除</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        System.out.println(&quot;该学生不存在！&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(&quot;******** 学生列表 ********&quot;);</span><br><span class="line">    it = users.keySet().iterator();</span><br><span class="line">    while (it.hasNext()) &#123;</span><br><span class="line">        Object key = it.next();</span><br><span class="line">        Object val = users.get(key);</span><br><span class="line">        System.out.println(&quot;学号：&quot; + key + &quot;，姓名：&quot; + val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出示例：<br><img src="/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/out4.png" alt="输出"></p>
+<p>TreeMap 类的使用方法与 HashMap 类相同，唯一不同的是 TreeMap 类可以对键对象进行排序（参照Hashset和Treeset）</p>
+]]></content>
+      <categories>
+        <category>java笔记</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我的第一篇博客文章</title>
     <url>/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p><a href="https://baidu.com/" title="你知道我要说什么吧">百度</a></p>
@@ -184,7 +314,7 @@
 </blockquote>
 <p>这是我是邮箱地址</p>
 <blockquote>
-<p><a href="mailto:&#x32;&#x35;&#54;&#x37;&#49;&#49;&#52;&#51;&#54;&#51;&#x40;&#113;&#113;&#46;&#x63;&#111;&#109;">&#x32;&#x35;&#54;&#x37;&#49;&#49;&#52;&#51;&#54;&#51;&#x40;&#113;&#113;&#46;&#x63;&#111;&#109;</a><br><strong><a href="http://baidu.com/"><code>baidu</code></a></strong></p>
+<p><a href="mailto:&#50;&#53;&#x36;&#x37;&#x31;&#49;&#x34;&#x33;&#x36;&#51;&#64;&#x71;&#x71;&#46;&#99;&#111;&#109;">&#50;&#53;&#x36;&#x37;&#x31;&#49;&#x34;&#x33;&#x36;&#51;&#64;&#x71;&#x71;&#46;&#99;&#111;&#109;</a><br><strong><a href="http://baidu.com/"><code>baidu</code></a></strong></p>
 </blockquote>
 </blockquote>
 <p><img src="/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/beijing.png" alt="这是图片" title="这是图片"></p>
