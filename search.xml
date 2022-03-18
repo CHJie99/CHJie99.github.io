@@ -19,43 +19,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>java笔记(1)-用Java输出杨辉三角</title>
-    <url>/2021/10/29/java%E7%AC%94%E8%AE%B0-1-%E7%94%A8Java%E8%BE%93%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/</url>
-    <content><![CDATA[<p>参考网页<a href="http://c.biancheng.net/java/" title="特好用的编程学习网站">编程网</a></p>
-<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>输入：打印的行数。</p>
-<p>输出：对应行数的杨辉三角。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><hr>
-<p>杨辉三角示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">      1</span><br><span class="line">     1 1</span><br><span class="line">    1 2 1</span><br><span class="line">   1 3 3 1</span><br><span class="line">  1 4 6 4 1</span><br><span class="line"> 1 5 10 10 5 1</span><br><span class="line">1 6 15 20 15 6 1 </span><br></pre></td></tr></table></figure>
-<p>假设需要打印的行数是row ，num(i，j)代表第i行第j个数。</p>
-<p>通过分析不难得知： </p>
-<ul>
-<li>第i行要打印的空格数量为row-i</li>
-<li>第i行要打印i个数字，<strong>且</strong>每行第一个和最后一个（第i个都是1）</li>
-<li>当num(i,j)不是1时， <strong>num(i,j)=num(i-1,j)+num(i-1,j-1)即</strong>该数字等于上一行同一位置数字(都是第对应行第j个数字)和上一行前一个数字之和。</li>
-</ul>
-<p>首先定义num用来方法确定每一个值</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static int num(int a,int b) &#123;   //a,b代表第a行，第b个数</span><br><span class="line">	if(b==1||b==a) &#123;</span><br><span class="line">		return 1;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">	return c;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>定义calu方法输出杨辉三角</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void calu(int row) &#123;</span><br><span class="line">	for (int i=1;i&lt;=row;i++) &#123;                 //i代表行</span><br><span class="line">		for(int j=1;j&lt;=row-i;j++) &#123;            //j代表列</span><br><span class="line">			System.out.print(&quot; &quot;);             //输出每一行的空格</span><br><span class="line">		&#125;</span><br><span class="line">		for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">			System.out.print(num(i,j)+&quot; &quot;);    //输出每一行的数字</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>main方法</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);    //使用类时要先导入模块： import java。util.*; </span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);    </span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">				</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><hr>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package test1;</span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">public class test1&#123;</span><br><span class="line">	//num方法</span><br><span class="line">	public static int num(int a,int b) &#123;</span><br><span class="line">		if(b==1||b==a) &#123;</span><br><span class="line">			return 1;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">		return c;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	//calu方法</span><br><span class="line">	public static void calu(int row) &#123;</span><br><span class="line">		for (int i=1;i&lt;=row;i++) &#123;</span><br><span class="line">			for(int j=1;j&lt;=row-i;j++) &#123;</span><br><span class="line">				System.out.print(&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">				System.out.print(num(i,j)+&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);</span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);</span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="结果示例"><a href="#结果示例" class="headerlink" title="结果示例"></a>结果示例</h2><p><img src="/2021/10/29/java%E7%AC%94%E8%AE%B0-1-%E7%94%A8Java%E8%BE%93%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/%E8%BE%93%E5%87%BA%E7%A4%BA%E4%BE%8B.png" alt="输出" title="纳尼？"> </p>
-]]></content>
-      <categories>
-        <category>java笔记</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>java笔记(0)-对象导论</title>
     <url>/2021/10/27/java%E7%AC%94%E8%AE%B0-0-%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</url>
     <content><![CDATA[<p>参考书籍《Java编程思想》</p>
@@ -115,6 +78,43 @@
       </tags>
   </entry>
   <entry>
+    <title>java笔记(1)-用Java输出杨辉三角</title>
+    <url>/2021/10/29/java%E7%AC%94%E8%AE%B0-1-%E7%94%A8Java%E8%BE%93%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/</url>
+    <content><![CDATA[<p>参考网页<a href="http://c.biancheng.net/java/" title="特好用的编程学习网站">编程网</a></p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>输入：打印的行数。</p>
+<p>输出：对应行数的杨辉三角。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><hr>
+<p>杨辉三角示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">      1</span><br><span class="line">     1 1</span><br><span class="line">    1 2 1</span><br><span class="line">   1 3 3 1</span><br><span class="line">  1 4 6 4 1</span><br><span class="line"> 1 5 10 10 5 1</span><br><span class="line">1 6 15 20 15 6 1 </span><br></pre></td></tr></table></figure>
+<p>假设需要打印的行数是row ，num(i，j)代表第i行第j个数。</p>
+<p>通过分析不难得知： </p>
+<ul>
+<li>第i行要打印的空格数量为row-i</li>
+<li>第i行要打印i个数字，<strong>且</strong>每行第一个和最后一个（第i个都是1）</li>
+<li>当num(i,j)不是1时， <strong>num(i,j)=num(i-1,j)+num(i-1,j-1)即</strong>该数字等于上一行同一位置数字(都是第对应行第j个数字)和上一行前一个数字之和。</li>
+</ul>
+<p>首先定义num用来方法确定每一个值</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static int num(int a,int b) &#123;   //a,b代表第a行，第b个数</span><br><span class="line">	if(b==1||b==a) &#123;</span><br><span class="line">		return 1;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">	return c;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>定义calu方法输出杨辉三角</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void calu(int row) &#123;</span><br><span class="line">	for (int i=1;i&lt;=row;i++) &#123;                 //i代表行</span><br><span class="line">		for(int j=1;j&lt;=row-i;j++) &#123;            //j代表列</span><br><span class="line">			System.out.print(&quot; &quot;);             //输出每一行的空格</span><br><span class="line">		&#125;</span><br><span class="line">		for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">			System.out.print(num(i,j)+&quot; &quot;);    //输出每一行的数字</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>main方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);    //使用类时要先导入模块： import java。util.*; </span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);    </span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">				</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><hr>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package test1;</span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">public class test1&#123;</span><br><span class="line">	//num方法</span><br><span class="line">	public static int num(int a,int b) &#123;</span><br><span class="line">		if(b==1||b==a) &#123;</span><br><span class="line">			return 1;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">		return c;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	//calu方法</span><br><span class="line">	public static void calu(int row) &#123;</span><br><span class="line">		for (int i=1;i&lt;=row;i++) &#123;</span><br><span class="line">			for(int j=1;j&lt;=row-i;j++) &#123;</span><br><span class="line">				System.out.print(&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">				System.out.print(num(i,j)+&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);</span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);</span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结果示例"><a href="#结果示例" class="headerlink" title="结果示例"></a>结果示例</h2><p><img src="/2021/10/29/java%E7%AC%94%E8%AE%B0-1-%E7%94%A8Java%E8%BE%93%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/%E8%BE%93%E5%87%BA%E7%A4%BA%E4%BE%8B.png" alt="输出" title="纳尼？"> </p>
+]]></content>
+      <categories>
+        <category>java笔记</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>java笔记(2)-快速排序</title>
     <url>/2021/11/01/java%E7%AC%94%E8%AE%B0-2-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<h2 id="什么是快速排序"><a href="#什么是快速排序" class="headerlink" title="什么是快速排序"></a>什么是快速排序</h2><p>快速排序是一种效率很高的排序方式，假设对于某一数列进行增序排列，那么这个过程（快排）可以概括为：</p>
@@ -155,47 +155,6 @@
       <tags>
         <tag>java</tag>
         <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的第一篇博客文章</title>
-    <url>/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p><a href="https://baidu.com/" title="你知道我要说什么吧">百度</a></p>
-<hr>
-<p>hello world</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">include&lt;studio.h&gt;</span><br><span class="line">    int main()&#123;</span><br><span class="line">        print(&quot;hello world&quot;)</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><p><a href="https://bing.com/" title="必应天下第一">必应</a></p>
-<hr>
-<ol>
-<li> Open the file.</li>
-<li>Find the following code block on line 21:<pre><code>  &lt;html&gt;
-   &lt;head&gt;
-     &lt;title&gt;Test&lt;/title&gt;
-  &lt;/head&gt;
- 
-</code></pre>
-</li>
-<li> Update the title to match the name of your website.<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1></li>
-</ol>
-<blockquote>
-<p>这是两个链接</p>
-<blockquote>
-<p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="https://hexo.com/">https://hexo.com</a></p>
-</blockquote>
-<p>这是我是邮箱地址</p>
-<blockquote>
-<p><a href="mailto:&#x32;&#x35;&#54;&#55;&#49;&#x31;&#x34;&#51;&#54;&#51;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#x6d;">&#x32;&#x35;&#54;&#55;&#49;&#x31;&#x34;&#51;&#54;&#51;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#x6d;</a><br><strong><a href="http://baidu.com/"><code>baidu</code></a></strong></p>
-</blockquote>
-</blockquote>
-<p><img src="/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/beijing.png" alt="这是图片" title="这是图片"></p>
-<p>这是程序测试、、、、</p>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练习</tag>
-        <tag>测试</tag>
       </tags>
   </entry>
   <entry>
@@ -326,6 +285,47 @@
       <tags>
         <tag>java</tag>
         <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇博客文章</title>
+    <url>/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p><a href="https://baidu.com/" title="你知道我要说什么吧">百度</a></p>
+<hr>
+<p>hello world</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">include&lt;studio.h&gt;</span><br><span class="line">    int main()&#123;</span><br><span class="line">        print(&quot;hello world&quot;)</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><p><a href="https://bing.com/" title="必应天下第一">必应</a></p>
+<hr>
+<ol>
+<li> Open the file.</li>
+<li>Find the following code block on line 21:<pre><code>  &lt;html&gt;
+   &lt;head&gt;
+     &lt;title&gt;Test&lt;/title&gt;
+  &lt;/head&gt;
+ 
+</code></pre>
+</li>
+<li> Update the title to match the name of your website.<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1></li>
+</ol>
+<blockquote>
+<p>这是两个链接</p>
+<blockquote>
+<p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="https://hexo.com/">https://hexo.com</a></p>
+</blockquote>
+<p>这是我是邮箱地址</p>
+<blockquote>
+<p><a href="mailto:&#50;&#x35;&#54;&#x37;&#x31;&#49;&#52;&#51;&#54;&#x33;&#64;&#113;&#113;&#46;&#x63;&#x6f;&#109;">&#50;&#x35;&#54;&#x37;&#x31;&#49;&#52;&#51;&#54;&#x33;&#64;&#113;&#113;&#46;&#x63;&#x6f;&#109;</a><br><strong><a href="http://baidu.com/"><code>baidu</code></a></strong></p>
+</blockquote>
+</blockquote>
+<p><img src="/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/beijing.png" alt="这是图片" title="这是图片"></p>
+<p>这是程序测试、、、、</p>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练习</tag>
+        <tag>测试</tag>
       </tags>
   </entry>
   <entry>
