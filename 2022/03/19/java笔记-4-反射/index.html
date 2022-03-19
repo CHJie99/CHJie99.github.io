@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>java笔记-4-反射 | 繁星</title><meta name="keywords" content="java,学习笔记"><meta name="author" content="陈浩杰,2567114363@qq.com"><meta name="copyright" content="陈浩杰"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="什么是Java的反射反射之所以被称为框架的灵魂，主要是因为它赋予了我们在运行时分析类以及执行类中方法的能力。 通过反射你可以获取任意一个类的所有属性和方法，你还可以调用这些方法和属性。 Java反射优缺点 优点 ： 可以让咱们的代码更加灵活、为各种框架提供开箱即用的功能提供了便利  缺点 ：让我们在运行时有了分析操作类的能力，这同样也增加了安全问题。比如可以无视泛型参数的安全检查（泛型参数的安全检">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java笔记-4-反射">
+<meta property="og:url" content="http://chjie99.github.io/2022/03/19/java%E7%AC%94%E8%AE%B0-4-%E5%8F%8D%E5%B0%84/index.html">
+<meta property="og:site_name" content="繁星">
+<meta property="og:description" content="什么是Java的反射反射之所以被称为框架的灵魂，主要是因为它赋予了我们在运行时分析类以及执行类中方法的能力。 通过反射你可以获取任意一个类的所有属性和方法，你还可以调用这些方法和属性。 Java反射优缺点 优点 ： 可以让咱们的代码更加灵活、为各种框架提供开箱即用的功能提供了便利  缺点 ：让我们在运行时有了分析操作类的能力，这同样也增加了安全问题。比如可以无视泛型参数的安全检查（泛型参数的安全检">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.hipwallpaper.com/i/94/42/SDmF6A.jpg">
+<meta property="article:published_time" content="2022-03-19T14:03:04.000Z">
+<meta property="article:modified_time" content="2022-03-19T14:35:39.979Z">
+<meta property="article:author" content="陈浩杰">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.hipwallpaper.com/i/94/42/SDmF6A.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://chjie99.github.io/2022/03/19/java%E7%AC%94%E8%AE%B0-4-%E5%8F%8D%E5%B0%84/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'java笔记-4-反射',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-03-19 22:35:39'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/26dcf0873d5106624e0a36d1ebfc6392a2dbead2.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.hipwallpaper.com/i/94/42/SDmF6A.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">繁星</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">java笔记-4-反射</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-19T14:03:04.000Z" title="发表于 2022-03-19 22:03:04">2022-03-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-19T14:35:39.979Z" title="更新于 2022-03-19 22:35:39">2022-03-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/java%E7%AC%94%E8%AE%B0/">java笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="java笔记-4-反射"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2022/03/19/java%E7%AC%94%E8%AE%B0-4-%E5%8F%8D%E5%B0%84/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2022/03/19/java%E7%AC%94%E8%AE%B0-4-%E5%8F%8D%E5%B0%84/" itemprop="commentCount"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="什么是Java的反射"><a href="#什么是Java的反射" class="headerlink" title="什么是Java的反射"></a>什么是Java的反射</h2><p>反射之所以被称为框架的灵魂，主要是因为它赋予了我们在运行时分析类以及执行类中方法的能力。</p>
+<p>通过反射你可以获取任意一个类的所有属性和方法，你还可以调用这些方法和属性。</p>
+<h2 id="Java反射优缺点"><a href="#Java反射优缺点" class="headerlink" title="Java反射优缺点"></a>Java反射优缺点</h2><ul>
+<li><p>优点 ： 可以让咱们的代码更加灵活、为各种框架提供开箱即用的功能提供了便利</p>
+</li>
+<li><p>缺点 ：让我们在运行时有了分析操作类的能力，这同样也增加了安全问题。比如可以无视泛型参数的安全检查（泛型参数的安全检查发生在编译时）。另外，反射的性能也要稍差点，不过，对于框架来说实际是影响不大的</p>
+</li>
+</ul>
+<h2 id="反射的应用场景"><a href="#反射的应用场景" class="headerlink" title="反射的应用场景"></a>反射的应用场景</h2><ul>
+<li>JDBC中，利用反射动态加载了数据库驱动程序。</li>
+<li>Web服务器中利用反射调用了Sevlet的服务方法。</li>
+<li>Eclispe等开发工具利用反射动态刨析对象的类型与结构，动态提示对象的属性和方法。</li>
+<li>很多框架都用到反射机制，注入属性，调用方法，如Spring。</li>
+</ul>
+<p><strong>这些框架中也大量使用了动态代理，而动态代理的实现也依赖反射。</strong><br>比如下面是通过 JDK 实现动态代理的示例代码，其中就使用了反射类 Method 来调用指定的方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class DebugInvocationHandler implements InvocationHandler &#123;</span><br><span class="line">    </span><br><span class="line">    //代理类中的真实对象</span><br><span class="line">     </span><br><span class="line">    private final Object target;</span><br><span class="line"></span><br><span class="line">    public DebugInvocationHandler(Object target) &#123;</span><br><span class="line">        this.target = target;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public Object invoke(Object proxy, Method method, Object[] args) throws InvocationTargetException, IllegalAccessException &#123;</span><br><span class="line">        System.out.println(&quot;before method &quot; + method.getName());</span><br><span class="line">        Object result = method.invoke(target, args);</span><br><span class="line">        System.out.println(&quot;after method &quot; + method.getName());</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外，像 Java 中的一大利器 注解 的实现也用到了反射。</p>
+<p>为什么你使用 Spring 的时候 ，一个@Component注解就声明了一个类为 Spring Bean 呢？为什么你通过一个 @Value注解就读取到配置文件中的值呢？究竟是怎么起作用的呢？</p>
+<p>这些都是因为你可以基于反射分析类，然后获取到类/属性/方法/方法的参数上的注解。你获取到注解之后，就可以做进一步的处理。</p>
+<h2 id="如何使用Java的反射"><a href="#如何使用Java的反射" class="headerlink" title="如何使用Java的反射?"></a>如何使用Java的反射?</h2><blockquote>
+<p>通过一个全限类名创建一个对象</p>
+</blockquote>
+<ul>
+<li>Class.forName(“全限类名”); 例如：com.mysql.jdbc.Driver Driver类已经被加载到 jvm中，并且完成了类的初始化工作就行了</li>
+<li>类名.class; 获取Class&lt;？&gt; clz 对象</li>
+<li>对象.getClass();</li>
+</ul>
+<blockquote>
+<p>获取构造器对象，通过构造器new出一个对象</p>
+</blockquote>
+<ul>
+<li>Clazz.getConstructor([String.class]);</li>
+<li>Con.newInstance([参数]);<blockquote>
+<p>通过class对象创建一个实例对象（就相当与new类名（）无参构造器)</p>
+</blockquote>
+</li>
+<li>Cls.newInstance();<blockquote>
+<p>通过class对象获得一个属性对象</p>
+</blockquote>
+</li>
+<li>Field c=cls.getFields()：获得某个类的所有的公共（public）的字段，包括父类中的字段。</li>
+<li>Field c=cls.getDeclaredFields()：获得某个类的所有声明的字段，即包括public、private和proteced，但是不包括父类的声明字段<blockquote>
+<p>通过class对象获得一个方法对象</p>
+</blockquote>
+</li>
+<li>Cls.getMethod(“方法名”,class……parameaType);（只能获取公共的）</li>
+<li>Cls.getDeclareMethod(“方法名”);（获取任意修饰的方法，不能执行私有）</li>
+<li>M.setAccessible(true);（让私有的方法可以执行）<blockquote>
+<p>让方法执行</p>
+</blockquote>
+</li>
+<li>1）. Method.invoke(obj实例对象,obj可变参数);—–（是有返回值的）</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:2567114363@qq.com">陈浩杰</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://chjie99.github.io/2022/03/19/java%E7%AC%94%E8%AE%B0-4-%E5%8F%8D%E5%B0%84/">http://chjie99.github.io/2022/03/19/java笔记-4-反射/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://chjie99.github.io" target="_blank">繁星</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/java/">java</a><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.hipwallpaper.com/i/94/42/SDmF6A.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/"><img class="next-cover" src="https://www.theiotacademy.co/uploads/blogdata/featuredimage/featuredimage-1.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">java笔记(3)常用集合</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/10/29/java%E7%AC%94%E8%AE%B0-1-%E7%94%A8Java%E8%BE%93%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/" title="java笔记(1)-用Java输出杨辉三角"><img class="cover" src="https://cdn.hipwallpaper.com/i/94/42/SDmF6A.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-29</div><div class="title">java笔记(1)-用Java输出杨辉三角</div></div></a></div><div><a href="/2021/10/27/java%E7%AC%94%E8%AE%B0-0-%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/" title="java笔记(0)-对象导论"><img class="cover" src="https://cdn.hipwallpaper.com/i/94/42/SDmF6A.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-27</div><div class="title">java笔记(0)-对象导论</div></div></a></div><div><a href="/2021/11/01/java%E7%AC%94%E8%AE%B0-2-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" title="java笔记(2)-快速排序"><img class="cover" src="https://www.theiotacademy.co/uploads/blogdata/featuredimage/featuredimage-1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-01</div><div class="title">java笔记(2)-快速排序</div></div></a></div><div><a href="/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/" title="java笔记(3)常用集合"><img class="cover" src="https://www.theiotacademy.co/uploads/blogdata/featuredimage/featuredimage-1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-17</div><div class="title">java笔记(3)常用集合</div></div></a></div><div><a href="/2022/03/16/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97-1/" title="算法笔记-数组实现循环队列"><img class="cover" src="https://www.theiotacademy.co/uploads/blogdata/featuredimage/featuredimage-1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-16</div><div class="title">算法笔记-数组实现循环队列</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/26dcf0873d5106624e0a36d1ebfc6392a2dbead2.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">陈浩杰</div><div class="author-info__description">技术不多，废话不少</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/CHJie99"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/chjie99" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2567114363@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFJava%E7%9A%84%E5%8F%8D%E5%B0%84"><span class="toc-number">1.</span> <span class="toc-text">什么是Java的反射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E5%8F%8D%E5%B0%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">Java反射优缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">3.</span> <span class="toc-text">反射的应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Java%E7%9A%84%E5%8F%8D%E5%B0%84"><span class="toc-number">4.</span> <span class="toc-text">如何使用Java的反射?</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/03/19/java%E7%AC%94%E8%AE%B0-4-%E5%8F%8D%E5%B0%84/" title="java笔记-4-反射"><img src="https://cdn.hipwallpaper.com/i/94/42/SDmF6A.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java笔记-4-反射"/></a><div class="content"><a class="title" href="/2022/03/19/java%E7%AC%94%E8%AE%B0-4-%E5%8F%8D%E5%B0%84/" title="java笔记-4-反射">java笔记-4-反射</a><time datetime="2022-03-19T14:03:04.000Z" title="发表于 2022-03-19 22:03:04">2022-03-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/" title="java笔记(3)常用集合"><img src="https://www.theiotacademy.co/uploads/blogdata/featuredimage/featuredimage-1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java笔记(3)常用集合"/></a><div class="content"><a class="title" href="/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/" title="java笔记(3)常用集合">java笔记(3)常用集合</a><time datetime="2022-03-17T10:58:45.000Z" title="发表于 2022-03-17 18:58:45">2022-03-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/16/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97-1/" title="算法笔记-数组实现循环队列"><img src="https://www.theiotacademy.co/uploads/blogdata/featuredimage/featuredimage-1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法笔记-数组实现循环队列"/></a><div class="content"><a class="title" href="/2022/03/16/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97-1/" title="算法笔记-数组实现循环队列">算法笔记-数组实现循环队列</a><time datetime="2022-03-16T14:53:28.000Z" title="发表于 2022-03-16 22:53:28">2022-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/01/java%E7%AC%94%E8%AE%B0-2-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" title="java笔记(2)-快速排序"><img src="https://www.theiotacademy.co/uploads/blogdata/featuredimage/featuredimage-1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java笔记(2)-快速排序"/></a><div class="content"><a class="title" href="/2021/11/01/java%E7%AC%94%E8%AE%B0-2-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" title="java笔记(2)-快速排序">java笔记(2)-快速排序</a><time datetime="2021-11-01T09:38:35.000Z" title="发表于 2021-11-01 17:38:35">2021-11-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/29/java%E7%AC%94%E8%AE%B0-1-%E7%94%A8Java%E8%BE%93%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/" title="java笔记(1)-用Java输出杨辉三角"><img src="https://cdn.hipwallpaper.com/i/94/42/SDmF6A.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java笔记(1)-用Java输出杨辉三角"/></a><div class="content"><a class="title" href="/2021/10/29/java%E7%AC%94%E8%AE%B0-1-%E7%94%A8Java%E8%BE%93%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/" title="java笔记(1)-用Java输出杨辉三角">java笔记(1)-用Java输出杨辉三角</a><time datetime="2021-10-29T02:37:47.000Z" title="发表于 2021-10-29 10:37:47">2021-10-29</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 陈浩杰</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'zi7QgEbg16qDT8k1h4FMwSbP-gzGzoHsz',
+      appKey: 'VPaUCaOQaO0pMFhbzaxhS6cY',
+      placeholder: '请留下您的建议和意见吧。',
+      avatar: 'retro',
+      meta: 'nick'.split(','),
+      pageSize: '5',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+      requiredFields: ["nick"],
+      visitor: true
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
