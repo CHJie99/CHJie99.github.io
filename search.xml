@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/09/24/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>java笔记(0)-对象导论</title>
     <url>/2021/10/27/java%E7%AC%94%E8%AE%B0-0-%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</url>
     <content><![CDATA[<p>参考书籍《Java编程思想》</p>
@@ -115,6 +97,37 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2021/09/24/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>编码那些事</title>
+    <url>/2022/08/24/%E7%BC%96%E7%A0%81%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
+    <content><![CDATA[<h1 id="什么是编码"><a href="#什么是编码" class="headerlink" title="什么是编码"></a>什么是编码</h1><p>编码</p>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+        <tag>计算机基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>java笔记(2)-快速排序</title>
     <url>/2021/11/01/java%E7%AC%94%E8%AE%B0-2-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<h2 id="什么是快速排序"><a href="#什么是快速排序" class="headerlink" title="什么是快速排序"></a>什么是快速排序</h2><p>快速排序是一种效率很高的排序方式，假设对于某一数列进行增序排列，那么这个过程（快排）可以概括为：</p>
@@ -155,6 +168,146 @@
       <tags>
         <tag>java</tag>
         <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java算法笔记-单链表</title>
+    <url>/2022/03/23/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8D%95%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h2 id="概念介绍"><a href="#概念介绍" class="headerlink" title="概念介绍"></a>概念介绍</h2><p>链表的结构很简单，就是一个个节点连接在一起，形成一个完整的链条，每个节点包含2部分，数据域，和一个指向下一个节点引用的指针next,具体的更详细的大家可以参考相关资料解释，再说说删除操作，同样需要找到数据所在的位置，然后进行删除，不同的是，删除的时候，链表只需要改变一下前后节点的引用关系即可，就完成了节点的删除，而没有像数组那样触发一次全部数据的移动，从这个描述来看，链表在进行删除的时候，速度比数组快<br>链表有很多种形式包括单链表，双向链表，循环链表等，本文主要内容是单向链表。</p>
+<h2 id="创建节点类"><a href="#创建节点类" class="headerlink" title="创建节点类"></a>创建节点类</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//链表类，并重写了toString方法</span><br><span class="line">class HeroNode&#123;</span><br><span class="line">   public int no;</span><br><span class="line">   public String name;</span><br><span class="line">   public HeroNode next;</span><br><span class="line"></span><br><span class="line">   public HeroNode(int no,String name)&#123;</span><br><span class="line">       this.name=name;</span><br><span class="line">       this.no=no;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;HeroNode&#123;&quot; +</span><br><span class="line">                &quot;no=&quot; + no +</span><br><span class="line">                &quot;, name=&#x27;&quot; + name +&quot;&#125;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="用一个SingleLinkedList类封来表示链表和封装方法"><a href="#用一个SingleLinkedList类封来表示链表和封装方法" class="headerlink" title="用一个SingleLinkedList类封来表示链表和封装方法"></a>用一个SingleLinkedList类封来表示链表和封装方法</h2><ul>
+<li>代码全局<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class SingleLinkedlist &#123;</span><br><span class="line"></span><br><span class="line">    //头指针</span><br><span class="line">    public HeroNode head =new HeroNode(0,null);</span><br><span class="line"></span><br><span class="line">    //在链表尾部加入新元素</span><br><span class="line">    public void add(HeroNode a)&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //按序号加入序号重复的不加入</span><br><span class="line">    public void addByorder(HeroNode a) throws Exception&#123;&#125; </span><br><span class="line"></span><br><span class="line">    //遍历链表</span><br><span class="line">    public void list()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //链表反转</span><br><span class="line">    public void rollBack()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //从尾到头打印单链表</span><br><span class="line">    public void BackList()&#123;&#125;</span><br><span class="line"></span><br><span class="line">     //合并两个有序的单链表最后成一个新的单链表</span><br><span class="line">    public SingleLinkedlist merge(SingleLinkedlist s)&#123;&#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+<li>在链表尾部加入新元素<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//在链表尾部加入新元素</span><br><span class="line">public void add(HeroNode a)&#123;</span><br><span class="line">    HeroNode temp=head;</span><br><span class="line">    while(temp.next!=null)&#123;</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">    temp.next=a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li> 按序号加入序号重复的不加入</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void addByorder(HeroNode a) throws Exception &#123;</span><br><span class="line">        HeroNode temp = head;</span><br><span class="line"></span><br><span class="line">        while(temp.next!=null &amp;&amp; temp.next.no&lt;a.no)&#123;</span><br><span class="line"></span><br><span class="line">            temp=temp.next;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        if(temp.next==null)&#123;</span><br><span class="line">            temp.next=a;</span><br><span class="line">        &#125;else if(temp.next.no==a.no)&#123;</span><br><span class="line">            throw new Exception(&quot;数据重复&quot;);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            a.next=temp.next;</span><br><span class="line">            temp.next=a;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li> 遍历链表<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void list()&#123;</span><br><span class="line">    if(head.next==null)&#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    HeroNode temp=head;</span><br><span class="line"></span><br><span class="line">    while(temp.next!=null)&#123;</span><br><span class="line">        System.out.println(temp.next.toString());</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>链表反转返还一个新的链表</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//链表反转</span><br><span class="line">public void rollBack()&#123;</span><br><span class="line">    HeroNode pnode =head.next;</span><br><span class="line">    HeroNode pprior =null;</span><br><span class="line"></span><br><span class="line">    while(pnode!=null) &#123;</span><br><span class="line">        HeroNode pnext = pnode.next;</span><br><span class="line">        if (pnext == null) &#123;</span><br><span class="line">            head.next = pnode;</span><br><span class="line">        &#125;</span><br><span class="line">        pnode.next = pprior;</span><br><span class="line">        pprior = pnode;</span><br><span class="line">        pnode = pnext;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>从尾到头打印单链表</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void BackList()&#123;</span><br><span class="line">    Stack&lt;HeroNode&gt; s=new Stack&lt;&gt;();</span><br><span class="line">    HeroNode temp= head;</span><br><span class="line">    while(temp.next!=null)&#123;</span><br><span class="line">        s.push(temp.next);</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">    while(!s.isEmpty())&#123;</span><br><span class="line">        HeroNode hn=s.pop();</span><br><span class="line">        System.out.println(hn.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>合并两个有序的单链表最后成一个新的有序单链表</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public SingleLinkedlist merge(SingleLinkedlist s)&#123;</span><br><span class="line">    SingleLinkedlist newone = new SingleLinkedlist();</span><br><span class="line">    HeroNode temp =newone.head;</span><br><span class="line">    HeroNode temp1=head.next;</span><br><span class="line">    HeroNode temp2=s.head.next;</span><br><span class="line">    while(temp1!=null||temp2!=null)&#123;</span><br><span class="line">        if(temp1==null)&#123;</span><br><span class="line">            temp.next=temp2;</span><br><span class="line">            temp2=temp2.next;</span><br><span class="line">        &#125; else if(temp2==null)&#123;</span><br><span class="line">            temp.next=temp1;</span><br><span class="line">            temp1=temp1.next;</span><br><span class="line">        &#125;</span><br><span class="line">        if(temp1!=null&amp;&amp;temp2!=null) &#123;</span><br><span class="line">            if(temp1.no&gt;temp2.no)&#123;</span><br><span class="line">                temp.next=temp2;</span><br><span class="line">                temp2=temp2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(temp1.no&lt;temp2.no)&#123;</span><br><span class="line">                temp.next=temp1;</span><br><span class="line">                temp1=temp1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(temp1.no==temp2.no)&#123;</span><br><span class="line">                temp.next=temp1;</span><br><span class="line">                temp1=temp1.next;</span><br><span class="line">                temp2=temp2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">    return newone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="创建main类简单测试"><a href="#创建main类简单测试" class="headerlink" title="创建main类简单测试"></a>创建main类简单测试</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) throws Exception &#123;</span><br><span class="line">    SingleLinkedlist hero =new SingleLinkedlist();</span><br><span class="line">    SingleLinkedlist hero2 =new SingleLinkedlist();</span><br><span class="line">    HeroNode a=new HeroNode(1,&quot;蜘蛛侠&quot;);</span><br><span class="line">    HeroNode b=new HeroNode(2,&quot;钢铁侠&quot;);</span><br><span class="line">    HeroNode c=new HeroNode(3,&quot;绿巨人&quot;);</span><br><span class="line">    HeroNode d=new HeroNode(4,&quot;雷神&quot;);</span><br><span class="line">    HeroNode e=new HeroNode(5,&quot;黑寡妇&quot;);</span><br><span class="line">    HeroNode f=new HeroNode(6,&quot;美国队长&quot;);</span><br><span class="line"></span><br><span class="line">    hero.addByorder(a);</span><br><span class="line">    hero.addByorder(c);</span><br><span class="line">    hero2.addByorder(b);</span><br><span class="line">    hero2.addByorder(d);</span><br><span class="line">    hero.addByorder(e);</span><br><span class="line">    hero2.addByorder(f);</span><br><span class="line"></span><br><span class="line">    SingleLinkedlist newone=hero.merge(hero2);</span><br><span class="line">    newone.list();</span><br></pre></td></tr></table></figure>
+<h2 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h2><p><img src="/2022/03/23/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8D%95%E9%93%BE%E8%A1%A8/1.png" alt="结果" title=" 排名不分先后"></p>
+]]></content>
+      <categories>
+        <category>java笔记</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>学习笔记</tag>
+        <tag>算法笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java笔记-4-反射</title>
+    <url>/2022/03/19/java%E7%AC%94%E8%AE%B0-4-%E5%8F%8D%E5%B0%84/</url>
+    <content><![CDATA[<h2 id="什么是Java的反射"><a href="#什么是Java的反射" class="headerlink" title="什么是Java的反射"></a>什么是Java的反射</h2><p>反射之所以被称为框架的灵魂，主要是因为它赋予了我们在运行时分析类以及执行类中方法的能力。</p>
+<p>通过反射你可以获取任意一个类的所有属性和方法，你还可以调用这些方法和属性。</p>
+<h2 id="Java反射优缺点"><a href="#Java反射优缺点" class="headerlink" title="Java反射优缺点"></a>Java反射优缺点</h2><ul>
+<li><p>优点 ： 可以让咱们的代码更加灵活、为各种框架提供开箱即用的功能提供了便利</p>
+</li>
+<li><p>缺点 ：让我们在运行时有了分析操作类的能力，这同样也增加了安全问题。比如可以无视泛型参数的安全检查（泛型参数的安全检查发生在编译时）。另外，反射的性能也要稍差点，不过，对于框架来说实际是影响不大的</p>
+</li>
+</ul>
+<h2 id="反射的应用场景"><a href="#反射的应用场景" class="headerlink" title="反射的应用场景"></a>反射的应用场景</h2><ul>
+<li>JDBC中，利用反射动态加载了数据库驱动程序。</li>
+<li>Web服务器中利用反射调用了Sevlet的服务方法。</li>
+<li>Eclispe等开发工具利用反射动态刨析对象的类型与结构，动态提示对象的属性和方法。</li>
+<li>很多框架都用到反射机制，注入属性，调用方法，如Spring。</li>
+</ul>
+<p><strong>这些框架中也大量使用了动态代理，而动态代理的实现也依赖反射。</strong><br>比如下面是通过 JDK 实现动态代理的示例代码，其中就使用了反射类 Method 来调用指定的方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class DebugInvocationHandler implements InvocationHandler &#123;</span><br><span class="line">    </span><br><span class="line">    //代理类中的真实对象</span><br><span class="line">     </span><br><span class="line">    private final Object target;</span><br><span class="line"></span><br><span class="line">    public DebugInvocationHandler(Object target) &#123;</span><br><span class="line">        this.target = target;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public Object invoke(Object proxy, Method method, Object[] args) throws InvocationTargetException, IllegalAccessException &#123;</span><br><span class="line">        System.out.println(&quot;before method &quot; + method.getName());</span><br><span class="line">        Object result = method.invoke(target, args);</span><br><span class="line">        System.out.println(&quot;after method &quot; + method.getName());</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外，像 Java 中的一大利器 注解 的实现也用到了反射。</p>
+<p>为什么你使用 Spring 的时候 ，一个@Component注解就声明了一个类为 Spring Bean 呢？为什么你通过一个 @Value注解就读取到配置文件中的值呢？究竟是怎么起作用的呢？</p>
+<p>这些都是因为你可以基于反射分析类，然后获取到类/属性/方法/方法的参数上的注解。你获取到注解之后，就可以做进一步的处理。</p>
+<h2 id="如何使用Java的反射"><a href="#如何使用Java的反射" class="headerlink" title="如何使用Java的反射?"></a>如何使用Java的反射?</h2><blockquote>
+<p>通过一个全限类名创建一个对象</p>
+</blockquote>
+<ul>
+<li>Class.forName(“全限类名”); 例如：com.mysql.jdbc.Driver Driver类已经被加载到 jvm中，并且完成了类的初始化工作就行了</li>
+<li>类名.class; 获取Class&lt;？&gt; clz 对象</li>
+<li>对象.getClass();</li>
+</ul>
+<blockquote>
+<p>获取构造器对象，通过构造器new出一个对象</p>
+</blockquote>
+<ul>
+<li>Clazz.getConstructor([String.class]);</li>
+<li>Con.newInstance([参数]);</li>
+</ul>
+<blockquote>
+<p>通过class对象创建一个实例对象（就相当与new类名（）无参构造器)</p>
+</blockquote>
+<ul>
+<li>Cls.newInstance();</li>
+</ul>
+<blockquote>
+<p>通过class对象获得一个属性对象</p>
+</blockquote>
+<ul>
+<li>Field c=cls.getFields()：获得某个类的所有的公共（public）的字段，包括父类中的字段。</li>
+<li>Field c=cls.getDeclaredFields()：获得某个类的所有声明的字段，即包括public、private和proteced，但是不包括父类的声明字段</li>
+</ul>
+<blockquote>
+<p>通过class对象获得一个方法对象</p>
+</blockquote>
+<ul>
+<li>Cls.getMethod(“方法名”,class……parameaType);（只能获取公共的）</li>
+<li>Cls.getDeclareMethod(“方法名”);（获取任意修饰的方法，不能执行私有）</li>
+<li>M.setAccessible(true);（让私有的方法可以执行）</li>
+</ul>
+<blockquote>
+<p>让方法执行</p>
+</blockquote>
+<ul>
+<li>1）. Method.invoke(obj实例对象,obj可变参数);—–（是有返回值的）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>java笔记</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java算法笔记-双向链表和约瑟夫环</title>
+    <url>/2022/03/24/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E5%92%8C%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/</url>
+    <content><![CDATA[<h1 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h1><h2 id="概念介绍"><a href="#概念介绍" class="headerlink" title="概念介绍"></a>概念介绍</h2><p>顾名思义，如果你知道单向链表只能朝着一个方向遍历的话，那么双向链表就是可以向两个方向遍历。双向链表每个结点存在两个指针域，分别存储该结点的前驱结点引用和后继结点引用，从任意一个结点出发，都能通过前驱引用以及后继引用完成整个链表结点的访问。</p>
+<p>所以不难看出，单向链表能干的事，双向链表也能干！但是正是因为这一特性，相比于单链表，双向链表在访问其他结点上带来方便的同时，将占用更多的资源，因此在使用的时候可以根据自己的场景来决定使用何种数据结构。</p>
+<h2 id="节点结构"><a href="#节点结构" class="headerlink" title="节点结构"></a>节点结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class DataNode&#123;</span><br><span class="line">    int date;</span><br><span class="line">    DataNode pre;</span><br><span class="line">    DataNode next;</span><br><span class="line"></span><br><span class="line">    public DataNode(int num)&#123;</span><br><span class="line">        this.date=num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;DataNode&#123;&quot; +</span><br><span class="line">                &quot;date=&quot; + date +</span><br><span class="line">                &#x27;&#125;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不难看出，双向链表只是在单链表的基础上加立一个前驱指针pre</p>
+<h2 id="用一个DoubleLinkedList类来表示双向链表和封装方法"><a href="#用一个DoubleLinkedList类来表示双向链表和封装方法" class="headerlink" title="用一个DoubleLinkedList类来表示双向链表和封装方法"></a>用一个DoubleLinkedList类来表示双向链表和封装方法</h2><h3 id="代码全局"><a href="#代码全局" class="headerlink" title="代码全局"></a>代码全局</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class DoubleLinkedLIst &#123;</span><br><span class="line">    //头指针</span><br><span class="line">    public DataNode head =new DataNode(0);</span><br><span class="line"></span><br><span class="line">    //将一个节点加入队尾</span><br><span class="line">    public void add(DataNode dataNode)&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //按序加入，并且重复元素不加入</span><br><span class="line">    public void addByorder(DataNode dataNode)&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //遍历</span><br><span class="line">    public void list()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    // 在不重复的链表中删除对应数据</span><br><span class="line">    public void delete(int num) throws Exception &#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="将一个节点加入队尾"><a href="#将一个节点加入队尾" class="headerlink" title="将一个节点加入队尾"></a>将一个节点加入队尾</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void add(DataNode dataNode)&#123;</span><br><span class="line">    DataNode temp =head;</span><br><span class="line">    while(temp.next!=null)&#123;</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">    temp.next=dataNode;</span><br><span class="line">    dataNode.pre=temp;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="按序加入，并且重复元素不加入"><a href="#按序加入，并且重复元素不加入" class="headerlink" title="按序加入，并且重复元素不加入"></a>按序加入，并且重复元素不加入</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void addByorder(DataNode dataNode)&#123;</span><br><span class="line">        DataNode temp =head;</span><br><span class="line">        while(temp.next!=null &amp;&amp; temp.next.date&lt;dataNode.date)&#123;</span><br><span class="line">            temp=temp.next;</span><br><span class="line">        &#125;</span><br><span class="line">        if(temp.next==null)&#123;</span><br><span class="line">            add(dataNode);</span><br><span class="line">        &#125; else if(temp.next.date==dataNode.date)&#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            dataNode.next=temp.next;</span><br><span class="line">            dataNode.pre=temp;</span><br><span class="line">            temp.next.pre=dataNode;</span><br><span class="line">            temp.next=dataNode;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void list()&#123;</span><br><span class="line">        DataNode temp =head.next;</span><br><span class="line">        while(temp!=null)&#123;</span><br><span class="line">            System.out.println(temp.toString());</span><br><span class="line">            temp=temp.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="在不重复的链表中删除对应数据"><a href="#在不重复的链表中删除对应数据" class="headerlink" title="在不重复的链表中删除对应数据"></a>在不重复的链表中删除对应数据</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void delete(int num) throws Exception &#123;</span><br><span class="line">        DataNode temp =head.next;</span><br><span class="line">        if(temp==null)&#123;</span><br><span class="line">            throw new Exception();</span><br><span class="line">        &#125;</span><br><span class="line">        while(temp.date!=num)&#123;</span><br><span class="line">            temp=temp.next;</span><br><span class="line">        &#125;</span><br><span class="line">        temp.next.pre=temp.pre;</span><br><span class="line">        temp.pre.next=temp.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="简单的测试代码"><a href="#简单的测试代码" class="headerlink" title="简单的测试代码"></a>简单的测试代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        DataNode a1 =new DataNode(1);</span><br><span class="line">        DataNode a2 =new DataNode(2);</span><br><span class="line">        DataNode a3 =new DataNode(3);</span><br><span class="line">        DataNode a4 =new DataNode(4);</span><br><span class="line">        DataNode a5 =new DataNode(5);</span><br><span class="line">        DataNode a6 =new DataNode(6);</span><br><span class="line">        DoubleLinkedLIst d =new DoubleLinkedLIst();</span><br><span class="line"></span><br><span class="line">        d.addByorder(a2);</span><br><span class="line">        d.addByorder(a3);</span><br><span class="line">        d.addByorder(a1);</span><br><span class="line">        d.addByorder(a4);</span><br><span class="line">        d.addByorder(a6);</span><br><span class="line">        d.addByorder(a5);</span><br><span class="line">        d.delete(5);</span><br><span class="line"></span><br><span class="line">        d.list();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>测试结果：<br><img src="/2022/03/24/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E5%92%8C%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/1.png" alt="结果1"></p>
+<h1 id="约瑟夫环："><a href="#约瑟夫环：" class="headerlink" title="约瑟夫环："></a>约瑟夫环：</h1><h2 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h2><p>已知n个人（以编号1，2，3…n分别表示）围坐在一张圆桌周围。从编号为k的人开始报数，数到m的那个人出列；他的下一个人又从1开始报数，数到m的那个人又出列；依此规律重复下去，直到圆桌周围的人全部出列。</p>
+<h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><p>创建一个循环链表，当k为1时，直接从start节点输出n个节点。当k不为1时，创建temp指针指向start，删掉从start开始数的第k个节点并输出。然后temp向后移一位，再开始数，一直循环这个过程。当temp.next等于temp时结束循环，并输出此节点即可输出完整答案。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="Node类"><a href="#Node类" class="headerlink" title="Node类"></a>Node类</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Node&#123;</span><br><span class="line">    public int no ;</span><br><span class="line">    public Node next;</span><br><span class="line"></span><br><span class="line">    public Node(int num)&#123;</span><br><span class="line">        this.no=num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;node&#123;&quot; +</span><br><span class="line">                &quot;no=&quot; + no +</span><br><span class="line">                &#x27;&#125;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="solve-方法"><a href="#solve-方法" class="headerlink" title="solve 方法"></a>solve 方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void solve(int num ,int cunt)&#123;</span><br><span class="line">        //创建循环链表</span><br><span class="line">        Node start =new Node(1);</span><br><span class="line">        Node temp  =start;</span><br><span class="line">        for(int i=2;i&lt;=num;i++)&#123;</span><br><span class="line">            temp.next =new Node(i);</span><br><span class="line">            temp=temp.next;</span><br><span class="line">        &#125;</span><br><span class="line">        temp.next=start;</span><br><span class="line"></span><br><span class="line">        //遍历并输出结果</span><br><span class="line">        temp=start;</span><br><span class="line">        if(cunt==1)&#123;</span><br><span class="line">            for(int i=1;i&lt;=num;i++)&#123;</span><br><span class="line">                System.out.println(temp.toString());</span><br><span class="line">                temp=temp.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            while(temp.next!=temp)&#123;</span><br><span class="line">                for(int i=0;i&lt;cunt-2;i++)&#123;</span><br><span class="line">                    temp=temp.next;</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(temp.next.toString());</span><br><span class="line">                temp.next=temp.next.next;</span><br><span class="line">                temp=temp.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(temp.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="main测试"><a href="#main测试" class="headerlink" title="main测试"></a>main测试</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Scanner sc = new Scanner(System.in);</span><br><span class="line">        System.out.print(&quot;请输入人数:&quot;);</span><br><span class="line">        int people = sc.nextInt();</span><br><span class="line">        System.out.print(&quot;请输入报数数目：&quot;);</span><br><span class="line">        int cunt =sc.nextInt();</span><br><span class="line">        sc.close();</span><br><span class="line">        solve(people,cunt);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试结果：<br><img src="/2022/03/24/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E5%92%8C%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/2.png" alt="结果2"></p>
+]]></content>
+      <categories>
+        <category>java笔记</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>学习笔记</tag>
+        <tag>算法笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -288,187 +441,6 @@
       </tags>
   </entry>
   <entry>
-    <title>java笔记-4-反射</title>
-    <url>/2022/03/19/java%E7%AC%94%E8%AE%B0-4-%E5%8F%8D%E5%B0%84/</url>
-    <content><![CDATA[<h2 id="什么是Java的反射"><a href="#什么是Java的反射" class="headerlink" title="什么是Java的反射"></a>什么是Java的反射</h2><p>反射之所以被称为框架的灵魂，主要是因为它赋予了我们在运行时分析类以及执行类中方法的能力。</p>
-<p>通过反射你可以获取任意一个类的所有属性和方法，你还可以调用这些方法和属性。</p>
-<h2 id="Java反射优缺点"><a href="#Java反射优缺点" class="headerlink" title="Java反射优缺点"></a>Java反射优缺点</h2><ul>
-<li><p>优点 ： 可以让咱们的代码更加灵活、为各种框架提供开箱即用的功能提供了便利</p>
-</li>
-<li><p>缺点 ：让我们在运行时有了分析操作类的能力，这同样也增加了安全问题。比如可以无视泛型参数的安全检查（泛型参数的安全检查发生在编译时）。另外，反射的性能也要稍差点，不过，对于框架来说实际是影响不大的</p>
-</li>
-</ul>
-<h2 id="反射的应用场景"><a href="#反射的应用场景" class="headerlink" title="反射的应用场景"></a>反射的应用场景</h2><ul>
-<li>JDBC中，利用反射动态加载了数据库驱动程序。</li>
-<li>Web服务器中利用反射调用了Sevlet的服务方法。</li>
-<li>Eclispe等开发工具利用反射动态刨析对象的类型与结构，动态提示对象的属性和方法。</li>
-<li>很多框架都用到反射机制，注入属性，调用方法，如Spring。</li>
-</ul>
-<p><strong>这些框架中也大量使用了动态代理，而动态代理的实现也依赖反射。</strong><br>比如下面是通过 JDK 实现动态代理的示例代码，其中就使用了反射类 Method 来调用指定的方法</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class DebugInvocationHandler implements InvocationHandler &#123;</span><br><span class="line">    </span><br><span class="line">    //代理类中的真实对象</span><br><span class="line">     </span><br><span class="line">    private final Object target;</span><br><span class="line"></span><br><span class="line">    public DebugInvocationHandler(Object target) &#123;</span><br><span class="line">        this.target = target;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public Object invoke(Object proxy, Method method, Object[] args) throws InvocationTargetException, IllegalAccessException &#123;</span><br><span class="line">        System.out.println(&quot;before method &quot; + method.getName());</span><br><span class="line">        Object result = method.invoke(target, args);</span><br><span class="line">        System.out.println(&quot;after method &quot; + method.getName());</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>另外，像 Java 中的一大利器 注解 的实现也用到了反射。</p>
-<p>为什么你使用 Spring 的时候 ，一个@Component注解就声明了一个类为 Spring Bean 呢？为什么你通过一个 @Value注解就读取到配置文件中的值呢？究竟是怎么起作用的呢？</p>
-<p>这些都是因为你可以基于反射分析类，然后获取到类/属性/方法/方法的参数上的注解。你获取到注解之后，就可以做进一步的处理。</p>
-<h2 id="如何使用Java的反射"><a href="#如何使用Java的反射" class="headerlink" title="如何使用Java的反射?"></a>如何使用Java的反射?</h2><blockquote>
-<p>通过一个全限类名创建一个对象</p>
-</blockquote>
-<ul>
-<li>Class.forName(“全限类名”); 例如：com.mysql.jdbc.Driver Driver类已经被加载到 jvm中，并且完成了类的初始化工作就行了</li>
-<li>类名.class; 获取Class&lt;？&gt; clz 对象</li>
-<li>对象.getClass();</li>
-</ul>
-<blockquote>
-<p>获取构造器对象，通过构造器new出一个对象</p>
-</blockquote>
-<ul>
-<li>Clazz.getConstructor([String.class]);</li>
-<li>Con.newInstance([参数]);</li>
-</ul>
-<blockquote>
-<p>通过class对象创建一个实例对象（就相当与new类名（）无参构造器)</p>
-</blockquote>
-<ul>
-<li>Cls.newInstance();</li>
-</ul>
-<blockquote>
-<p>通过class对象获得一个属性对象</p>
-</blockquote>
-<ul>
-<li>Field c=cls.getFields()：获得某个类的所有的公共（public）的字段，包括父类中的字段。</li>
-<li>Field c=cls.getDeclaredFields()：获得某个类的所有声明的字段，即包括public、private和proteced，但是不包括父类的声明字段</li>
-</ul>
-<blockquote>
-<p>通过class对象获得一个方法对象</p>
-</blockquote>
-<ul>
-<li>Cls.getMethod(“方法名”,class……parameaType);（只能获取公共的）</li>
-<li>Cls.getDeclareMethod(“方法名”);（获取任意修饰的方法，不能执行私有）</li>
-<li>M.setAccessible(true);（让私有的方法可以执行）</li>
-</ul>
-<blockquote>
-<p>让方法执行</p>
-</blockquote>
-<ul>
-<li>1）. Method.invoke(obj实例对象,obj可变参数);—–（是有返回值的）</li>
-</ul>
-]]></content>
-      <categories>
-        <category>java笔记</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>java算法笔记-单链表</title>
-    <url>/2022/03/23/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8D%95%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h2 id="概念介绍"><a href="#概念介绍" class="headerlink" title="概念介绍"></a>概念介绍</h2><p>链表的结构很简单，就是一个个节点连接在一起，形成一个完整的链条，每个节点包含2部分，数据域，和一个指向下一个节点引用的指针next,具体的更详细的大家可以参考相关资料解释，再说说删除操作，同样需要找到数据所在的位置，然后进行删除，不同的是，删除的时候，链表只需要改变一下前后节点的引用关系即可，就完成了节点的删除，而没有像数组那样触发一次全部数据的移动，从这个描述来看，链表在进行删除的时候，速度比数组快<br>链表有很多种形式包括单链表，双向链表，循环链表等，本文主要内容是单向链表。</p>
-<h2 id="创建节点类"><a href="#创建节点类" class="headerlink" title="创建节点类"></a>创建节点类</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//链表类，并重写了toString方法</span><br><span class="line">class HeroNode&#123;</span><br><span class="line">   public int no;</span><br><span class="line">   public String name;</span><br><span class="line">   public HeroNode next;</span><br><span class="line"></span><br><span class="line">   public HeroNode(int no,String name)&#123;</span><br><span class="line">       this.name=name;</span><br><span class="line">       this.no=no;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;HeroNode&#123;&quot; +</span><br><span class="line">                &quot;no=&quot; + no +</span><br><span class="line">                &quot;, name=&#x27;&quot; + name +&quot;&#125;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="用一个SingleLinkedList类封来表示链表和封装方法"><a href="#用一个SingleLinkedList类封来表示链表和封装方法" class="headerlink" title="用一个SingleLinkedList类封来表示链表和封装方法"></a>用一个SingleLinkedList类封来表示链表和封装方法</h2><ul>
-<li>代码全局<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class SingleLinkedlist &#123;</span><br><span class="line"></span><br><span class="line">    //头指针</span><br><span class="line">    public HeroNode head =new HeroNode(0,null);</span><br><span class="line"></span><br><span class="line">    //在链表尾部加入新元素</span><br><span class="line">    public void add(HeroNode a)&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //按序号加入序号重复的不加入</span><br><span class="line">    public void addByorder(HeroNode a) throws Exception&#123;&#125; </span><br><span class="line"></span><br><span class="line">    //遍历链表</span><br><span class="line">    public void list()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //链表反转</span><br><span class="line">    public void rollBack()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //从尾到头打印单链表</span><br><span class="line">    public void BackList()&#123;&#125;</span><br><span class="line"></span><br><span class="line">     //合并两个有序的单链表最后成一个新的单链表</span><br><span class="line">    public SingleLinkedlist merge(SingleLinkedlist s)&#123;&#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-<li>在链表尾部加入新元素<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//在链表尾部加入新元素</span><br><span class="line">public void add(HeroNode a)&#123;</span><br><span class="line">    HeroNode temp=head;</span><br><span class="line">    while(temp.next!=null)&#123;</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">    temp.next=a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li> 按序号加入序号重复的不加入</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void addByorder(HeroNode a) throws Exception &#123;</span><br><span class="line">        HeroNode temp = head;</span><br><span class="line"></span><br><span class="line">        while(temp.next!=null &amp;&amp; temp.next.no&lt;a.no)&#123;</span><br><span class="line"></span><br><span class="line">            temp=temp.next;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        if(temp.next==null)&#123;</span><br><span class="line">            temp.next=a;</span><br><span class="line">        &#125;else if(temp.next.no==a.no)&#123;</span><br><span class="line">            throw new Exception(&quot;数据重复&quot;);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            a.next=temp.next;</span><br><span class="line">            temp.next=a;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li> 遍历链表<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void list()&#123;</span><br><span class="line">    if(head.next==null)&#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    HeroNode temp=head;</span><br><span class="line"></span><br><span class="line">    while(temp.next!=null)&#123;</span><br><span class="line">        System.out.println(temp.next.toString());</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>链表反转返还一个新的链表</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//链表反转</span><br><span class="line">public void rollBack()&#123;</span><br><span class="line">    HeroNode pnode =head.next;</span><br><span class="line">    HeroNode pprior =null;</span><br><span class="line"></span><br><span class="line">    while(pnode!=null) &#123;</span><br><span class="line">        HeroNode pnext = pnode.next;</span><br><span class="line">        if (pnext == null) &#123;</span><br><span class="line">            head.next = pnode;</span><br><span class="line">        &#125;</span><br><span class="line">        pnode.next = pprior;</span><br><span class="line">        pprior = pnode;</span><br><span class="line">        pnode = pnext;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>从尾到头打印单链表</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void BackList()&#123;</span><br><span class="line">    Stack&lt;HeroNode&gt; s=new Stack&lt;&gt;();</span><br><span class="line">    HeroNode temp= head;</span><br><span class="line">    while(temp.next!=null)&#123;</span><br><span class="line">        s.push(temp.next);</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">    while(!s.isEmpty())&#123;</span><br><span class="line">        HeroNode hn=s.pop();</span><br><span class="line">        System.out.println(hn.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>合并两个有序的单链表最后成一个新的有序单链表</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public SingleLinkedlist merge(SingleLinkedlist s)&#123;</span><br><span class="line">    SingleLinkedlist newone = new SingleLinkedlist();</span><br><span class="line">    HeroNode temp =newone.head;</span><br><span class="line">    HeroNode temp1=head.next;</span><br><span class="line">    HeroNode temp2=s.head.next;</span><br><span class="line">    while(temp1!=null||temp2!=null)&#123;</span><br><span class="line">        if(temp1==null)&#123;</span><br><span class="line">            temp.next=temp2;</span><br><span class="line">            temp2=temp2.next;</span><br><span class="line">        &#125; else if(temp2==null)&#123;</span><br><span class="line">            temp.next=temp1;</span><br><span class="line">            temp1=temp1.next;</span><br><span class="line">        &#125;</span><br><span class="line">        if(temp1!=null&amp;&amp;temp2!=null) &#123;</span><br><span class="line">            if(temp1.no&gt;temp2.no)&#123;</span><br><span class="line">                temp.next=temp2;</span><br><span class="line">                temp2=temp2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(temp1.no&lt;temp2.no)&#123;</span><br><span class="line">                temp.next=temp1;</span><br><span class="line">                temp1=temp1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(temp1.no==temp2.no)&#123;</span><br><span class="line">                temp.next=temp1;</span><br><span class="line">                temp1=temp1.next;</span><br><span class="line">                temp2=temp2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">    return newone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="创建main类简单测试"><a href="#创建main类简单测试" class="headerlink" title="创建main类简单测试"></a>创建main类简单测试</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) throws Exception &#123;</span><br><span class="line">    SingleLinkedlist hero =new SingleLinkedlist();</span><br><span class="line">    SingleLinkedlist hero2 =new SingleLinkedlist();</span><br><span class="line">    HeroNode a=new HeroNode(1,&quot;蜘蛛侠&quot;);</span><br><span class="line">    HeroNode b=new HeroNode(2,&quot;钢铁侠&quot;);</span><br><span class="line">    HeroNode c=new HeroNode(3,&quot;绿巨人&quot;);</span><br><span class="line">    HeroNode d=new HeroNode(4,&quot;雷神&quot;);</span><br><span class="line">    HeroNode e=new HeroNode(5,&quot;黑寡妇&quot;);</span><br><span class="line">    HeroNode f=new HeroNode(6,&quot;美国队长&quot;);</span><br><span class="line"></span><br><span class="line">    hero.addByorder(a);</span><br><span class="line">    hero.addByorder(c);</span><br><span class="line">    hero2.addByorder(b);</span><br><span class="line">    hero2.addByorder(d);</span><br><span class="line">    hero.addByorder(e);</span><br><span class="line">    hero2.addByorder(f);</span><br><span class="line"></span><br><span class="line">    SingleLinkedlist newone=hero.merge(hero2);</span><br><span class="line">    newone.list();</span><br></pre></td></tr></table></figure>
-<h2 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h2><p><img src="/2022/03/23/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8D%95%E9%93%BE%E8%A1%A8/1.png" alt="结果" title=" 排名不分先后"></p>
-]]></content>
-      <categories>
-        <category>java笔记</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>学习笔记</tag>
-        <tag>算法笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的第一篇博客文章</title>
-    <url>/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p><a href="https://baidu.com/" title="你知道我要说什么吧">百度</a></p>
-<hr>
-<p>hello world</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">include&lt;studio.h&gt;</span><br><span class="line">    int main()&#123;</span><br><span class="line">        print(&quot;hello world&quot;)</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><p><a href="https://bing.com/" title="必应天下第一">必应</a></p>
-<hr>
-<ol>
-<li> Open the file.</li>
-<li>Find the following code block on line 21:<pre><code>  &lt;html&gt;
-   &lt;head&gt;
-     &lt;title&gt;Test&lt;/title&gt;
-  &lt;/head&gt;
- 
-</code></pre>
-</li>
-<li> Update the title to match the name of your website.<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1></li>
-</ol>
-<blockquote>
-<p>这是两个链接</p>
-<blockquote>
-<p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="https://hexo.com/">https://hexo.com</a></p>
-</blockquote>
-<p>这是我是邮箱地址</p>
-<blockquote>
-<p><a href="mailto:&#x32;&#53;&#x36;&#55;&#49;&#x31;&#x34;&#x33;&#54;&#51;&#x40;&#113;&#x71;&#x2e;&#x63;&#x6f;&#109;">&#x32;&#53;&#x36;&#55;&#49;&#x31;&#x34;&#x33;&#54;&#51;&#x40;&#113;&#x71;&#x2e;&#x63;&#x6f;&#109;</a><br><strong><a href="http://baidu.com/"><code>baidu</code></a></strong></p>
-</blockquote>
-</blockquote>
-<p><img src="/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/beijing.png" alt="这是图片" title="这是图片"></p>
-<p>这是程序测试、、、、</p>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练习</tag>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>java算法笔记-双向链表和约瑟夫环</title>
-    <url>/2022/03/24/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E5%92%8C%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/</url>
-    <content><![CDATA[<h1 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h1><h2 id="概念介绍"><a href="#概念介绍" class="headerlink" title="概念介绍"></a>概念介绍</h2><p>顾名思义，如果你知道单向链表只能朝着一个方向遍历的话，那么双向链表就是可以向两个方向遍历。双向链表每个结点存在两个指针域，分别存储该结点的前驱结点引用和后继结点引用，从任意一个结点出发，都能通过前驱引用以及后继引用完成整个链表结点的访问。</p>
-<p>所以不难看出，单向链表能干的事，双向链表也能干！但是正是因为这一特性，相比于单链表，双向链表在访问其他结点上带来方便的同时，将占用更多的资源，因此在使用的时候可以根据自己的场景来决定使用何种数据结构。</p>
-<h2 id="节点结构"><a href="#节点结构" class="headerlink" title="节点结构"></a>节点结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class DataNode&#123;</span><br><span class="line">    int date;</span><br><span class="line">    DataNode pre;</span><br><span class="line">    DataNode next;</span><br><span class="line"></span><br><span class="line">    public DataNode(int num)&#123;</span><br><span class="line">        this.date=num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;DataNode&#123;&quot; +</span><br><span class="line">                &quot;date=&quot; + date +</span><br><span class="line">                &#x27;&#125;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>不难看出，双向链表只是在单链表的基础上加立一个前驱指针pre</p>
-<h2 id="用一个DoubleLinkedList类来表示双向链表和封装方法"><a href="#用一个DoubleLinkedList类来表示双向链表和封装方法" class="headerlink" title="用一个DoubleLinkedList类来表示双向链表和封装方法"></a>用一个DoubleLinkedList类来表示双向链表和封装方法</h2><h3 id="代码全局"><a href="#代码全局" class="headerlink" title="代码全局"></a>代码全局</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class DoubleLinkedLIst &#123;</span><br><span class="line">    //头指针</span><br><span class="line">    public DataNode head =new DataNode(0);</span><br><span class="line"></span><br><span class="line">    //将一个节点加入队尾</span><br><span class="line">    public void add(DataNode dataNode)&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //按序加入，并且重复元素不加入</span><br><span class="line">    public void addByorder(DataNode dataNode)&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //遍历</span><br><span class="line">    public void list()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    // 在不重复的链表中删除对应数据</span><br><span class="line">    public void delete(int num) throws Exception &#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="将一个节点加入队尾"><a href="#将一个节点加入队尾" class="headerlink" title="将一个节点加入队尾"></a>将一个节点加入队尾</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void add(DataNode dataNode)&#123;</span><br><span class="line">    DataNode temp =head;</span><br><span class="line">    while(temp.next!=null)&#123;</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">    temp.next=dataNode;</span><br><span class="line">    dataNode.pre=temp;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="按序加入，并且重复元素不加入"><a href="#按序加入，并且重复元素不加入" class="headerlink" title="按序加入，并且重复元素不加入"></a>按序加入，并且重复元素不加入</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void addByorder(DataNode dataNode)&#123;</span><br><span class="line">        DataNode temp =head;</span><br><span class="line">        while(temp.next!=null &amp;&amp; temp.next.date&lt;dataNode.date)&#123;</span><br><span class="line">            temp=temp.next;</span><br><span class="line">        &#125;</span><br><span class="line">        if(temp.next==null)&#123;</span><br><span class="line">            add(dataNode);</span><br><span class="line">        &#125; else if(temp.next.date==dataNode.date)&#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            dataNode.next=temp.next;</span><br><span class="line">            dataNode.pre=temp;</span><br><span class="line">            temp.next.pre=dataNode;</span><br><span class="line">            temp.next=dataNode;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void list()&#123;</span><br><span class="line">        DataNode temp =head.next;</span><br><span class="line">        while(temp!=null)&#123;</span><br><span class="line">            System.out.println(temp.toString());</span><br><span class="line">            temp=temp.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="在不重复的链表中删除对应数据"><a href="#在不重复的链表中删除对应数据" class="headerlink" title="在不重复的链表中删除对应数据"></a>在不重复的链表中删除对应数据</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void delete(int num) throws Exception &#123;</span><br><span class="line">        DataNode temp =head.next;</span><br><span class="line">        if(temp==null)&#123;</span><br><span class="line">            throw new Exception();</span><br><span class="line">        &#125;</span><br><span class="line">        while(temp.date!=num)&#123;</span><br><span class="line">            temp=temp.next;</span><br><span class="line">        &#125;</span><br><span class="line">        temp.next.pre=temp.pre;</span><br><span class="line">        temp.pre.next=temp.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="简单的测试代码"><a href="#简单的测试代码" class="headerlink" title="简单的测试代码"></a>简单的测试代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        DataNode a1 =new DataNode(1);</span><br><span class="line">        DataNode a2 =new DataNode(2);</span><br><span class="line">        DataNode a3 =new DataNode(3);</span><br><span class="line">        DataNode a4 =new DataNode(4);</span><br><span class="line">        DataNode a5 =new DataNode(5);</span><br><span class="line">        DataNode a6 =new DataNode(6);</span><br><span class="line">        DoubleLinkedLIst d =new DoubleLinkedLIst();</span><br><span class="line"></span><br><span class="line">        d.addByorder(a2);</span><br><span class="line">        d.addByorder(a3);</span><br><span class="line">        d.addByorder(a1);</span><br><span class="line">        d.addByorder(a4);</span><br><span class="line">        d.addByorder(a6);</span><br><span class="line">        d.addByorder(a5);</span><br><span class="line">        d.delete(5);</span><br><span class="line"></span><br><span class="line">        d.list();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>测试结果：<br><img src="/2022/03/24/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E5%92%8C%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/1.png" alt="结果1"></p>
-<h1 id="约瑟夫环："><a href="#约瑟夫环：" class="headerlink" title="约瑟夫环："></a>约瑟夫环：</h1><h2 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h2><p>已知n个人（以编号1，2，3…n分别表示）围坐在一张圆桌周围。从编号为k的人开始报数，数到m的那个人出列；他的下一个人又从1开始报数，数到m的那个人又出列；依此规律重复下去，直到圆桌周围的人全部出列。</p>
-<h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><p>创建一个循环链表，当k为1时，直接从start节点输出n个节点。当k不为1时，创建temp指针指向start，删掉从start开始数的第k个节点并输出。然后temp向后移一位，再开始数，一直循环这个过程。当temp.next等于temp时结束循环，并输出此节点即可输出完整答案。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="Node类"><a href="#Node类" class="headerlink" title="Node类"></a>Node类</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Node&#123;</span><br><span class="line">    public int no ;</span><br><span class="line">    public Node next;</span><br><span class="line"></span><br><span class="line">    public Node(int num)&#123;</span><br><span class="line">        this.no=num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;node&#123;&quot; +</span><br><span class="line">                &quot;no=&quot; + no +</span><br><span class="line">                &#x27;&#125;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="solve-方法"><a href="#solve-方法" class="headerlink" title="solve 方法"></a>solve 方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void solve(int num ,int cunt)&#123;</span><br><span class="line">        //创建循环链表</span><br><span class="line">        Node start =new Node(1);</span><br><span class="line">        Node temp  =start;</span><br><span class="line">        for(int i=2;i&lt;=num;i++)&#123;</span><br><span class="line">            temp.next =new Node(i);</span><br><span class="line">            temp=temp.next;</span><br><span class="line">        &#125;</span><br><span class="line">        temp.next=start;</span><br><span class="line"></span><br><span class="line">        //遍历并输出结果</span><br><span class="line">        temp=start;</span><br><span class="line">        if(cunt==1)&#123;</span><br><span class="line">            for(int i=1;i&lt;=num;i++)&#123;</span><br><span class="line">                System.out.println(temp.toString());</span><br><span class="line">                temp=temp.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            while(temp.next!=temp)&#123;</span><br><span class="line">                for(int i=0;i&lt;cunt-2;i++)&#123;</span><br><span class="line">                    temp=temp.next;</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(temp.next.toString());</span><br><span class="line">                temp.next=temp.next.next;</span><br><span class="line">                temp=temp.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(temp.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="main测试"><a href="#main测试" class="headerlink" title="main测试"></a>main测试</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Scanner sc = new Scanner(System.in);</span><br><span class="line">        System.out.print(&quot;请输入人数:&quot;);</span><br><span class="line">        int people = sc.nextInt();</span><br><span class="line">        System.out.print(&quot;请输入报数数目：&quot;);</span><br><span class="line">        int cunt =sc.nextInt();</span><br><span class="line">        sc.close();</span><br><span class="line">        solve(people,cunt);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试结果：<br><img src="/2022/03/24/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E5%92%8C%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/2.png" alt="结果2"></p>
-]]></content>
-      <categories>
-        <category>java笔记</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>学习笔记</tag>
-        <tag>算法笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>算法笔记-数组实现循环队列</title>
     <url>/2022/03/16/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97-1/</url>
     <content><![CDATA[<h2 id="队列介绍"><a href="#队列介绍" class="headerlink" title="队列介绍"></a>队列介绍</h2><p>队列是一个有序列表，可以用数组和链表来实现（这里采用数组实现的方式）</p>
@@ -525,6 +497,47 @@
       <tags>
         <tag>java</tag>
         <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇博客文章</title>
+    <url>/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p><a href="https://baidu.com/" title="你知道我要说什么吧">百度</a></p>
+<hr>
+<p>hello world</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">include&lt;studio.h&gt;</span><br><span class="line">    int main()&#123;</span><br><span class="line">        print(&quot;hello world&quot;)</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><p><a href="https://bing.com/" title="必应天下第一">必应</a></p>
+<hr>
+<ol>
+<li> Open the file.</li>
+<li>Find the following code block on line 21:<pre><code>  &lt;html&gt;
+   &lt;head&gt;
+     &lt;title&gt;Test&lt;/title&gt;
+  &lt;/head&gt;
+ 
+</code></pre>
+</li>
+<li> Update the title to match the name of your website.<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1></li>
+</ol>
+<blockquote>
+<p>这是两个链接</p>
+<blockquote>
+<p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="https://hexo.com/">https://hexo.com</a></p>
+</blockquote>
+<p>这是我是邮箱地址</p>
+<blockquote>
+<p><a href="mailto:&#x32;&#x35;&#x36;&#x37;&#49;&#x31;&#52;&#x33;&#54;&#x33;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#x32;&#x35;&#x36;&#x37;&#49;&#x31;&#52;&#x33;&#54;&#x33;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;</a><br><strong><a href="http://baidu.com/"><code>baidu</code></a></strong></p>
+</blockquote>
+</blockquote>
+<p><img src="/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/beijing.png" alt="这是图片" title="这是图片"></p>
+<p>这是程序测试、、、、</p>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练习</tag>
+        <tag>测试</tag>
       </tags>
   </entry>
 </search>
