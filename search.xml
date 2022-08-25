@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/2021/09/24/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>java笔记(0)-对象导论</title>
     <url>/2021/10/27/java%E7%AC%94%E8%AE%B0-0-%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</url>
     <content><![CDATA[<p>参考书籍《Java编程思想》</p>
@@ -97,37 +115,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/09/24/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>编码那些事</title>
-    <url>/2022/08/24/%E7%BC%96%E7%A0%81%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
-    <content><![CDATA[<h1 id="什么是编码"><a href="#什么是编码" class="headerlink" title="什么是编码"></a>什么是编码</h1><p>编码</p>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-        <tag>计算机基础</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>java笔记(2)-快速排序</title>
     <url>/2021/11/01/java%E7%AC%94%E8%AE%B0-2-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<h2 id="什么是快速排序"><a href="#什么是快速排序" class="headerlink" title="什么是快速排序"></a>什么是快速排序</h2><p>快速排序是一种效率很高的排序方式，假设对于某一数列进行增序排列，那么这个过程（快排）可以概括为：</p>
@@ -168,40 +155,6 @@
       <tags>
         <tag>java</tag>
         <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>java算法笔记-单链表</title>
-    <url>/2022/03/23/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8D%95%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h2 id="概念介绍"><a href="#概念介绍" class="headerlink" title="概念介绍"></a>概念介绍</h2><p>链表的结构很简单，就是一个个节点连接在一起，形成一个完整的链条，每个节点包含2部分，数据域，和一个指向下一个节点引用的指针next,具体的更详细的大家可以参考相关资料解释，再说说删除操作，同样需要找到数据所在的位置，然后进行删除，不同的是，删除的时候，链表只需要改变一下前后节点的引用关系即可，就完成了节点的删除，而没有像数组那样触发一次全部数据的移动，从这个描述来看，链表在进行删除的时候，速度比数组快<br>链表有很多种形式包括单链表，双向链表，循环链表等，本文主要内容是单向链表。</p>
-<h2 id="创建节点类"><a href="#创建节点类" class="headerlink" title="创建节点类"></a>创建节点类</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//链表类，并重写了toString方法</span><br><span class="line">class HeroNode&#123;</span><br><span class="line">   public int no;</span><br><span class="line">   public String name;</span><br><span class="line">   public HeroNode next;</span><br><span class="line"></span><br><span class="line">   public HeroNode(int no,String name)&#123;</span><br><span class="line">       this.name=name;</span><br><span class="line">       this.no=no;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;HeroNode&#123;&quot; +</span><br><span class="line">                &quot;no=&quot; + no +</span><br><span class="line">                &quot;, name=&#x27;&quot; + name +&quot;&#125;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="用一个SingleLinkedList类封来表示链表和封装方法"><a href="#用一个SingleLinkedList类封来表示链表和封装方法" class="headerlink" title="用一个SingleLinkedList类封来表示链表和封装方法"></a>用一个SingleLinkedList类封来表示链表和封装方法</h2><ul>
-<li>代码全局<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class SingleLinkedlist &#123;</span><br><span class="line"></span><br><span class="line">    //头指针</span><br><span class="line">    public HeroNode head =new HeroNode(0,null);</span><br><span class="line"></span><br><span class="line">    //在链表尾部加入新元素</span><br><span class="line">    public void add(HeroNode a)&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //按序号加入序号重复的不加入</span><br><span class="line">    public void addByorder(HeroNode a) throws Exception&#123;&#125; </span><br><span class="line"></span><br><span class="line">    //遍历链表</span><br><span class="line">    public void list()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //链表反转</span><br><span class="line">    public void rollBack()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //从尾到头打印单链表</span><br><span class="line">    public void BackList()&#123;&#125;</span><br><span class="line"></span><br><span class="line">     //合并两个有序的单链表最后成一个新的单链表</span><br><span class="line">    public SingleLinkedlist merge(SingleLinkedlist s)&#123;&#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-<li>在链表尾部加入新元素<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//在链表尾部加入新元素</span><br><span class="line">public void add(HeroNode a)&#123;</span><br><span class="line">    HeroNode temp=head;</span><br><span class="line">    while(temp.next!=null)&#123;</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">    temp.next=a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li> 按序号加入序号重复的不加入</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void addByorder(HeroNode a) throws Exception &#123;</span><br><span class="line">        HeroNode temp = head;</span><br><span class="line"></span><br><span class="line">        while(temp.next!=null &amp;&amp; temp.next.no&lt;a.no)&#123;</span><br><span class="line"></span><br><span class="line">            temp=temp.next;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        if(temp.next==null)&#123;</span><br><span class="line">            temp.next=a;</span><br><span class="line">        &#125;else if(temp.next.no==a.no)&#123;</span><br><span class="line">            throw new Exception(&quot;数据重复&quot;);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            a.next=temp.next;</span><br><span class="line">            temp.next=a;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li> 遍历链表<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void list()&#123;</span><br><span class="line">    if(head.next==null)&#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    HeroNode temp=head;</span><br><span class="line"></span><br><span class="line">    while(temp.next!=null)&#123;</span><br><span class="line">        System.out.println(temp.next.toString());</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>链表反转返还一个新的链表</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//链表反转</span><br><span class="line">public void rollBack()&#123;</span><br><span class="line">    HeroNode pnode =head.next;</span><br><span class="line">    HeroNode pprior =null;</span><br><span class="line"></span><br><span class="line">    while(pnode!=null) &#123;</span><br><span class="line">        HeroNode pnext = pnode.next;</span><br><span class="line">        if (pnext == null) &#123;</span><br><span class="line">            head.next = pnode;</span><br><span class="line">        &#125;</span><br><span class="line">        pnode.next = pprior;</span><br><span class="line">        pprior = pnode;</span><br><span class="line">        pnode = pnext;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>从尾到头打印单链表</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void BackList()&#123;</span><br><span class="line">    Stack&lt;HeroNode&gt; s=new Stack&lt;&gt;();</span><br><span class="line">    HeroNode temp= head;</span><br><span class="line">    while(temp.next!=null)&#123;</span><br><span class="line">        s.push(temp.next);</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">    while(!s.isEmpty())&#123;</span><br><span class="line">        HeroNode hn=s.pop();</span><br><span class="line">        System.out.println(hn.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>合并两个有序的单链表最后成一个新的有序单链表</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public SingleLinkedlist merge(SingleLinkedlist s)&#123;</span><br><span class="line">    SingleLinkedlist newone = new SingleLinkedlist();</span><br><span class="line">    HeroNode temp =newone.head;</span><br><span class="line">    HeroNode temp1=head.next;</span><br><span class="line">    HeroNode temp2=s.head.next;</span><br><span class="line">    while(temp1!=null||temp2!=null)&#123;</span><br><span class="line">        if(temp1==null)&#123;</span><br><span class="line">            temp.next=temp2;</span><br><span class="line">            temp2=temp2.next;</span><br><span class="line">        &#125; else if(temp2==null)&#123;</span><br><span class="line">            temp.next=temp1;</span><br><span class="line">            temp1=temp1.next;</span><br><span class="line">        &#125;</span><br><span class="line">        if(temp1!=null&amp;&amp;temp2!=null) &#123;</span><br><span class="line">            if(temp1.no&gt;temp2.no)&#123;</span><br><span class="line">                temp.next=temp2;</span><br><span class="line">                temp2=temp2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(temp1.no&lt;temp2.no)&#123;</span><br><span class="line">                temp.next=temp1;</span><br><span class="line">                temp1=temp1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(temp1.no==temp2.no)&#123;</span><br><span class="line">                temp.next=temp1;</span><br><span class="line">                temp1=temp1.next;</span><br><span class="line">                temp2=temp2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">    return newone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="创建main类简单测试"><a href="#创建main类简单测试" class="headerlink" title="创建main类简单测试"></a>创建main类简单测试</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) throws Exception &#123;</span><br><span class="line">    SingleLinkedlist hero =new SingleLinkedlist();</span><br><span class="line">    SingleLinkedlist hero2 =new SingleLinkedlist();</span><br><span class="line">    HeroNode a=new HeroNode(1,&quot;蜘蛛侠&quot;);</span><br><span class="line">    HeroNode b=new HeroNode(2,&quot;钢铁侠&quot;);</span><br><span class="line">    HeroNode c=new HeroNode(3,&quot;绿巨人&quot;);</span><br><span class="line">    HeroNode d=new HeroNode(4,&quot;雷神&quot;);</span><br><span class="line">    HeroNode e=new HeroNode(5,&quot;黑寡妇&quot;);</span><br><span class="line">    HeroNode f=new HeroNode(6,&quot;美国队长&quot;);</span><br><span class="line"></span><br><span class="line">    hero.addByorder(a);</span><br><span class="line">    hero.addByorder(c);</span><br><span class="line">    hero2.addByorder(b);</span><br><span class="line">    hero2.addByorder(d);</span><br><span class="line">    hero.addByorder(e);</span><br><span class="line">    hero2.addByorder(f);</span><br><span class="line"></span><br><span class="line">    SingleLinkedlist newone=hero.merge(hero2);</span><br><span class="line">    newone.list();</span><br></pre></td></tr></table></figure>
-<h2 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h2><p><img src="/2022/03/23/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8D%95%E9%93%BE%E8%A1%A8/1.png" alt="结果" title=" 排名不分先后"></p>
-]]></content>
-      <categories>
-        <category>java笔记</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>学习笔记</tag>
-        <tag>算法笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -275,6 +228,40 @@
       <tags>
         <tag>java</tag>
         <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java算法笔记-单链表</title>
+    <url>/2022/03/23/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8D%95%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h2 id="概念介绍"><a href="#概念介绍" class="headerlink" title="概念介绍"></a>概念介绍</h2><p>链表的结构很简单，就是一个个节点连接在一起，形成一个完整的链条，每个节点包含2部分，数据域，和一个指向下一个节点引用的指针next,具体的更详细的大家可以参考相关资料解释，再说说删除操作，同样需要找到数据所在的位置，然后进行删除，不同的是，删除的时候，链表只需要改变一下前后节点的引用关系即可，就完成了节点的删除，而没有像数组那样触发一次全部数据的移动，从这个描述来看，链表在进行删除的时候，速度比数组快<br>链表有很多种形式包括单链表，双向链表，循环链表等，本文主要内容是单向链表。</p>
+<h2 id="创建节点类"><a href="#创建节点类" class="headerlink" title="创建节点类"></a>创建节点类</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//链表类，并重写了toString方法</span><br><span class="line">class HeroNode&#123;</span><br><span class="line">   public int no;</span><br><span class="line">   public String name;</span><br><span class="line">   public HeroNode next;</span><br><span class="line"></span><br><span class="line">   public HeroNode(int no,String name)&#123;</span><br><span class="line">       this.name=name;</span><br><span class="line">       this.no=no;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;HeroNode&#123;&quot; +</span><br><span class="line">                &quot;no=&quot; + no +</span><br><span class="line">                &quot;, name=&#x27;&quot; + name +&quot;&#125;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="用一个SingleLinkedList类封来表示链表和封装方法"><a href="#用一个SingleLinkedList类封来表示链表和封装方法" class="headerlink" title="用一个SingleLinkedList类封来表示链表和封装方法"></a>用一个SingleLinkedList类封来表示链表和封装方法</h2><ul>
+<li>代码全局<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class SingleLinkedlist &#123;</span><br><span class="line"></span><br><span class="line">    //头指针</span><br><span class="line">    public HeroNode head =new HeroNode(0,null);</span><br><span class="line"></span><br><span class="line">    //在链表尾部加入新元素</span><br><span class="line">    public void add(HeroNode a)&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //按序号加入序号重复的不加入</span><br><span class="line">    public void addByorder(HeroNode a) throws Exception&#123;&#125; </span><br><span class="line"></span><br><span class="line">    //遍历链表</span><br><span class="line">    public void list()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //链表反转</span><br><span class="line">    public void rollBack()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //从尾到头打印单链表</span><br><span class="line">    public void BackList()&#123;&#125;</span><br><span class="line"></span><br><span class="line">     //合并两个有序的单链表最后成一个新的单链表</span><br><span class="line">    public SingleLinkedlist merge(SingleLinkedlist s)&#123;&#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+<li>在链表尾部加入新元素<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//在链表尾部加入新元素</span><br><span class="line">public void add(HeroNode a)&#123;</span><br><span class="line">    HeroNode temp=head;</span><br><span class="line">    while(temp.next!=null)&#123;</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">    temp.next=a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li> 按序号加入序号重复的不加入</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void addByorder(HeroNode a) throws Exception &#123;</span><br><span class="line">        HeroNode temp = head;</span><br><span class="line"></span><br><span class="line">        while(temp.next!=null &amp;&amp; temp.next.no&lt;a.no)&#123;</span><br><span class="line"></span><br><span class="line">            temp=temp.next;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        if(temp.next==null)&#123;</span><br><span class="line">            temp.next=a;</span><br><span class="line">        &#125;else if(temp.next.no==a.no)&#123;</span><br><span class="line">            throw new Exception(&quot;数据重复&quot;);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            a.next=temp.next;</span><br><span class="line">            temp.next=a;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li> 遍历链表<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void list()&#123;</span><br><span class="line">    if(head.next==null)&#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    HeroNode temp=head;</span><br><span class="line"></span><br><span class="line">    while(temp.next!=null)&#123;</span><br><span class="line">        System.out.println(temp.next.toString());</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>链表反转返还一个新的链表</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//链表反转</span><br><span class="line">public void rollBack()&#123;</span><br><span class="line">    HeroNode pnode =head.next;</span><br><span class="line">    HeroNode pprior =null;</span><br><span class="line"></span><br><span class="line">    while(pnode!=null) &#123;</span><br><span class="line">        HeroNode pnext = pnode.next;</span><br><span class="line">        if (pnext == null) &#123;</span><br><span class="line">            head.next = pnode;</span><br><span class="line">        &#125;</span><br><span class="line">        pnode.next = pprior;</span><br><span class="line">        pprior = pnode;</span><br><span class="line">        pnode = pnext;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>从尾到头打印单链表</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void BackList()&#123;</span><br><span class="line">    Stack&lt;HeroNode&gt; s=new Stack&lt;&gt;();</span><br><span class="line">    HeroNode temp= head;</span><br><span class="line">    while(temp.next!=null)&#123;</span><br><span class="line">        s.push(temp.next);</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">    while(!s.isEmpty())&#123;</span><br><span class="line">        HeroNode hn=s.pop();</span><br><span class="line">        System.out.println(hn.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>合并两个有序的单链表最后成一个新的有序单链表</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public SingleLinkedlist merge(SingleLinkedlist s)&#123;</span><br><span class="line">    SingleLinkedlist newone = new SingleLinkedlist();</span><br><span class="line">    HeroNode temp =newone.head;</span><br><span class="line">    HeroNode temp1=head.next;</span><br><span class="line">    HeroNode temp2=s.head.next;</span><br><span class="line">    while(temp1!=null||temp2!=null)&#123;</span><br><span class="line">        if(temp1==null)&#123;</span><br><span class="line">            temp.next=temp2;</span><br><span class="line">            temp2=temp2.next;</span><br><span class="line">        &#125; else if(temp2==null)&#123;</span><br><span class="line">            temp.next=temp1;</span><br><span class="line">            temp1=temp1.next;</span><br><span class="line">        &#125;</span><br><span class="line">        if(temp1!=null&amp;&amp;temp2!=null) &#123;</span><br><span class="line">            if(temp1.no&gt;temp2.no)&#123;</span><br><span class="line">                temp.next=temp2;</span><br><span class="line">                temp2=temp2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(temp1.no&lt;temp2.no)&#123;</span><br><span class="line">                temp.next=temp1;</span><br><span class="line">                temp1=temp1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(temp1.no==temp2.no)&#123;</span><br><span class="line">                temp.next=temp1;</span><br><span class="line">                temp1=temp1.next;</span><br><span class="line">                temp2=temp2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">    return newone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="创建main类简单测试"><a href="#创建main类简单测试" class="headerlink" title="创建main类简单测试"></a>创建main类简单测试</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) throws Exception &#123;</span><br><span class="line">    SingleLinkedlist hero =new SingleLinkedlist();</span><br><span class="line">    SingleLinkedlist hero2 =new SingleLinkedlist();</span><br><span class="line">    HeroNode a=new HeroNode(1,&quot;蜘蛛侠&quot;);</span><br><span class="line">    HeroNode b=new HeroNode(2,&quot;钢铁侠&quot;);</span><br><span class="line">    HeroNode c=new HeroNode(3,&quot;绿巨人&quot;);</span><br><span class="line">    HeroNode d=new HeroNode(4,&quot;雷神&quot;);</span><br><span class="line">    HeroNode e=new HeroNode(5,&quot;黑寡妇&quot;);</span><br><span class="line">    HeroNode f=new HeroNode(6,&quot;美国队长&quot;);</span><br><span class="line"></span><br><span class="line">    hero.addByorder(a);</span><br><span class="line">    hero.addByorder(c);</span><br><span class="line">    hero2.addByorder(b);</span><br><span class="line">    hero2.addByorder(d);</span><br><span class="line">    hero.addByorder(e);</span><br><span class="line">    hero2.addByorder(f);</span><br><span class="line"></span><br><span class="line">    SingleLinkedlist newone=hero.merge(hero2);</span><br><span class="line">    newone.list();</span><br></pre></td></tr></table></figure>
+<h2 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h2><p><img src="/2022/03/23/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8D%95%E9%93%BE%E8%A1%A8/1.png" alt="结果" title=" 排名不分先后"></p>
+]]></content>
+      <categories>
+        <category>java笔记</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>学习笔记</tag>
+        <tag>算法笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -441,6 +428,88 @@
       </tags>
   </entry>
   <entry>
+    <title>编码那些事</title>
+    <url>/2022/08/24/%E7%BC%96%E7%A0%81%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
+    <content><![CDATA[<p>原因是今天写项目的时候，引入github上面的xml文件，还有就是执行SQL命令的时候出现了编码错误。虽然idea给出了一键解决方法，但是这个编码错误让我<br>想起了以前做汇编实验的时候也出现许多由于编码错误而出现的乱码。于是就称今天的时间，好好的研究一下编码这回事。</p>
+<h1 id="什么是编码"><a href="#什么是编码" class="headerlink" title="什么是编码"></a>什么是编码</h1><p><em>编码是信息从一种形式或格式转换为另一种形式的过程，也称为计算机编程语言的代码简称编码。用预先规定的方法将文字、数字或其它对象编成数码，或将信息、数据转换成规定的电脉冲信号。编码在电子计算机、电视、遥控和通讯等方面广泛使用。编码是信息从一种形式或格式转换为另一种形式的过程。解码，是编码的逆过程。</em>  这是从百度百科里面抄下来的专业术语。其实简单来说就是计算机只能储存0，1这两种信号。所以当我们要储存英文字母，中文字符或者更加复杂的字符时。就要按一定的规则，将字符转换为计算机可以储存的0,1信号。这个转换的过程就是所谓的编码和解码。</p>
+<h1 id="编码的种类和历史"><a href="#编码的种类和历史" class="headerlink" title="编码的种类和历史"></a>编码的种类和历史</h1><h2 id="常用的编码方式"><a href="#常用的编码方式" class="headerlink" title="常用的编码方式"></a>常用的编码方式</h2><ul>
+<li>ASCII 码</li>
+<li>扩展的ASCII码</li>
+<li>Unicode符号集</li>
+<li>UTF-8</li>
+<li>GBK/GB2312/GB18030(win10中文系统默认编码方式一般是GBK)</li>
+</ul>
+<h2 id="编码的历史"><a href="#编码的历史" class="headerlink" title="编码的历史"></a>编码的历史</h2><blockquote>
+<p>计算机最早是由美国人在使用，于是由他们制定了二进制编码中8bit为一个字节(0~255)，划定了0-32的控制码、26个大小写英文字母以及若干个英文符号的二进制编码，将一个字节使用到了127号，因此在ASCII码中一个字节就是一个英文字母，很好计算。这种编码方式就是ANSI的ASCII码，这也是计算机最初使用的编码方式。</p>
+</blockquote>
+<blockquote>
+<p>随后很多欧洲国家也开始使用计算机，进而占用了一个字节的剩余128~255的位置，称为 ISO 8859-1</p>
+</blockquote>
+<blockquote>
+<p>随后计算机逐渐在中国日本等国家流行开来，这时候就需要一种对应中文的编码方式。如果只是延续ASCII码的规则的话，常用汉字就有6000多个，之前针对英文字符定义的8bit=1字节完全不够用。于是就想到了对于ASCII码进行扩展，用两个字节表示。并且将这种编码方式命令为GB2312</p>
+</blockquote>
+<blockquote>
+<p>但是中文的系统比较复杂，GB2312本身不够完善，所以随着时间发展就产生了GBK（也是现在中文系统最常用的），GB18030等字符集。他们都是中文字符的编码规则，但可以编码的内容存在一些不同。</p>
+</blockquote>
+<blockquote>
+<p>既然中文会有中文专有的编码，那么日文韩文这种肯定也会有自己的编码。为了解决各个国家编码方式不互通。导致乱码无法交流。出现了一个叫 ISO 组织（国际标准化组织）决定着手解决这个问题。他们采用的方法很简单：废了所有的地区性编码方案，重新搞一个包括了地球上所有文化、所有字母和符号 的编码。这就是Unicode。unicode在很长一段时间内无法推广，直到互联网的出现，为解决unicode如何在网络上传输的问题，于是面向传输的众多 UTF（UCS Transfer Format）标准出现了。顾名思义，UTF-8就是每次8个位传输数据，而UTF-16就是每次16个位。UTF-8就是在互联网上使用最广的一种unicode的实现方式，这是为传输而设计的编码，并使编码无国界，这样就可以显示全世界上所有文化的字符了。到这主流的编码方式已经发展的很完善了。</p>
+</blockquote>
+<h1 id="为什么会乱码"><a href="#为什么会乱码" class="headerlink" title="为什么会乱码"></a>为什么会乱码</h1><h2 id="乱码出现的常见原因"><a href="#乱码出现的常见原因" class="headerlink" title="乱码出现的常见原因"></a>乱码出现的常见原因</h2><p>（这里单指编码方式导致的乱码）</p>
+<p>众所周知，计算机使用文档要经过 编写-储存-读取-使用 这些过程。所谓的编码就是将你输入的字符按规则编写成二进制码而储存在硬盘中。而解码就是读取你的二进制文件按编码规则逆过程将解码出来的字符集输出到你的屏幕上（也不是必须要输出）。很容易看出来这个编码和解码的过程使用的字符集和编码方式必须要是同一种。否则就会出现乱码。</p>
+<h2 id="我们平时在用哪些编码方式"><a href="#我们平时在用哪些编码方式" class="headerlink" title="我们平时在用哪些编码方式"></a>我们平时在用哪些编码方式</h2><p>看完上面，这个时候就有疑问那么键盘输入的时候使用的是什么编码。其实输入法在往程序输入的时候，程序会指定自己想要的编码方式。在输入法输入后会在内部进行一个转换。转换成对应的编码方式。同样的解码时程序也会有一个指定的解码方式。如果编码解码时找不到这个指定的编码方式，那么就会采用系统默认的编码法方式。win10系统默认编码方式可以cmd输入命令chcp查看。</p>
+<h1 id="关于自己遇到错误的解决"><a href="#关于自己遇到错误的解决" class="headerlink" title="关于自己遇到错误的解决"></a>关于自己遇到错误的解决</h1><h2 id="xml文件乱码"><a href="#xml文件乱码" class="headerlink" title="xml文件乱码"></a>xml文件乱码</h2><p>从设置中我可以找到自己的idea设置默认编码方式是GBk，但是从github下载下来XMl的文件编码方式是UTF-8,系统默认的解决方式是对文件重新编码。转换成了对应GBK编码的文件，同样的我将默认的编码方式转换成了UTF-8在导入原来的xml文件也可以正常读取。</p>
+<h2 id="SQL语句乱码"><a href="#SQL语句乱码" class="headerlink" title="SQL语句乱码"></a>SQL语句乱码</h2><p>这个错误最多就是出现在时区的设置，如果不指定encoding—UTF-8那么就会出现很多乱码错误。其实这个错误和上一个是一样的。都是编码方式的不匹配。</p>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+        <tag>计算机基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇博客文章</title>
+    <url>/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p><a href="https://baidu.com/" title="你知道我要说什么吧">百度</a></p>
+<hr>
+<p>hello world</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">include&lt;studio.h&gt;</span><br><span class="line">    int main()&#123;</span><br><span class="line">        print(&quot;hello world&quot;)</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><p><a href="https://bing.com/" title="必应天下第一">必应</a></p>
+<hr>
+<ol>
+<li> Open the file.</li>
+<li>Find the following code block on line 21:<pre><code>  &lt;html&gt;
+   &lt;head&gt;
+     &lt;title&gt;Test&lt;/title&gt;
+  &lt;/head&gt;
+ 
+</code></pre>
+</li>
+<li> Update the title to match the name of your website.<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1></li>
+</ol>
+<blockquote>
+<p>这是两个链接</p>
+<blockquote>
+<p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="https://hexo.com/">https://hexo.com</a></p>
+</blockquote>
+<p>这是我是邮箱地址</p>
+<blockquote>
+<p><a href="mailto:&#x32;&#x35;&#x36;&#55;&#x31;&#49;&#52;&#51;&#x36;&#x33;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;">&#x32;&#x35;&#x36;&#55;&#x31;&#49;&#52;&#51;&#x36;&#x33;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;</a><br><strong><a href="http://baidu.com/"><code>baidu</code></a></strong></p>
+</blockquote>
+</blockquote>
+<p><img src="/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/beijing.png" alt="这是图片" title="这是图片"></p>
+<p>这是程序测试、、、、</p>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练习</tag>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>算法笔记-数组实现循环队列</title>
     <url>/2022/03/16/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97-1/</url>
     <content><![CDATA[<h2 id="队列介绍"><a href="#队列介绍" class="headerlink" title="队列介绍"></a>队列介绍</h2><p>队列是一个有序列表，可以用数组和链表来实现（这里采用数组实现的方式）</p>
@@ -497,47 +566,6 @@
       <tags>
         <tag>java</tag>
         <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的第一篇博客文章</title>
-    <url>/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p><a href="https://baidu.com/" title="你知道我要说什么吧">百度</a></p>
-<hr>
-<p>hello world</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">include&lt;studio.h&gt;</span><br><span class="line">    int main()&#123;</span><br><span class="line">        print(&quot;hello world&quot;)</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><p><a href="https://bing.com/" title="必应天下第一">必应</a></p>
-<hr>
-<ol>
-<li> Open the file.</li>
-<li>Find the following code block on line 21:<pre><code>  &lt;html&gt;
-   &lt;head&gt;
-     &lt;title&gt;Test&lt;/title&gt;
-  &lt;/head&gt;
- 
-</code></pre>
-</li>
-<li> Update the title to match the name of your website.<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1></li>
-</ol>
-<blockquote>
-<p>这是两个链接</p>
-<blockquote>
-<p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="https://hexo.com/">https://hexo.com</a></p>
-</blockquote>
-<p>这是我是邮箱地址</p>
-<blockquote>
-<p><a href="mailto:&#x32;&#x35;&#x36;&#x37;&#49;&#x31;&#52;&#x33;&#54;&#x33;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#x32;&#x35;&#x36;&#x37;&#49;&#x31;&#52;&#x33;&#54;&#x33;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;</a><br><strong><a href="http://baidu.com/"><code>baidu</code></a></strong></p>
-</blockquote>
-</blockquote>
-<p><img src="/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/beijing.png" alt="这是图片" title="这是图片"></p>
-<p>这是程序测试、、、、</p>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练习</tag>
-        <tag>测试</tag>
       </tags>
   </entry>
 </search>
