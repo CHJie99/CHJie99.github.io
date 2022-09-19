@@ -19,6 +19,43 @@
 ]]></content>
   </entry>
   <entry>
+    <title>java笔记(1)-用Java输出杨辉三角</title>
+    <url>/2021/10/29/java%E7%AC%94%E8%AE%B0-1-%E7%94%A8Java%E8%BE%93%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/</url>
+    <content><![CDATA[<p>参考网页<a href="http://c.biancheng.net/java/" title="特好用的编程学习网站">编程网</a></p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>输入：打印的行数。</p>
+<p>输出：对应行数的杨辉三角。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><hr>
+<p>杨辉三角示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">      1</span><br><span class="line">     1 1</span><br><span class="line">    1 2 1</span><br><span class="line">   1 3 3 1</span><br><span class="line">  1 4 6 4 1</span><br><span class="line"> 1 5 10 10 5 1</span><br><span class="line">1 6 15 20 15 6 1 </span><br></pre></td></tr></table></figure>
+<p>假设需要打印的行数是row ，num(i，j)代表第i行第j个数。</p>
+<p>通过分析不难得知： </p>
+<ul>
+<li>第i行要打印的空格数量为row-i</li>
+<li>第i行要打印i个数字，<strong>且</strong>每行第一个和最后一个（第i个都是1）</li>
+<li>当num(i,j)不是1时， <strong>num(i,j)=num(i-1,j)+num(i-1,j-1)即</strong>该数字等于上一行同一位置数字(都是第对应行第j个数字)和上一行前一个数字之和。</li>
+</ul>
+<p>首先定义num用来方法确定每一个值</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static int num(int a,int b) &#123;   //a,b代表第a行，第b个数</span><br><span class="line">	if(b==1||b==a) &#123;</span><br><span class="line">		return 1;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">	return c;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>定义calu方法输出杨辉三角</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void calu(int row) &#123;</span><br><span class="line">	for (int i=1;i&lt;=row;i++) &#123;                 //i代表行</span><br><span class="line">		for(int j=1;j&lt;=row-i;j++) &#123;            //j代表列</span><br><span class="line">			System.out.print(&quot; &quot;);             //输出每一行的空格</span><br><span class="line">		&#125;</span><br><span class="line">		for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">			System.out.print(num(i,j)+&quot; &quot;);    //输出每一行的数字</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>main方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);    //使用类时要先导入模块： import java。util.*; </span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);    </span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">				</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><hr>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package test1;</span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">public class test1&#123;</span><br><span class="line">	//num方法</span><br><span class="line">	public static int num(int a,int b) &#123;</span><br><span class="line">		if(b==1||b==a) &#123;</span><br><span class="line">			return 1;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">		return c;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	//calu方法</span><br><span class="line">	public static void calu(int row) &#123;</span><br><span class="line">		for (int i=1;i&lt;=row;i++) &#123;</span><br><span class="line">			for(int j=1;j&lt;=row-i;j++) &#123;</span><br><span class="line">				System.out.print(&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">				System.out.print(num(i,j)+&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);</span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);</span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结果示例"><a href="#结果示例" class="headerlink" title="结果示例"></a>结果示例</h2><p><img src="/2021/10/29/java%E7%AC%94%E8%AE%B0-1-%E7%94%A8Java%E8%BE%93%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/%E8%BE%93%E5%87%BA%E7%A4%BA%E4%BE%8B.png" alt="输出" title="纳尼？"> </p>
+]]></content>
+      <categories>
+        <category>java笔记</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>java笔记(0)-对象导论</title>
     <url>/2021/10/27/java%E7%AC%94%E8%AE%B0-0-%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</url>
     <content><![CDATA[<p>参考书籍《Java编程思想》</p>
@@ -78,33 +115,39 @@
       </tags>
   </entry>
   <entry>
-    <title>java笔记(1)-用Java输出杨辉三角</title>
-    <url>/2021/10/29/java%E7%AC%94%E8%AE%B0-1-%E7%94%A8Java%E8%BE%93%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/</url>
-    <content><![CDATA[<p>参考网页<a href="http://c.biancheng.net/java/" title="特好用的编程学习网站">编程网</a></p>
-<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>输入：打印的行数。</p>
-<p>输出：对应行数的杨辉三角。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><hr>
-<p>杨辉三角示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">      1</span><br><span class="line">     1 1</span><br><span class="line">    1 2 1</span><br><span class="line">   1 3 3 1</span><br><span class="line">  1 4 6 4 1</span><br><span class="line"> 1 5 10 10 5 1</span><br><span class="line">1 6 15 20 15 6 1 </span><br></pre></td></tr></table></figure>
-<p>假设需要打印的行数是row ，num(i，j)代表第i行第j个数。</p>
-<p>通过分析不难得知： </p>
-<ul>
-<li>第i行要打印的空格数量为row-i</li>
-<li>第i行要打印i个数字，<strong>且</strong>每行第一个和最后一个（第i个都是1）</li>
-<li>当num(i,j)不是1时， <strong>num(i,j)=num(i-1,j)+num(i-1,j-1)即</strong>该数字等于上一行同一位置数字(都是第对应行第j个数字)和上一行前一个数字之和。</li>
+    <title>java笔记(2)-快速排序</title>
+    <url>/2021/11/01/java%E7%AC%94%E8%AE%B0-2-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h2 id="什么是快速排序"><a href="#什么是快速排序" class="headerlink" title="什么是快速排序"></a>什么是快速排序</h2><p>快速排序是一种效率很高的排序方式，假设对于某一数列进行增序排列，那么这个过程（快排）可以概括为：</p>
+<blockquote>
+<p>1．先从数列中取出一个数作为基准数。</p>
+<p>2．分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。</p>
+<p>3．再对左右区间重复第二步，直到各区间只有一个数。</p>
+</blockquote>
+<p>假设数列为<code>&#123;4,9,1,5,3,8,7,6,2&#125;</code></p>
+<p>我们先选取4为基准数，进行第二步排序可以得到的新数列为</p>
+<p><code>&#123;1,3,2,4,9,5,8,7,6&#125;</code></p>
+<p>那么此时可以得到2个字数列</p>
+<p><code>&#123;1,3,2&#125;,4,&#123;9,5,8,7,6&#125;</code></p>
+<p>并且也确定了2个数子列的位置，接下来继续用同样的法方法处理子序列直到所有子数列都只有一个值，那么排序便完成了。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void QuickSort(int[] arr,int low ,int high ) &#123;    //low代表数组第一个值的下表，high代表最后一个</span><br><span class="line"></span><br><span class="line">    if (low &gt;= high) &#123;      //结束条件，传入函数的数组只有一个元素</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    int key = arr[low];        //选取关键字</span><br><span class="line">    int i = low;</span><br><span class="line">    int j = high;</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">    在i，j相遇之前</span><br><span class="line">    j从数列尾部开始从右往左找，在不和i相遇的情况下找到一个比key小的数字后，i就开始从0开始从前往后找在在和j相遇之前如果找到一个比key大的值。那么交换他们的指向的值</span><br><span class="line">    如果i，j相遇了，那么把i指向的元素赋给arr[low]，把key赋值给指向的元素.</span><br><span class="line">    */</span><br><span class="line">    while (i &lt; j) &#123;             </span><br><span class="line">        while (arr[j] &gt;= key &amp;&amp; i &lt; j) &#123;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        while (arr[i] &lt;= key &amp;&amp; i &lt; j) &#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        if (i &lt; j) &#123;</span><br><span class="line">            int tem = arr[i];      //交换值</span><br><span class="line">            arr[i] = arr[j];</span><br><span class="line">            arr[j] = tem;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    arr[low] = arr[i];      </span><br><span class="line">    arr[i] = key;           </span><br><span class="line">    QuickSort(arr, low, i - 1);        //处理子数组</span><br><span class="line">    QuickSort(arr, i + 1, high);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="算法时间复杂度"><a href="#算法时间复杂度" class="headerlink" title="算法时间复杂度"></a>算法时间复杂度</h2><ul>
+<li>快速排序最优的情况下时间复杂度为：O( nlogn )</li>
 </ul>
-<p>首先定义num用来方法确定每一个值</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static int num(int a,int b) &#123;   //a,b代表第a行，第b个数</span><br><span class="line">	if(b==1||b==a) &#123;</span><br><span class="line">		return 1;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">	return c;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>定义calu方法输出杨辉三角</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void calu(int row) &#123;</span><br><span class="line">	for (int i=1;i&lt;=row;i++) &#123;                 //i代表行</span><br><span class="line">		for(int j=1;j&lt;=row-i;j++) &#123;            //j代表列</span><br><span class="line">			System.out.print(&quot; &quot;);             //输出每一行的空格</span><br><span class="line">		&#125;</span><br><span class="line">		for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">			System.out.print(num(i,j)+&quot; &quot;);    //输出每一行的数字</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>main方法</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);    //使用类时要先导入模块： import java。util.*; </span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);    </span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">				</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><hr>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package test1;</span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">public class test1&#123;</span><br><span class="line">	//num方法</span><br><span class="line">	public static int num(int a,int b) &#123;</span><br><span class="line">		if(b==1||b==a) &#123;</span><br><span class="line">			return 1;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">		return c;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	//calu方法</span><br><span class="line">	public static void calu(int row) &#123;</span><br><span class="line">		for (int i=1;i&lt;=row;i++) &#123;</span><br><span class="line">			for(int j=1;j&lt;=row-i;j++) &#123;</span><br><span class="line">				System.out.print(&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">				System.out.print(num(i,j)+&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);</span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);</span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="结果示例"><a href="#结果示例" class="headerlink" title="结果示例"></a>结果示例</h2><p><img src="/2021/10/29/java%E7%AC%94%E8%AE%B0-1-%E7%94%A8Java%E8%BE%93%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/%E8%BE%93%E5%87%BA%E7%A4%BA%E4%BE%8B.png" alt="输出" title="纳尼？"> </p>
+<blockquote>
+<p>（快速排序最优的情况就是每一次取到的元素都刚好平分整个数组）</p>
+</blockquote>
+<ul>
+<li>快速排序最差的情况下时间复杂度为：O( n^2 )</li>
+</ul>
+<blockquote>
+<p>（最差的情况就是每一次取到的元素就是数组中最小/最大的，这种情况其实就是冒泡排序了）</p>
+</blockquote>
+<ul>
+<li>快速排序的平均时间复杂度也是：O(nlogn)</li>
+</ul>
+<h2 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h2><p>最优的情况下空间复杂度为：O(logn)  ；每一次都平分数组的情况</p>
+<p> 最差的情况下空间复杂度为：O( n )      ；退化为冒泡排序的情况</p>
 ]]></content>
       <categories>
         <category>java笔记</category>
@@ -235,49 +278,6 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    HashMap users = new HashMap();</span><br><span class="line">    users.put(&quot;11&quot;, &quot;张浩太&quot;); // 将学生信息键值对存储到Map中</span><br><span class="line">    users.put(&quot;22&quot;, &quot;刘思诚&quot;);</span><br><span class="line">    users.put(&quot;33&quot;, &quot;王强文&quot;);</span><br><span class="line">    users.put(&quot;44&quot;, &quot;李国量&quot;);</span><br><span class="line">    users.put(&quot;55&quot;, &quot;王路路&quot;);</span><br><span class="line">    System.out.println(&quot;******** 学生列表 ********&quot;);</span><br><span class="line">    Iterator it = users.keySet().iterator();</span><br><span class="line">    while (it.hasNext()) &#123;</span><br><span class="line">        // 遍历 Map</span><br><span class="line">        Object key = it.next();</span><br><span class="line">        Object val = users.get(key);</span><br><span class="line">        System.out.println(&quot;学号：&quot; + key + &quot;，姓名:&quot; + val);</span><br><span class="line">    &#125;</span><br><span class="line">    Scanner input = new Scanner(System.in);</span><br><span class="line">    System.out.println(&quot;请输入要删除的学号：&quot;);</span><br><span class="line">    int num = input.nextInt();</span><br><span class="line">    if (users.containsKey(String.valueOf(num))) &#123; // 判断是否包含指定键</span><br><span class="line">        users.remove(String.valueOf(num)); // 如果包含就删除</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        System.out.println(&quot;该学生不存在！&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(&quot;******** 学生列表 ********&quot;);</span><br><span class="line">    it = users.keySet().iterator();</span><br><span class="line">    while (it.hasNext()) &#123;</span><br><span class="line">        Object key = it.next();</span><br><span class="line">        Object val = users.get(key);</span><br><span class="line">        System.out.println(&quot;学号：&quot; + key + &quot;，姓名：&quot; + val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>输出示例：<br><img src="/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/out4.png" alt="输出"></p>
 <p>TreeMap 类的使用方法与 HashMap 类相同，唯一不同的是 TreeMap 类可以对键对象进行排序（参照Hashset和Treeset）</p>
-]]></content>
-      <categories>
-        <category>java笔记</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>java笔记(2)-快速排序</title>
-    <url>/2021/11/01/java%E7%AC%94%E8%AE%B0-2-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h2 id="什么是快速排序"><a href="#什么是快速排序" class="headerlink" title="什么是快速排序"></a>什么是快速排序</h2><p>快速排序是一种效率很高的排序方式，假设对于某一数列进行增序排列，那么这个过程（快排）可以概括为：</p>
-<blockquote>
-<p>1．先从数列中取出一个数作为基准数。</p>
-<p>2．分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。</p>
-<p>3．再对左右区间重复第二步，直到各区间只有一个数。</p>
-</blockquote>
-<p>假设数列为<code>&#123;4,9,1,5,3,8,7,6,2&#125;</code></p>
-<p>我们先选取4为基准数，进行第二步排序可以得到的新数列为</p>
-<p><code>&#123;1,3,2,4,9,5,8,7,6&#125;</code></p>
-<p>那么此时可以得到2个字数列</p>
-<p><code>&#123;1,3,2&#125;,4,&#123;9,5,8,7,6&#125;</code></p>
-<p>并且也确定了2个数子列的位置，接下来继续用同样的法方法处理子序列直到所有子数列都只有一个值，那么排序便完成了。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void QuickSort(int[] arr,int low ,int high ) &#123;    //low代表数组第一个值的下表，high代表最后一个</span><br><span class="line"></span><br><span class="line">    if (low &gt;= high) &#123;      //结束条件，传入函数的数组只有一个元素</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    int key = arr[low];        //选取关键字</span><br><span class="line">    int i = low;</span><br><span class="line">    int j = high;</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">    在i，j相遇之前</span><br><span class="line">    j从数列尾部开始从右往左找，在不和i相遇的情况下找到一个比key小的数字后，i就开始从0开始从前往后找在在和j相遇之前如果找到一个比key大的值。那么交换他们的指向的值</span><br><span class="line">    如果i，j相遇了，那么把i指向的元素赋给arr[low]，把key赋值给指向的元素.</span><br><span class="line">    */</span><br><span class="line">    while (i &lt; j) &#123;             </span><br><span class="line">        while (arr[j] &gt;= key &amp;&amp; i &lt; j) &#123;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        while (arr[i] &lt;= key &amp;&amp; i &lt; j) &#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        if (i &lt; j) &#123;</span><br><span class="line">            int tem = arr[i];      //交换值</span><br><span class="line">            arr[i] = arr[j];</span><br><span class="line">            arr[j] = tem;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    arr[low] = arr[i];      </span><br><span class="line">    arr[i] = key;           </span><br><span class="line">    QuickSort(arr, low, i - 1);        //处理子数组</span><br><span class="line">    QuickSort(arr, i + 1, high);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="算法时间复杂度"><a href="#算法时间复杂度" class="headerlink" title="算法时间复杂度"></a>算法时间复杂度</h2><ul>
-<li>快速排序最优的情况下时间复杂度为：O( nlogn )</li>
-</ul>
-<blockquote>
-<p>（快速排序最优的情况就是每一次取到的元素都刚好平分整个数组）</p>
-</blockquote>
-<ul>
-<li>快速排序最差的情况下时间复杂度为：O( n^2 )</li>
-</ul>
-<blockquote>
-<p>（最差的情况就是每一次取到的元素就是数组中最小/最大的，这种情况其实就是冒泡排序了）</p>
-</blockquote>
-<ul>
-<li>快速排序的平均时间复杂度也是：O(nlogn)</li>
-</ul>
-<h2 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h2><p>最优的情况下空间复杂度为：O(logn)  ；每一次都平分数组的情况</p>
-<p> 最差的情况下空间复杂度为：O( n )      ；退化为冒泡排序的情况</p>
 ]]></content>
       <categories>
         <category>java笔记</category>
@@ -487,6 +487,81 @@
       </tags>
   </entry>
   <entry>
+    <title>tomcat究竟是如何运行的</title>
+    <url>/2022/09/02/tomcat%E7%A9%B6%E7%AB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84/</url>
+    <content><![CDATA[<h1 id="web服务器"><a href="#web服务器" class="headerlink" title="web服务器"></a>web服务器</h1><p>简单来说只要Web上的Server都叫Web Server，但是大家分工不同，解决的问题也不同，所以根据Web Server提供的功能，每个Web Server的名字也会不一样。</p>
+<p>但是按功能来分web服务器主要分为<strong>http server</strong>和<strong>application server</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">|- Web Server</span><br><span class="line">        |- Http Server</span><br><span class="line">        |- Application Server</span><br><span class="line">            |- Servlet Container</span><br><span class="line">            |- CGI Server</span><br><span class="line">            |- ......</span><br></pre></td></tr></table></figure>
+<h2 id="htt服务器"><a href="#htt服务器" class="headerlink" title="htt服务器"></a>htt服务器</h2><p>HTTP Server本质上也是一种应用程序——它通常运行在服务器之上，绑定服务器的IP地址并监听某一个tcp端口来接收并处理HTTP请求，这样客户端（一般来说是IE, Firefox，Chrome这样的浏览器）就能够通过HTTP协议来获取服务器上的网页资源。</p>
+<p>一个HTTP Server关心的是HTTP协议层面的传输和访问控制，所以在Apache/Nginx上你可以看到代理、负载均衡等功能。</p>
+<p>HTTP Server中经常使用的是Apache、Nginx两种，HTTP Server主要用来做静态内容服务、代理服务器、负载均衡等。直面外来请求转发给后面的应用服务（Tomcat，django什么的）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">|- Application Server</span><br><span class="line">    |- Tomcat</span><br><span class="line">    |- Jetty</span><br></pre></td></tr></table></figure>
+
+<h2 id="Application-Server"><a href="#Application-Server" class="headerlink" title="Application Server"></a>Application Server</h2><p>Application Server 是一个应用执行的服务器。它首先需要支持开发语言的 Runtime（对于 Tomcat 来说，就是 Java），保证应用能够在应用服务器上正常运行。其次，需要支持应用相关的规范，例如类库、安全方面的特性。与HTTP Server相比，Application Server能够动态的生成资源并返回到客户端。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">|- Application Server</span><br><span class="line">    |- Tomcat</span><br><span class="line">    |- Jetty</span><br></pre></td></tr></table></figure>
+
+<p>在Apache Server开发时还未出现Servlet的概念，所以Apache不能内置支持Servlet。实际上，除了Apache，其他许多HTTP Server软件都不能直接支持Servlet。为了支持Servlet，通常要单独开发程序，这种程序一般称为服务器小程序容器（Servlet Container），有时也叫做服务器小程序引擎（Servlet Engine）。它是Web服务器或应用程序服务器的一部分，用于在发送的请求和响应之上提供网络服务，解码基于MIME的请求，格式化基于MIME的响应，它在Servlet的生命周期内包容和管理Servlet，是一个实时运行的外壳程序。运行时由Web服务器软件处理一般请求，并把Servlet调用传递给“容器”来处理。</p>
+<p>比如，对于 Tomcat 来说，就是需要提供 JSP/Sevlet 运行需要的标准类库、Interface 等。为了方便，应用服务器往往也会集成 HTTP Server 的功能，但是不如专业的 HTTP Server 那么强大，所以Application Server往往是运行在 HTTP Server 的背后，执行应用，将动态的内容转化为静态的内容之后，通过 HTTP Server 分发到客户端。</p>
+<p>Tomcat运行在JVM之上，它和HTTP服务器一样，绑定IP地址并监听TCP端口，同时还包含以下指责：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 管理Servlet程序的生命周期；</span><br><span class="line">2. 将URL映射到指定的Servlet进行处理；</span><br><span class="line">3. 与Servlet程序合作处理HTTP请求——根据HTTP请求生成HttpServletRequest/Response对象并传递给Servlet进行处理，将Servlet中的HttpServletResponse对象生成的内容返回给浏览器；</span><br></pre></td></tr></table></figure>
+
+<p>所以 Tomcat 属于是一个「Application Server」，但是更准确的来说，是一个「Servlet/JSP」应用的容器</p>
+<h1 id="tomcat的内部结构"><a href="#tomcat的内部结构" class="headerlink" title="tomcat的内部结构"></a>tomcat的内部结构</h1><p><img src="/2022/09/02/tomcat%E7%A9%B6%E7%AB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84/2.jpg"></p>
+<p>从上图就可以看出tomcat的内部结构的核心主要分为两部分<strong>连接器（Connector）</strong>和<strong>容器（Container）</strong>而他们的主要作用如下</p>
+<ul>
+<li>Connector用于处理连接相关的事情，并提供Socket与Request和Response相关的转化;</li>
+<li>Container用于封装和管理Servlet，以及具体处理Request请求；</li>
+</ul>
+<p>一个Tomcat中只有一个Server，一个Server可以包含多个Service，一个Service只有一个Container，但是可以有多个Connectors，这是因为一个服务可以有多个连接，如同时提供Http和Https链接，也可以提供向相同协议不同端口的连接,示意图如下<br><img src="/2022/09/02/tomcat%E7%A9%B6%E7%AB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84/conn.png" alt="connectors"></p>
+<h2 id="connector-架构分析"><a href="#connector-架构分析" class="headerlink" title="connector 架构分析"></a>connector 架构分析</h2><p>Connector用于接受请求并将请求封装成Request和Response，然后交给Container进行处理，Container处理完之后在交给Connector返回给客户端。<br>因此，我们可以把Connector分为四个方面进行理解：</p>
+<ul>
+<li>Connector如何接受请求的？</li>
+<li>如何将请求封装成Request和Response的？</li>
+<li>封装完之后的Request和Response如何交给Container进行处理的？</li>
+<li>Container处理完之后如何交给Connector并返回给客户端的？</li>
+</ul>
+<p>下图是Connector的结构图<br><img src="/2022/09/02/tomcat%E7%A9%B6%E7%AB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84/conn2.png" alt="conn2"></p>
+<p>Connector就是使用ProtocolHandler来处理请求的，不同的ProtocolHandler代表不同的连接类型，比如：Http11Protocol使用的是普通Socket来连接的，Http11NioProtocol使用的是NioSocket来连接的。</p>
+<p>其中ProtocolHandler由包含了三个部件：Endpoint、Processor、Adapter。</p>
+<ul>
+<li><strong>Endpoint用来处理底层Socket的网络连接，Processor用于将Endpoint接收到的Socket封装成Request，Adapter用于将Request交给Container进行具体的处理。</strong></li>
+</ul>
+<p>此时前三个问题就可以解答了，但是第四个问题还要看container的架构</p>
+<h2 id="container-架构分析"><a href="#container-架构分析" class="headerlink" title="container 架构分析"></a>container 架构分析</h2><p>首先先看container的架构图<br><img src="/2022/09/02/tomcat%E7%A9%B6%E7%AB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84/container.png" alt="container"></p>
+<p>从图中可以看到container有4个子容器Engine、Host、Context、Wrapper它们的作用分别是：</p>
+<ul>
+<li>Engine：引擎，用来管理多个站点，一个Service最多只能有一个Engine；</li>
+<li>Host：代表一个站点，也可以叫虚拟主机，通过配置Host就可以添加站点；</li>
+<li>Context：代表一个应用程序，对应着平时开发的一套程序，或者一个WEB-INF目录以及下面的web.xml文件；</li>
+<li>Wrapper：每一Wrapper封装着一个Servlet；</li>
+</ul>
+<p>假设adapter提交了一个访问请求地址为<a href="http://localhost:8080/examples/composite.jsp%E7%9A%84%E8%AF%B7%E6%B1%82%E5%88%B0Container%E9%82%A3%E4%B9%88container%E4%BC%9A%E9%80%9A%E8%BF%87%E4%BB%A5%E4%B8%8B%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86%E8%AF%A5%E8%AF%B7%E6%B1%82%EF%BC%9A">http://localhost:8080/examples/composite.jsp的请求到Container那么container会通过以下流程处理该请求：</a>   </p>
+<ul>
+<li>Container容器交给其子容器——Engine容器，并等待Engine容器的处理结果</li>
+<li>Engine容器匹配其所有的虚拟主机，这里匹配到Host</li>
+<li>请求被移交给hostname为localhost的Host容器，host匹配其所有子容器Context，这里找到contextPath为/examples的Context容器。如果匹配不到就把该请求交给路径名为”“的Context去处理</li>
+<li>请求再次被移交给Context容器，Context继续匹配其子容器Wrapper，由Wrapper容器加载composite.jsp对应的servlet，这里编译的servlet是basic_002dcomparisons_jsp.class文件</li>
+<li>Context容器根据后缀匹配原则*.jsp找到composite.jsp编译的- java类的class文件</li>
+<li>Connector构建一个org.apache.catalina.connector.Request以及org.apache.catalina.connector.Response对象，使用反射调用Servelt的service方法</li>
+<li>Context容器把封装了响应消息的Response对象返回给Host容器</li>
+<li>Host容器把Response返回给Engine容器</li>
+<li>Engine容器返回给Connector</li>
+<li>Connetor容器把Response返回给浏览器</li>
+<li>浏览器解析Response报文</li>
+<li>显示资源内容</li>
+</ul>
+<p>通过这样的从上到下的查找锁定了该请求的servlet然后，再逐级递交response返还给connector返还给浏览器完成了一次请求的处理</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p> tomcat服务器实质是一个web容器，核心架构就是connector和container。当请求传递过来之后。connector会接受请求通过ndpoint、Processor、Adapter三个子部件转化二进制请求为可以使用的request对象并传递给container，container通过Pipeline-Valve管道逐级处理和锁定（engine到host到context到wrapper）处理请求的servlet将封装了响应信息的response对象逐级返还到connector。最后传递给浏览器进行解析。这样便完成了整个对服务端的请求。</p>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+        <tag>Tomcta</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我的第一篇博客文章</title>
     <url>/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p><a href="https://baidu.com/" title="你知道我要说什么吧">百度</a></p>
@@ -513,7 +588,7 @@
 </blockquote>
 <p>这是我是邮箱地址</p>
 <blockquote>
-<p><a href="mailto:&#x32;&#x35;&#x36;&#x37;&#x31;&#x31;&#52;&#51;&#x36;&#x33;&#64;&#x71;&#113;&#46;&#99;&#111;&#109;">&#x32;&#x35;&#x36;&#x37;&#x31;&#x31;&#52;&#51;&#x36;&#x33;&#64;&#x71;&#113;&#46;&#99;&#111;&#109;</a><br><strong><a href="http://baidu.com/"><code>baidu</code></a></strong></p>
+<p><a href="mailto:&#x32;&#x35;&#x36;&#x37;&#49;&#49;&#x34;&#x33;&#x36;&#51;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#x6d;">&#x32;&#x35;&#x36;&#x37;&#49;&#49;&#x34;&#x33;&#x36;&#51;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#x6d;</a><br><strong><a href="http://baidu.com/"><code>baidu</code></a></strong></p>
 </blockquote>
 </blockquote>
 <p><img src="/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/beijing.png" alt="这是图片" title="这是图片"></p>
@@ -525,47 +600,6 @@
       <tags>
         <tag>练习</tag>
         <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>编码那些事</title>
-    <url>/2022/08/24/%E7%BC%96%E7%A0%81%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
-    <content><![CDATA[<p>原因是今天写项目的时候，引入github上面的xml文件，还有就是执行SQL命令的时候出现了编码错误。虽然idea给出了一键解决方法，但是这个编码错误让我<br>想起了以前做汇编实验的时候也出现许多由于编码错误而出现的乱码。于是就称今天的时间，好好的研究一下编码这回事。</p>
-<h1 id="什么是编码"><a href="#什么是编码" class="headerlink" title="什么是编码"></a>什么是编码</h1><p><em>编码是信息从一种形式或格式转换为另一种形式的过程，也称为计算机编程语言的代码简称编码。用预先规定的方法将文字、数字或其它对象编成数码，或将信息、数据转换成规定的电脉冲信号。编码在电子计算机、电视、遥控和通讯等方面广泛使用。编码是信息从一种形式或格式转换为另一种形式的过程。解码，是编码的逆过程。</em>  这是从百度百科里面抄下来的专业术语。其实简单来说就是计算机只能储存0，1这两种信号。所以当我们要储存英文字母，中文字符或者更加复杂的字符时。就要按一定的规则，将字符转换为计算机可以储存的0,1信号。这个转换的过程就是所谓的编码和解码。</p>
-<h1 id="编码的种类和历史"><a href="#编码的种类和历史" class="headerlink" title="编码的种类和历史"></a>编码的种类和历史</h1><h2 id="常用的编码方式"><a href="#常用的编码方式" class="headerlink" title="常用的编码方式"></a>常用的编码方式</h2><ul>
-<li>ASCII 码</li>
-<li>扩展的ASCII码</li>
-<li>Unicode符号集</li>
-<li>UTF-8</li>
-<li>GBK/GB2312/GB18030(win10中文系统默认编码方式一般是GBK)</li>
-</ul>
-<h2 id="编码的历史"><a href="#编码的历史" class="headerlink" title="编码的历史"></a>编码的历史</h2><blockquote>
-<p>计算机最早是由美国人在使用，于是由他们制定了二进制编码中8bit为一个字节(0~255)，划定了0-32的控制码、26个大小写英文字母以及若干个英文符号的二进制编码，将一个字节使用到了127号，因此在ASCII码中一个字节就是一个英文字母，很好计算。这种编码方式就是ANSI的ASCII码，这也是计算机最初使用的编码方式。</p>
-</blockquote>
-<blockquote>
-<p>随后很多欧洲国家也开始使用计算机，进而占用了一个字节的剩余128~255的位置，称为 ISO 8859-1</p>
-</blockquote>
-<blockquote>
-<p>随后计算机逐渐在中国日本等国家流行开来，这时候就需要一种对应中文的编码方式。如果只是延续ASCII码的规则的话，常用汉字就有6000多个，之前针对英文字符定义的8bit=1字节完全不够用。于是就想到了对于ASCII码进行扩展，用两个字节表示。并且将这种编码方式命令为GB2312</p>
-</blockquote>
-<blockquote>
-<p>但是中文的系统比较复杂，GB2312本身不够完善，所以随着时间发展就产生了GBK（也是现在中文系统最常用的），GB18030等字符集。他们都是中文字符的编码规则，但可以编码的内容存在一些不同。</p>
-</blockquote>
-<blockquote>
-<p>既然中文会有中文专有的编码，那么日文韩文这种肯定也会有自己的编码。为了解决各个国家编码方式不互通。导致乱码无法交流。出现了一个叫 ISO 组织（国际标准化组织）决定着手解决这个问题。他们采用的方法很简单：废了所有的地区性编码方案，重新搞一个包括了地球上所有文化、所有字母和符号 的编码。这就是Unicode。unicode在很长一段时间内无法推广，直到互联网的出现，为解决unicode如何在网络上传输的问题，于是面向传输的众多 UTF（UCS Transfer Format）标准出现了。顾名思义，UTF-8就是每次8个位传输数据，而UTF-16就是每次16个位。UTF-8就是在互联网上使用最广的一种unicode的实现方式，这是为传输而设计的编码，并使编码无国界，这样就可以显示全世界上所有文化的字符了。到这主流的编码方式已经发展的很完善了。</p>
-</blockquote>
-<h1 id="为什么会乱码"><a href="#为什么会乱码" class="headerlink" title="为什么会乱码"></a>为什么会乱码</h1><h2 id="乱码出现的常见原因"><a href="#乱码出现的常见原因" class="headerlink" title="乱码出现的常见原因"></a>乱码出现的常见原因</h2><p>（这里单指编码方式导致的乱码）</p>
-<p>众所周知，计算机使用文档要经过 编写-储存-读取-使用 这些过程。所谓的编码就是将你输入的字符按规则编写成二进制码而储存在硬盘中。而解码就是读取你的二进制文件按编码规则逆过程将解码出来的字符集输出到你的屏幕上（也不是必须要输出）。很容易看出来这个编码和解码的过程使用的字符集和编码方式必须要是同一种。否则就会出现乱码。</p>
-<h2 id="我们平时在用哪些编码方式"><a href="#我们平时在用哪些编码方式" class="headerlink" title="我们平时在用哪些编码方式"></a>我们平时在用哪些编码方式</h2><p>看完上面，这个时候就有疑问那么键盘输入的时候使用的是什么编码。其实输入法在往程序输入的时候，程序会指定自己想要的编码方式。在输入法输入后会在内部进行一个转换。转换成对应的编码方式。同样的解码时程序也会有一个指定的解码方式。如果编码解码时找不到这个指定的编码方式，那么就会采用系统默认的编码法方式。win10系统默认编码方式可以cmd输入命令chcp查看。</p>
-<h1 id="关于自己遇到错误的解决"><a href="#关于自己遇到错误的解决" class="headerlink" title="关于自己遇到错误的解决"></a>关于自己遇到错误的解决</h1><h2 id="xml文件乱码"><a href="#xml文件乱码" class="headerlink" title="xml文件乱码"></a>xml文件乱码</h2><p>从设置中我可以找到自己的idea设置默认编码方式是GBk，但是从github下载下来XMl的文件编码方式是UTF-8,系统默认的解决方式是对文件重新编码。转换成了对应GBK编码的文件，同样的我将默认的编码方式转换成了UTF-8在导入原来的xml文件也可以正常读取。</p>
-<h2 id="SQL语句乱码"><a href="#SQL语句乱码" class="headerlink" title="SQL语句乱码"></a>SQL语句乱码</h2><p>这个错误最多就是出现在时区的设置，如果不指定encoding—UTF-8那么就会出现很多乱码错误。其实这个错误和上一个是一样的。都是编码方式的不匹配。</p>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-        <tag>计算机基础</tag>
       </tags>
   </entry>
   <entry>
@@ -625,6 +659,75 @@
       <tags>
         <tag>java</tag>
         <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>编码那些事</title>
+    <url>/2022/08/24/%E7%BC%96%E7%A0%81%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
+    <content><![CDATA[<p>原因是今天写项目的时候，引入github上面的xml文件，还有就是执行SQL命令的时候出现了编码错误。虽然idea给出了一键解决方法，但是这个编码错误让我<br>想起了以前做汇编实验的时候也出现许多由于编码错误而出现的乱码。于是就称今天的时间，好好的研究一下编码这回事。</p>
+<h1 id="什么是编码"><a href="#什么是编码" class="headerlink" title="什么是编码"></a>什么是编码</h1><p><em>编码是信息从一种形式或格式转换为另一种形式的过程，也称为计算机编程语言的代码简称编码。用预先规定的方法将文字、数字或其它对象编成数码，或将信息、数据转换成规定的电脉冲信号。编码在电子计算机、电视、遥控和通讯等方面广泛使用。编码是信息从一种形式或格式转换为另一种形式的过程。解码，是编码的逆过程。</em>  这是从百度百科里面抄下来的专业术语。其实简单来说就是计算机只能储存0，1这两种信号。所以当我们要储存英文字母，中文字符或者更加复杂的字符时。就要按一定的规则，将字符转换为计算机可以储存的0,1信号。这个转换的过程就是所谓的编码和解码。</p>
+<h1 id="编码的种类和历史"><a href="#编码的种类和历史" class="headerlink" title="编码的种类和历史"></a>编码的种类和历史</h1><h2 id="常用的编码方式"><a href="#常用的编码方式" class="headerlink" title="常用的编码方式"></a>常用的编码方式</h2><ul>
+<li>ASCII 码</li>
+<li>扩展的ASCII码</li>
+<li>Unicode符号集</li>
+<li>UTF-8</li>
+<li>GBK/GB2312/GB18030(win10中文系统默认编码方式一般是GBK)</li>
+</ul>
+<h2 id="编码的历史"><a href="#编码的历史" class="headerlink" title="编码的历史"></a>编码的历史</h2><blockquote>
+<p>计算机最早是由美国人在使用，于是由他们制定了二进制编码中8bit为一个字节(0~255)，划定了0-32的控制码、26个大小写英文字母以及若干个英文符号的二进制编码，将一个字节使用到了127号，因此在ASCII码中一个字节就是一个英文字母，很好计算。这种编码方式就是ANSI的ASCII码，这也是计算机最初使用的编码方式。</p>
+</blockquote>
+<blockquote>
+<p>随后很多欧洲国家也开始使用计算机，进而占用了一个字节的剩余128~255的位置，称为 ISO 8859-1</p>
+</blockquote>
+<blockquote>
+<p>随后计算机逐渐在中国日本等国家流行开来，这时候就需要一种对应中文的编码方式。如果只是延续ASCII码的规则的话，常用汉字就有6000多个，之前针对英文字符定义的8bit=1字节完全不够用。于是就想到了对于ASCII码进行扩展，用两个字节表示。并且将这种编码方式命令为GB2312</p>
+</blockquote>
+<blockquote>
+<p>但是中文的系统比较复杂，GB2312本身不够完善，所以随着时间发展就产生了GBK（也是现在中文系统最常用的），GB18030等字符集。他们都是中文字符的编码规则，但可以编码的内容存在一些不同。</p>
+</blockquote>
+<blockquote>
+<p>既然中文会有中文专有的编码，那么日文韩文这种肯定也会有自己的编码。为了解决各个国家编码方式不互通。导致乱码无法交流。出现了一个叫 ISO 组织（国际标准化组织）决定着手解决这个问题。他们采用的方法很简单：废了所有的地区性编码方案，重新搞一个包括了地球上所有文化、所有字母和符号 的编码。这就是Unicode。unicode在很长一段时间内无法推广，直到互联网的出现，为解决unicode如何在网络上传输的问题，于是面向传输的众多 UTF（UCS Transfer Format）标准出现了。顾名思义，UTF-8就是每次8个位传输数据，而UTF-16就是每次16个位。UTF-8就是在互联网上使用最广的一种unicode的实现方式，这是为传输而设计的编码，并使编码无国界，这样就可以显示全世界上所有文化的字符了。到这主流的编码方式已经发展的很完善了。</p>
+</blockquote>
+<h1 id="为什么会乱码"><a href="#为什么会乱码" class="headerlink" title="为什么会乱码"></a>为什么会乱码</h1><h2 id="乱码出现的常见原因"><a href="#乱码出现的常见原因" class="headerlink" title="乱码出现的常见原因"></a>乱码出现的常见原因</h2><p>（这里单指编码方式导致的乱码）</p>
+<p>众所周知，计算机使用文档要经过 编写-储存-读取-使用 这些过程。所谓的编码就是将你输入的字符按规则编写成二进制码而储存在硬盘中。而解码就是读取你的二进制文件按编码规则逆过程将解码出来的字符集输出到你的屏幕上（也不是必须要输出）。很容易看出来这个编码和解码的过程使用的字符集和编码方式必须要是同一种。否则就会出现乱码。</p>
+<h2 id="我们平时在用哪些编码方式"><a href="#我们平时在用哪些编码方式" class="headerlink" title="我们平时在用哪些编码方式"></a>我们平时在用哪些编码方式</h2><p>看完上面，这个时候就有疑问那么键盘输入的时候使用的是什么编码。其实输入法在往程序输入的时候，程序会指定自己想要的编码方式。在输入法输入后会在内部进行一个转换。转换成对应的编码方式。同样的解码时程序也会有一个指定的解码方式。如果编码解码时找不到这个指定的编码方式，那么就会采用系统默认的编码法方式。win10系统默认编码方式可以cmd输入命令chcp查看。</p>
+<h1 id="关于自己遇到错误的解决"><a href="#关于自己遇到错误的解决" class="headerlink" title="关于自己遇到错误的解决"></a>关于自己遇到错误的解决</h1><h2 id="xml文件乱码"><a href="#xml文件乱码" class="headerlink" title="xml文件乱码"></a>xml文件乱码</h2><p>从设置中我可以找到自己的idea设置默认编码方式是GBk，但是从github下载下来XMl的文件编码方式是UTF-8,系统默认的解决方式是对文件重新编码。转换成了对应GBK编码的文件，同样的我将默认的编码方式转换成了UTF-8在导入原来的xml文件也可以正常读取。</p>
+<h2 id="SQL语句乱码"><a href="#SQL语句乱码" class="headerlink" title="SQL语句乱码"></a>SQL语句乱码</h2><p>这个错误最多就是出现在时区的设置，如果不指定encoding—UTF-8那么就会出现很多乱码错误。其实这个错误和上一个是一样的。都是编码方式的不匹配。</p>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+        <tag>计算机基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决hexo图片无法显示问题</title>
+    <url>/2022/09/19/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>好长时间没写过带有图片内容的hexo博客了，之前这个问题在刚开始建立hexo博客的时候就解决过，但是今天又炸了。只能又重新在网上搜索解决办法了😭</p>
+<h1 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h1><h2 id="1-安装hexo-asset-image插件"><a href="#1-安装hexo-asset-image插件" class="headerlink" title="1.安装hexo-asset-image插件"></a>1.安装hexo-asset-image插件</h2><p>安装代码，在根目录安装</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-修改根目录下-config-yml文件的配置"><a href="#2-修改根目录下-config-yml文件的配置" class="headerlink" title="2.修改根目录下_config.yml文件的配置"></a>2.修改根目录下_config.yml文件的配置</h2><p>将<code>post_asset_folder: false</code>修改为<code>post_asset_folder: true</code>。</p>
+<h2 id="3-新建post"><a href="#3-新建post" class="headerlink" title="3.新建post"></a>3.新建post</h2><p>此时就不可以随便创建文件了，推荐比如新建一篇名为blog的文章在命令行输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new post blog</span><br></pre></td></tr></table></figure>
+<p>这样在/source/_posts路径下就会有与你文章同名的文件夹/source/_posts/blog，将想要插入文章的图片存在这个文件夹中。</p>
+<h2 id="4-插入文章图片的引用路径"><a href="#4-插入文章图片的引用路径" class="headerlink" title="4.插入文章图片的引用路径"></a>4.插入文章图片的引用路径</h2><p>假设在blog文件夹中已经存有图片img.jpg。我们的引用方式应该严格如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![](./blog/img.jpg)</span><br></pre></td></tr></table></figure>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.一定要以相对路径写法./开头。(这次炸掉就是因为没写点)</span><br><span class="line">2.一定要使用正斜杠/写法，不要使用反斜杠\写法。</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-上传部署"><a href="#5-上传部署" class="headerlink" title="5.上传部署"></a>5.上传部署</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<p>此时就可以查看是否已经修改好。或者使用<code>hexo s</code>先在本地看看效果</p>
+<p><strong>例如：</strong></p>
+<p><img src="/2022/09/19/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/beijing.png" alt="我滴任务完成了，哈哈哈哈哈-----" title="我滴任务完成了，哈--哈--哈--哈哈-----"></p>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>问题排查</tag>
       </tags>
   </entry>
 </search>
