@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>编码那些事 | 繁星</title><meta name="keywords" content="学习笔记,计算机基础"><meta name="author" content="陈浩杰,2567114363@qq.com"><meta name="copyright" content="陈浩杰"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="原因是今天写项目的时候，引入github上面的xml文件，还有就是执行SQL命令的时候出现了编码错误。虽然idea给出了一键解决方法，但是这个编码错误让我想起了以前做汇编实验的时候也出现许多由于编码错误而出现的乱码。于是就称今天的时间，好好的研究一下编码这回事。 什么是编码编码是信息从一种形式或格式转换为另一种形式的过程，也称为计算机编程语言的代码简称编码。用预先规定的方法将文字、数字或其它对象编">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编码那些事">
+<meta property="og:url" content="http://chjie99.github.io/2022/%E7%BC%96%E7%A0%81%E9%82%A3%E4%BA%9B%E4%BA%8B/index.html">
+<meta property="og:site_name" content="繁星">
+<meta property="og:description" content="原因是今天写项目的时候，引入github上面的xml文件，还有就是执行SQL命令的时候出现了编码错误。虽然idea给出了一键解决方法，但是这个编码错误让我想起了以前做汇编实验的时候也出现许多由于编码错误而出现的乱码。于是就称今天的时间，好好的研究一下编码这回事。 什么是编码编码是信息从一种形式或格式转换为另一种形式的过程，也称为计算机编程语言的代码简称编码。用预先规定的方法将文字、数字或其它对象编">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.leixue.com/uploads/2018/10/UTF-8.png!760">
+<meta property="article:published_time" content="2022-08-24T13:39:05.000Z">
+<meta property="article:modified_time" content="2022-08-25T03:11:50.748Z">
+<meta property="article:author" content="陈浩杰">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="计算机基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.leixue.com/uploads/2018/10/UTF-8.png!760"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://chjie99.github.io/2022/%E7%BC%96%E7%A0%81%E9%82%A3%E4%BA%9B%E4%BA%8B/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '编码那些事',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-08-25 11:11:50'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/26dcf0873d5106624e0a36d1ebfc6392a2dbead2.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://www.leixue.com/uploads/2018/10/UTF-8.png!760')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">繁星</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">编码那些事</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-24T13:39:05.000Z" title="发表于 2022-08-24 21:39:05">2022-08-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-08-25T03:11:50.748Z" title="更新于 2022-08-25 11:11:50">2022-08-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="编码那些事"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2022/%E7%BC%96%E7%A0%81%E9%82%A3%E4%BA%9B%E4%BA%8B/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2022/%E7%BC%96%E7%A0%81%E9%82%A3%E4%BA%9B%E4%BA%8B/" itemprop="commentCount"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>原因是今天写项目的时候，引入github上面的xml文件，还有就是执行SQL命令的时候出现了编码错误。虽然idea给出了一键解决方法，但是这个编码错误让我<br>想起了以前做汇编实验的时候也出现许多由于编码错误而出现的乱码。于是就称今天的时间，好好的研究一下编码这回事。</p>
+<h1 id="什么是编码"><a href="#什么是编码" class="headerlink" title="什么是编码"></a>什么是编码</h1><p><em>编码是信息从一种形式或格式转换为另一种形式的过程，也称为计算机编程语言的代码简称编码。用预先规定的方法将文字、数字或其它对象编成数码，或将信息、数据转换成规定的电脉冲信号。编码在电子计算机、电视、遥控和通讯等方面广泛使用。编码是信息从一种形式或格式转换为另一种形式的过程。解码，是编码的逆过程。</em>  这是从百度百科里面抄下来的专业术语。其实简单来说就是计算机只能储存0，1这两种信号。所以当我们要储存英文字母，中文字符或者更加复杂的字符时。就要按一定的规则，将字符转换为计算机可以储存的0,1信号。这个转换的过程就是所谓的编码和解码。</p>
+<h1 id="编码的种类和历史"><a href="#编码的种类和历史" class="headerlink" title="编码的种类和历史"></a>编码的种类和历史</h1><h2 id="常用的编码方式"><a href="#常用的编码方式" class="headerlink" title="常用的编码方式"></a>常用的编码方式</h2><ul>
+<li>ASCII 码</li>
+<li>扩展的ASCII码</li>
+<li>Unicode符号集</li>
+<li>UTF-8</li>
+<li>GBK/GB2312/GB18030(win10中文系统默认编码方式一般是GBK)</li>
+</ul>
+<h2 id="编码的历史"><a href="#编码的历史" class="headerlink" title="编码的历史"></a>编码的历史</h2><blockquote>
+<p>计算机最早是由美国人在使用，于是由他们制定了二进制编码中8bit为一个字节(0~255)，划定了0-32的控制码、26个大小写英文字母以及若干个英文符号的二进制编码，将一个字节使用到了127号，因此在ASCII码中一个字节就是一个英文字母，很好计算。这种编码方式就是ANSI的ASCII码，这也是计算机最初使用的编码方式。</p>
+</blockquote>
+<blockquote>
+<p>随后很多欧洲国家也开始使用计算机，进而占用了一个字节的剩余128~255的位置，称为 ISO 8859-1</p>
+</blockquote>
+<blockquote>
+<p>随后计算机逐渐在中国日本等国家流行开来，这时候就需要一种对应中文的编码方式。如果只是延续ASCII码的规则的话，常用汉字就有6000多个，之前针对英文字符定义的8bit=1字节完全不够用。于是就想到了对于ASCII码进行扩展，用两个字节表示。并且将这种编码方式命令为GB2312</p>
+</blockquote>
+<blockquote>
+<p>但是中文的系统比较复杂，GB2312本身不够完善，所以随着时间发展就产生了GBK（也是现在中文系统最常用的），GB18030等字符集。他们都是中文字符的编码规则，但可以编码的内容存在一些不同。</p>
+</blockquote>
+<blockquote>
+<p>既然中文会有中文专有的编码，那么日文韩文这种肯定也会有自己的编码。为了解决各个国家编码方式不互通。导致乱码无法交流。出现了一个叫 ISO 组织（国际标准化组织）决定着手解决这个问题。他们采用的方法很简单：废了所有的地区性编码方案，重新搞一个包括了地球上所有文化、所有字母和符号 的编码。这就是Unicode。unicode在很长一段时间内无法推广，直到互联网的出现，为解决unicode如何在网络上传输的问题，于是面向传输的众多 UTF（UCS Transfer Format）标准出现了。顾名思义，UTF-8就是每次8个位传输数据，而UTF-16就是每次16个位。UTF-8就是在互联网上使用最广的一种unicode的实现方式，这是为传输而设计的编码，并使编码无国界，这样就可以显示全世界上所有文化的字符了。到这主流的编码方式已经发展的很完善了。</p>
+</blockquote>
+<h1 id="为什么会乱码"><a href="#为什么会乱码" class="headerlink" title="为什么会乱码"></a>为什么会乱码</h1><h2 id="乱码出现的常见原因"><a href="#乱码出现的常见原因" class="headerlink" title="乱码出现的常见原因"></a>乱码出现的常见原因</h2><p>（这里单指编码方式导致的乱码）</p>
+<p>众所周知，计算机使用文档要经过 编写-储存-读取-使用 这些过程。所谓的编码就是将你输入的字符按规则编写成二进制码而储存在硬盘中。而解码就是读取你的二进制文件按编码规则逆过程将解码出来的字符集输出到你的屏幕上（也不是必须要输出）。很容易看出来这个编码和解码的过程使用的字符集和编码方式必须要是同一种。否则就会出现乱码。</p>
+<h2 id="我们平时在用哪些编码方式"><a href="#我们平时在用哪些编码方式" class="headerlink" title="我们平时在用哪些编码方式"></a>我们平时在用哪些编码方式</h2><p>看完上面，这个时候就有疑问那么键盘输入的时候使用的是什么编码。其实输入法在往程序输入的时候，程序会指定自己想要的编码方式。在输入法输入后会在内部进行一个转换。转换成对应的编码方式。同样的解码时程序也会有一个指定的解码方式。如果编码解码时找不到这个指定的编码方式，那么就会采用系统默认的编码法方式。win10系统默认编码方式可以cmd输入命令chcp查看。</p>
+<h1 id="关于自己遇到错误的解决"><a href="#关于自己遇到错误的解决" class="headerlink" title="关于自己遇到错误的解决"></a>关于自己遇到错误的解决</h1><h2 id="xml文件乱码"><a href="#xml文件乱码" class="headerlink" title="xml文件乱码"></a>xml文件乱码</h2><p>从设置中我可以找到自己的idea设置默认编码方式是GBk，但是从github下载下来XMl的文件编码方式是UTF-8,系统默认的解决方式是对文件重新编码。转换成了对应GBK编码的文件，同样的我将默认的编码方式转换成了UTF-8在导入原来的xml文件也可以正常读取。</p>
+<h2 id="SQL语句乱码"><a href="#SQL语句乱码" class="headerlink" title="SQL语句乱码"></a>SQL语句乱码</h2><p>这个错误最多就是出现在时区的设置，如果不指定encoding—UTF-8那么就会出现很多乱码错误。其实这个错误和上一个是一样的。都是编码方式的不匹配。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:2567114363@qq.com">陈浩杰</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://chjie99.github.io/2022/%E7%BC%96%E7%A0%81%E9%82%A3%E4%BA%9B%E4%BA%8B/">http://chjie99.github.io/2022/编码那些事/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://chjie99.github.io" target="_blank">繁星</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a></div><div class="post_share"><div class="social-share" data-image="https://www.leixue.com/uploads/2018/10/UTF-8.png!760" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/sql%E5%BA%94%E8%AF%A5%E9%81%BF%E5%85%8D%E7%9A%84%E6%83%85%E5%86%B5/"><img class="prev-cover" src="https://www.leixue.com/uploads/2018/09/SQL-Server.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">sql应该避免的一些情况</div></div></a></div><div class="next-post pull-right"><a href="/2022/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E5%92%8C%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/"><img class="next-cover" src="https://www.theiotacademy.co/uploads/blogdata/featuredimage/featuredimage-1.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">java算法笔记-双向链表和约瑟夫环</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/java%E7%AC%94%E8%AE%B0-0-%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/" title="java笔记(0)-对象导论"><img class="cover" src="https://www.theiotacademy.co/uploads/blogdata/featuredimage/featuredimage-1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-27</div><div class="title">java笔记(0)-对象导论</div></div></a></div><div><a href="/2021/java%E7%AC%94%E8%AE%B0-1-%E7%94%A8Java%E8%BE%93%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/" title="java笔记(1)-用Java输出杨辉三角"><img class="cover" src="https://www.theiotacademy.co/uploads/blogdata/featuredimage/featuredimage-1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-29</div><div class="title">java笔记(1)-用Java输出杨辉三角</div></div></a></div><div><a href="/2021/java%E7%AC%94%E8%AE%B0-2-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" title="java笔记(2)-快速排序"><img class="cover" src="https://www.theiotacademy.co/uploads/blogdata/featuredimage/featuredimage-1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-01</div><div class="title">java笔记(2)-快速排序</div></div></a></div><div><a href="/2022/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/" title="java笔记(3)常用集合"><img class="cover" src="https://www.theiotacademy.co/uploads/blogdata/featuredimage/featuredimage-1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-17</div><div class="title">java笔记(3)常用集合</div></div></a></div><div><a href="/2022/java%E7%AC%94%E8%AE%B0-4-%E5%8F%8D%E5%B0%84/" title="java笔记-4-反射"><img class="cover" src="https://www.theiotacademy.co/uploads/blogdata/featuredimage/featuredimage-1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-19</div><div class="title">java笔记-4-反射</div></div></a></div><div><a href="/2022/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8D%95%E9%93%BE%E8%A1%A8/" title="java算法笔记-单链表"><img class="cover" src="https://www.theiotacademy.co/uploads/blogdata/featuredimage/featuredimage-1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-23</div><div class="title">java算法笔记-单链表</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/26dcf0873d5106624e0a36d1ebfc6392a2dbead2.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">陈浩杰</div><div class="author-info__description">技术不多，废话不少</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/CHJie99"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/chjie99" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2567114363@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BC%96%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">什么是编码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E7%9A%84%E7%A7%8D%E7%B1%BB%E5%92%8C%E5%8E%86%E5%8F%B2"><span class="toc-number">2.</span> <span class="toc-text">编码的种类和历史</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="toc-number">2.1.</span> <span class="toc-text">常用的编码方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E7%9A%84%E5%8E%86%E5%8F%B2"><span class="toc-number">2.2.</span> <span class="toc-text">编码的历史</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E4%B9%B1%E7%A0%81"><span class="toc-number">3.</span> <span class="toc-text">为什么会乱码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%B1%E7%A0%81%E5%87%BA%E7%8E%B0%E7%9A%84%E5%B8%B8%E8%A7%81%E5%8E%9F%E5%9B%A0"><span class="toc-number">3.1.</span> <span class="toc-text">乱码出现的常见原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E5%B9%B3%E6%97%B6%E5%9C%A8%E7%94%A8%E5%93%AA%E4%BA%9B%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="toc-number">3.2.</span> <span class="toc-text">我们平时在用哪些编码方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E9%81%87%E5%88%B0%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3"><span class="toc-number">4.</span> <span class="toc-text">关于自己遇到错误的解决</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#xml%E6%96%87%E4%BB%B6%E4%B9%B1%E7%A0%81"><span class="toc-number">4.1.</span> <span class="toc-text">xml文件乱码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL%E8%AF%AD%E5%8F%A5%E4%B9%B1%E7%A0%81"><span class="toc-number">4.2.</span> <span class="toc-text">SQL语句乱码</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/" title="解决hexo图片无法显示问题"><img src="/img/hexo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="解决hexo图片无法显示问题"/></a><div class="content"><a class="title" href="/2022/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/" title="解决hexo图片无法显示问题">解决hexo图片无法显示问题</a><time datetime="2022-09-19T08:22:44.000Z" title="发表于 2022-09-19 16:22:44">2022-09-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/tomcat%E7%A9%B6%E7%AB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84/" title="tomcat究竟是如何运行的"><img src="https://commons.bmstu.wiki/images/5/51/Tomcat-logo.svg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="tomcat究竟是如何运行的"/></a><div class="content"><a class="title" href="/2022/tomcat%E7%A9%B6%E7%AB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84/" title="tomcat究竟是如何运行的">tomcat究竟是如何运行的</a><time datetime="2022-09-02T05:17:58.000Z" title="发表于 2022-09-02 13:17:58">2022-09-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/sql%E5%BA%94%E8%AF%A5%E9%81%BF%E5%85%8D%E7%9A%84%E6%83%85%E5%86%B5/" title="sql应该避免的一些情况"><img src="https://www.leixue.com/uploads/2018/09/SQL-Server.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="sql应该避免的一些情况"/></a><div class="content"><a class="title" href="/2022/sql%E5%BA%94%E8%AF%A5%E9%81%BF%E5%85%8D%E7%9A%84%E6%83%85%E5%86%B5/" title="sql应该避免的一些情况">sql应该避免的一些情况</a><time datetime="2022-08-25T14:46:49.000Z" title="发表于 2022-08-25 22:46:49">2022-08-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/%E7%BC%96%E7%A0%81%E9%82%A3%E4%BA%9B%E4%BA%8B/" title="编码那些事"><img src="https://www.leixue.com/uploads/2018/10/UTF-8.png!760" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="编码那些事"/></a><div class="content"><a class="title" href="/2022/%E7%BC%96%E7%A0%81%E9%82%A3%E4%BA%9B%E4%BA%8B/" title="编码那些事">编码那些事</a><time datetime="2022-08-24T13:39:05.000Z" title="发表于 2022-08-24 21:39:05">2022-08-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E5%92%8C%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/" title="java算法笔记-双向链表和约瑟夫环"><img src="https://www.theiotacademy.co/uploads/blogdata/featuredimage/featuredimage-1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java算法笔记-双向链表和约瑟夫环"/></a><div class="content"><a class="title" href="/2022/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E5%92%8C%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/" title="java算法笔记-双向链表和约瑟夫环">java算法笔记-双向链表和约瑟夫环</a><time datetime="2022-03-24T14:18:35.000Z" title="发表于 2022-03-24 22:18:35">2022-03-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 陈浩杰</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'zi7QgEbg16qDT8k1h4FMwSbP-gzGzoHsz',
+      appKey: 'VPaUCaOQaO0pMFhbzaxhS6cY',
+      placeholder: '请留下您的建议和意见吧。',
+      avatar: 'retro',
+      meta: 'nick'.split(','),
+      pageSize: '5',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+      requiredFields: ["nick"],
+      visitor: true
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

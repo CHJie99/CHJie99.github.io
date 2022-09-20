@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Hello World</title>
-    <url>/2021/09/24/hello-world/</url>
+    <url>/2021/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -20,7 +20,7 @@
   </entry>
   <entry>
     <title>java笔记(0)-对象导论</title>
-    <url>/2021/10/27/java%E7%AC%94%E8%AE%B0-0-%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</url>
+    <url>/2021/java%E7%AC%94%E8%AE%B0-0-%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</url>
     <content><![CDATA[<p>参考书籍《Java编程思想》</p>
 <p>参考网页<a href="http://c.biancheng.net/java/" title="特好用的编程学习网站">编程网</a></p>
 <h2 id="如何理解“对象”和“类”"><a href="#如何理解“对象”和“类”" class="headerlink" title="如何理解“对象”和“类”"></a>如何理解“对象”和“类”</h2><p>定义</p>
@@ -78,8 +78,45 @@
       </tags>
   </entry>
   <entry>
+    <title>java笔记(1)-用Java输出杨辉三角</title>
+    <url>/2021/java%E7%AC%94%E8%AE%B0-1-%E7%94%A8Java%E8%BE%93%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/</url>
+    <content><![CDATA[<p>参考网页<a href="http://c.biancheng.net/java/" title="特好用的编程学习网站">编程网</a></p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>输入：打印的行数。</p>
+<p>输出：对应行数的杨辉三角。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><hr>
+<p>杨辉三角示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">      1</span><br><span class="line">     1 1</span><br><span class="line">    1 2 1</span><br><span class="line">   1 3 3 1</span><br><span class="line">  1 4 6 4 1</span><br><span class="line"> 1 5 10 10 5 1</span><br><span class="line">1 6 15 20 15 6 1 </span><br></pre></td></tr></table></figure>
+<p>假设需要打印的行数是row ，num(i，j)代表第i行第j个数。</p>
+<p>通过分析不难得知： </p>
+<ul>
+<li>第i行要打印的空格数量为row-i</li>
+<li>第i行要打印i个数字，<strong>且</strong>每行第一个和最后一个（第i个都是1）</li>
+<li>当num(i,j)不是1时， <strong>num(i,j)=num(i-1,j)+num(i-1,j-1)即</strong>该数字等于上一行同一位置数字(都是第对应行第j个数字)和上一行前一个数字之和。</li>
+</ul>
+<p>首先定义num用来方法确定每一个值</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static int num(int a,int b) &#123;   //a,b代表第a行，第b个数</span><br><span class="line">	if(b==1||b==a) &#123;</span><br><span class="line">		return 1;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">	return c;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>定义calu方法输出杨辉三角</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void calu(int row) &#123;</span><br><span class="line">	for (int i=1;i&lt;=row;i++) &#123;                 //i代表行</span><br><span class="line">		for(int j=1;j&lt;=row-i;j++) &#123;            //j代表列</span><br><span class="line">			System.out.print(&quot; &quot;);             //输出每一行的空格</span><br><span class="line">		&#125;</span><br><span class="line">		for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">			System.out.print(num(i,j)+&quot; &quot;);    //输出每一行的数字</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>main方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);    //使用类时要先导入模块： import java。util.*; </span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);    </span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">				</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><hr>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package test1;</span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">public class test1&#123;</span><br><span class="line">	//num方法</span><br><span class="line">	public static int num(int a,int b) &#123;</span><br><span class="line">		if(b==1||b==a) &#123;</span><br><span class="line">			return 1;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">		return c;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	//calu方法</span><br><span class="line">	public static void calu(int row) &#123;</span><br><span class="line">		for (int i=1;i&lt;=row;i++) &#123;</span><br><span class="line">			for(int j=1;j&lt;=row-i;j++) &#123;</span><br><span class="line">				System.out.print(&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">				System.out.print(num(i,j)+&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);</span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);</span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结果示例"><a href="#结果示例" class="headerlink" title="结果示例"></a>结果示例</h2><p><img src="/2021/java%E7%AC%94%E8%AE%B0-1-%E7%94%A8Java%E8%BE%93%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/%E8%BE%93%E5%87%BA%E7%A4%BA%E4%BE%8B.png" alt="输出" title="纳尼？"> </p>
+]]></content>
+      <categories>
+        <category>java笔记</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>java笔记(2)-快速排序</title>
-    <url>/2021/11/01/java%E7%AC%94%E8%AE%B0-2-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
+    <url>/2021/java%E7%AC%94%E8%AE%B0-2-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<h2 id="什么是快速排序"><a href="#什么是快速排序" class="headerlink" title="什么是快速排序"></a>什么是快速排序</h2><p>快速排序是一种效率很高的排序方式，假设对于某一数列进行增序排列，那么这个过程（快排）可以概括为：</p>
 <blockquote>
 <p>1．先从数列中取出一个数作为基准数。</p>
@@ -121,51 +158,14 @@
       </tags>
   </entry>
   <entry>
-    <title>java笔记(1)-用Java输出杨辉三角</title>
-    <url>/2021/10/29/java%E7%AC%94%E8%AE%B0-1-%E7%94%A8Java%E8%BE%93%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/</url>
-    <content><![CDATA[<p>参考网页<a href="http://c.biancheng.net/java/" title="特好用的编程学习网站">编程网</a></p>
-<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>输入：打印的行数。</p>
-<p>输出：对应行数的杨辉三角。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><hr>
-<p>杨辉三角示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">      1</span><br><span class="line">     1 1</span><br><span class="line">    1 2 1</span><br><span class="line">   1 3 3 1</span><br><span class="line">  1 4 6 4 1</span><br><span class="line"> 1 5 10 10 5 1</span><br><span class="line">1 6 15 20 15 6 1 </span><br></pre></td></tr></table></figure>
-<p>假设需要打印的行数是row ，num(i，j)代表第i行第j个数。</p>
-<p>通过分析不难得知： </p>
-<ul>
-<li>第i行要打印的空格数量为row-i</li>
-<li>第i行要打印i个数字，<strong>且</strong>每行第一个和最后一个（第i个都是1）</li>
-<li>当num(i,j)不是1时， <strong>num(i,j)=num(i-1,j)+num(i-1,j-1)即</strong>该数字等于上一行同一位置数字(都是第对应行第j个数字)和上一行前一个数字之和。</li>
-</ul>
-<p>首先定义num用来方法确定每一个值</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static int num(int a,int b) &#123;   //a,b代表第a行，第b个数</span><br><span class="line">	if(b==1||b==a) &#123;</span><br><span class="line">		return 1;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">	return c;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>定义calu方法输出杨辉三角</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void calu(int row) &#123;</span><br><span class="line">	for (int i=1;i&lt;=row;i++) &#123;                 //i代表行</span><br><span class="line">		for(int j=1;j&lt;=row-i;j++) &#123;            //j代表列</span><br><span class="line">			System.out.print(&quot; &quot;);             //输出每一行的空格</span><br><span class="line">		&#125;</span><br><span class="line">		for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">			System.out.print(num(i,j)+&quot; &quot;);    //输出每一行的数字</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>main方法</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);    //使用类时要先导入模块： import java。util.*; </span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);    </span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">				</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><hr>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package test1;</span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">public class test1&#123;</span><br><span class="line">	//num方法</span><br><span class="line">	public static int num(int a,int b) &#123;</span><br><span class="line">		if(b==1||b==a) &#123;</span><br><span class="line">			return 1;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		int c=num(a-1,b-1)+num(a-1,b);</span><br><span class="line">		return c;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	//calu方法</span><br><span class="line">	public static void calu(int row) &#123;</span><br><span class="line">		for (int i=1;i&lt;=row;i++) &#123;</span><br><span class="line">			for(int j=1;j&lt;=row-i;j++) &#123;</span><br><span class="line">				System.out.print(&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			for(int j=1;j&lt;=i;j++) &#123;</span><br><span class="line">				System.out.print(num(i,j)+&quot; &quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Scanner s=new Scanner(System.in);</span><br><span class="line">		System.out.print(&quot;请输入打印的行数：&quot;);</span><br><span class="line">		int x=s.nextInt();</span><br><span class="line">		calu(x);</span><br><span class="line">		s.close();</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="结果示例"><a href="#结果示例" class="headerlink" title="结果示例"></a>结果示例</h2><p><img src="/2021/10/29/java%E7%AC%94%E8%AE%B0-1-%E7%94%A8Java%E8%BE%93%E5%87%BA%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/%E8%BE%93%E5%87%BA%E7%A4%BA%E4%BE%8B.png" alt="输出" title="纳尼？"> </p>
-]]></content>
-      <categories>
-        <category>java笔记</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>java笔记(3)常用集合</title>
-    <url>/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/</url>
+    <url>/2022/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/</url>
     <content><![CDATA[<h2 id="Java中集合的作用"><a href="#Java中集合的作用" class="headerlink" title="Java中集合的作用"></a>Java中集合的作用</h2><p>为了保存数量不确定的数据，以及保存具有映射关系的数据Java 提供了集合类。<strong>集合类主要负责保存、盛装其他数据，因此集合类也被称为容器类</strong>。</p>
 <p>集合类和数组不一样，数组元素既可以是基本类型的值，也可以是对象（实际上保存的是对象的引用变量），而集合里只能保存对象（实际上只是保存对象的引用变量，但通常习惯上认为集合里保存的是对象）</p>
 <h2 id="集合类型"><a href="#集合类型" class="headerlink" title="集合类型"></a>集合类型</h2><p>Java 集合类型分为 Collection 和 Map，它们是 Java 集合的根接口，这两个接口又包含了一些子接口或实现类</p>
 <ul>
-<li> Collection的子接口及其实现类<br><img src="/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/1.png" alt="collection"></li>
-<li> Map 的子接口及其实现类<br><img src="/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/map.png" alt="collection"></li>
+<li> Collection的子接口及其实现类<br><img src="/2022/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/1.png" alt="collection"></li>
+<li> Map 的子接口及其实现类<br><img src="/2022/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/map.png" alt="collection"></li>
 </ul>
 <p> 上图中接口所代表的作用如下表</p>
 <table>
@@ -244,7 +244,7 @@
 <h2 id="java-Collection-接口"><a href="#java-Collection-接口" class="headerlink" title="java Collection 接口"></a>java Collection 接口</h2><p>Collection 接口是 List、Set 和 Queue 接口的父接口，通常情况下不被直接使用。Collection 接口定义了一些通用的方法，通过这些方法可以实现对集合的基本操作。定义的方法既可用于操作 Set 集合，也可用于操作 List 和 Queue 集合<br>（常用的方法有add，clear，isEmpty等，可查询API，但基本的存取要熟记于心，集合类就像容器，现实生活中容器的功能，就是添加对象、删除对象、清空容器和判断容器是否为空等，集合类为这些功能都提供了对应的方法）</p>
 <p>应用：创建2个Collection接口的实现类Arrylist的实例对象，并测试基本的存取方法</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    ArrayList list1 = new ArrayList(); // 创建集合 list1</span><br><span class="line">    ArrayList list2 = new ArrayList(); // 创建集合 list2</span><br><span class="line">    list1.add(&quot;one&quot;);</span><br><span class="line">    list1.add(&quot;two&quot;);</span><br><span class="line">    list1.add(&quot;three&quot;);</span><br><span class="line">    System.out.println(&quot;list1 集合中的元素数量：&quot; + list1.size()); // 输出list1中的元素数量</span><br><span class="line">    list2.add(&quot;two&quot;);</span><br><span class="line">    list2.add(&quot;four&quot;);</span><br><span class="line">    list2.add(&quot;six&quot;);</span><br><span class="line">    System.out.println(&quot;list2 集合中的元素数量：&quot; + list2.size()); // 输出list2中的元素数量</span><br><span class="line">    list2.remove(2); // 删除第 3 个元素</span><br><span class="line">    System.out.println(&quot;\nremoveAll() 方法之后 list2 集合中的元素数量：&quot; + list2.size());</span><br><span class="line">    System.out.println(&quot;list2 集合中的元素如下：&quot;);</span><br><span class="line">    Iterator it1 = list2.iterator();</span><br><span class="line">    while (it1.hasNext()) &#123;</span><br><span class="line">        System.out.print(it1.next() + &quot;、&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    list1.removeAll(list2);</span><br><span class="line">    System.out.println(&quot;\nremoveAll() 方法之后 list1 集合中的元素数量：&quot; + list1.size());</span><br><span class="line">    System.out.println(&quot;list1 集合中的元素如下：&quot;);</span><br><span class="line">    Iterator it2 = list1.iterator();</span><br><span class="line">    while (it2.hasNext()) &#123;</span><br><span class="line">        System.out.print(it2.next() + &quot;、&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出结果：<br><img src="/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/out1.png" alt="结果"></p>
+<p>输出结果：<br><img src="/2022/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/out1.png" alt="结果"></p>
 <h2 id="List集合：Arrylist类和Linkedlist类"><a href="#List集合：Arrylist类和Linkedlist类" class="headerlink" title="List集合：Arrylist类和Linkedlist类"></a>List集合：Arrylist类和Linkedlist类</h2><p>List 是一个有序、可重复的集合，集合中每个元素都有其对应的顺序索引。List 集合允许使用重复元素，可以通过索引来访问指定位置的集合元素。List 集合默认按元素的添加顺序设置元素的索引，第一个添加到 List 集合中的元素的索引为 0，第二个为 1，依此类推。</p>
 <p>ArrayList 与 LinkedList 都是 List 接口的实现类，因此都实现了 List 的所有未实现的方法，只是实现的方式有所不同。</p>
 <p>ArrayList 是基于动态数组数据结构的实现，访问元素速度优于 LinkedList。LinkedList 是基于链表数据结构的实现，占用的内存空间比较大，但在批量插入或删除数据时优于 ArrayList。</p>
@@ -263,20 +263,20 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HashSet hs = new HashSet();    // 调用无参的构造函数创建HashSet对象</span><br><span class="line">HashSet&lt;String&gt; hss = new HashSet&lt;String&gt;();    // 创建泛型的 HashSet 集合对象</span><br></pre></td></tr></table></figure>
 <p>Hashset存取的代码实现：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    HashSet&lt;String&gt; courseSet = new HashSet&lt;String&gt;(); // 创建一个空的 Set 集合</span><br><span class="line">    String course1 = new String(&quot;语文&quot;);</span><br><span class="line">    String course2 = new String(&quot;数学&quot;);</span><br><span class="line">    String course3 = new String(&quot;英语&quot;);</span><br><span class="line">    String course4 = new String(&quot;理综&quot;);</span><br><span class="line">    courseSet.add(course1); // 将 course1 存储到 Set 集合中</span><br><span class="line">    courseSet.add(course2); // 将 course2 存储到 Set 集合中</span><br><span class="line">    courseSet.add(course3); // 将 course3 存储到 Set 集合中</span><br><span class="line">    courseSet.add(course4); // 将 course4 存储到 Set 集合中</span><br><span class="line">    System.out.println(&quot;高考要考：&quot;);</span><br><span class="line">    Iterator&lt;String&gt; it = courseSet.iterator();</span><br><span class="line">    while (it.hasNext()) &#123;</span><br><span class="line">        System.out.println(&quot;《&quot; + (String) it.next() + &quot;》&quot;); // 输出 Set 集合中的元素</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println( &quot;这&quot;+courseSet.size() + &quot;门课&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出示例：<br><img src="/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/out2.png" alt="图片"></p>
+<p>输出示例：<br><img src="/2022/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/out2.png" alt="图片"></p>
 <h3 id="Treeset类"><a href="#Treeset类" class="headerlink" title="Treeset类"></a>Treeset类</h3><p>TreeSet 类同时实现了 Set 接口和 SortedSet 接口。SortedSet 接口是 Set 接口的子接口，可以实现对集合进行自然排序，因此使用 TreeSet 类实现的 Set 接口默认情况下是自然排序的，这里的自然排序指的是升序排序。</p>
 <p>TreeSet 只能对实现了 Comparable 接口的类对象进行排序（如果类不可比较那么必须重写CompareTo方法，不然无法存入Treeset），因为 Comparable 接口中有一个 compareTo(Object o) 方法用于比较两个对象的大小。例如 a.compareTo(b)，如果 a 和 b 相等，则该方法返回 0；如果 a 大于 b，则该方法返回大于 0 的值；如果 a 小于 b，则该方法返回小于 0 的值（返回值是正数那么后一个数存入前一个数前面，如果是负数则相反）。</p>
 <p>代码示例：（创建person类，并重写compareTo方法，使其可比较）</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package pratice;</span><br><span class="line"></span><br><span class="line">public class preson  implements Comparable&#123;</span><br><span class="line">    private int age;</span><br><span class="line">    private String  name;</span><br><span class="line">    public  preson(String  name,int age )&#123;</span><br><span class="line">        this.age=age;</span><br><span class="line">        this.name=name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getAge()&#123;</span><br><span class="line">        return this.age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getName()&#123;</span><br><span class="line">        return this.name;</span><br><span class="line">    &#125;</span><br><span class="line">    //方法重写</span><br><span class="line">    @Override</span><br><span class="line">    public int compareTo(Object o) &#123;</span><br><span class="line">        preson p=(preson)o;</span><br><span class="line">        return (this.age-p.age);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>main函数</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    TreeSet st=new TreeSet&lt;preson&gt;();</span><br><span class="line">    preson p1=new preson(&quot;褪色者&quot;,21);</span><br><span class="line">    preson p2=new preson(&quot;菈妮&quot;,23);</span><br><span class="line">    preson p3=new preson(&quot;梅玲娜&quot;,22);</span><br><span class="line">    preson p4=new preson(&quot;狼哥&quot;,24);</span><br><span class="line">    st.add(p1);</span><br><span class="line">    st.add(p2);</span><br><span class="line">    st.add(p3);</span><br><span class="line">    st.add(p4);</span><br><span class="line">    //创建一个迭代器</span><br><span class="line">    Iterator it=st.iterator();</span><br><span class="line">    while(it.hasNext())&#123;</span><br><span class="line">        preson p=(preson) it.next();</span><br><span class="line">        System.out.println(p.getName()+&quot;  &quot;+p.getAge()+&quot;岁&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出示例<br><img src="/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/out3.png" alt="图片"></p>
+<p>输出示例<br><img src="/2022/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/out3.png" alt="图片"></p>
 <h2 id="map集合：Hashmap和Treemap"><a href="#map集合：Hashmap和Treemap" class="headerlink" title="map集合：Hashmap和Treemap"></a>map集合：Hashmap和Treemap</h2><p>Map 是一种键-值对（key-value）集合，Map 集合中的每一个元素都包含一个键（key）对象和一个值（value）对象。用于保存具有映射关系的数据。</p>
 <p>Map 集合里保存着两组值，一组值用于保存 Map 里的 key，另外一组值用于保存 Map 里的 value，key 和 value 都可以是任何引用类型的数据。Map 的 key 不允许重复，value 可以重复，即同一个 Map 对象的任何两个 key 通过 equals 方法比较总是返回 false。</p>
 <p>Map 中的 key 和 value 之间存在单向一对一关系，即通过指定的 key，总能找到唯一的、确定的 value。从 Map 中取出数据时，只要给出指定的 key，就可以取出对应的 value。</p>
 <p>Map 集合最典型的用法就是成对地添加、删除 key-value 对，接下来即可判断该 Map 中是否包含指定 key，也可以通过 Map 提供的 keySet() 方法获取所有 key 组成的集合，进而遍历 Map 中所有的 key-value 对。下面程序示范了 Map 的基本功能。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    HashMap users = new HashMap();</span><br><span class="line">    users.put(&quot;11&quot;, &quot;张浩太&quot;); // 将学生信息键值对存储到Map中</span><br><span class="line">    users.put(&quot;22&quot;, &quot;刘思诚&quot;);</span><br><span class="line">    users.put(&quot;33&quot;, &quot;王强文&quot;);</span><br><span class="line">    users.put(&quot;44&quot;, &quot;李国量&quot;);</span><br><span class="line">    users.put(&quot;55&quot;, &quot;王路路&quot;);</span><br><span class="line">    System.out.println(&quot;******** 学生列表 ********&quot;);</span><br><span class="line">    Iterator it = users.keySet().iterator();</span><br><span class="line">    while (it.hasNext()) &#123;</span><br><span class="line">        // 遍历 Map</span><br><span class="line">        Object key = it.next();</span><br><span class="line">        Object val = users.get(key);</span><br><span class="line">        System.out.println(&quot;学号：&quot; + key + &quot;，姓名:&quot; + val);</span><br><span class="line">    &#125;</span><br><span class="line">    Scanner input = new Scanner(System.in);</span><br><span class="line">    System.out.println(&quot;请输入要删除的学号：&quot;);</span><br><span class="line">    int num = input.nextInt();</span><br><span class="line">    if (users.containsKey(String.valueOf(num))) &#123; // 判断是否包含指定键</span><br><span class="line">        users.remove(String.valueOf(num)); // 如果包含就删除</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        System.out.println(&quot;该学生不存在！&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(&quot;******** 学生列表 ********&quot;);</span><br><span class="line">    it = users.keySet().iterator();</span><br><span class="line">    while (it.hasNext()) &#123;</span><br><span class="line">        Object key = it.next();</span><br><span class="line">        Object val = users.get(key);</span><br><span class="line">        System.out.println(&quot;学号：&quot; + key + &quot;，姓名：&quot; + val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出示例：<br><img src="/2022/03/17/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/out4.png" alt="输出"></p>
+<p>输出示例：<br><img src="/2022/java%E7%AC%94%E8%AE%B0-3-%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88/out4.png" alt="输出"></p>
 <p>TreeMap 类的使用方法与 HashMap 类相同，唯一不同的是 TreeMap 类可以对键对象进行排序（参照Hashset和Treeset）</p>
 ]]></content>
       <categories>
@@ -289,7 +289,7 @@
   </entry>
   <entry>
     <title>java笔记-4-反射</title>
-    <url>/2022/03/19/java%E7%AC%94%E8%AE%B0-4-%E5%8F%8D%E5%B0%84/</url>
+    <url>/2022/java%E7%AC%94%E8%AE%B0-4-%E5%8F%8D%E5%B0%84/</url>
     <content><![CDATA[<h2 id="什么是Java的反射"><a href="#什么是Java的反射" class="headerlink" title="什么是Java的反射"></a>什么是Java的反射</h2><p>反射之所以被称为框架的灵魂，主要是因为它赋予了我们在运行时分析类以及执行类中方法的能力。</p>
 <p>通过反射你可以获取任意一个类的所有属性和方法，你还可以调用这些方法和属性。</p>
 <h2 id="Java反射优缺点"><a href="#Java反射优缺点" class="headerlink" title="Java反射优缺点"></a>Java反射优缺点</h2><ul>
@@ -362,7 +362,7 @@
   </entry>
   <entry>
     <title>java算法笔记-单链表</title>
-    <url>/2022/03/23/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8D%95%E9%93%BE%E8%A1%A8/</url>
+    <url>/2022/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8D%95%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<h2 id="概念介绍"><a href="#概念介绍" class="headerlink" title="概念介绍"></a>概念介绍</h2><p>链表的结构很简单，就是一个个节点连接在一起，形成一个完整的链条，每个节点包含2部分，数据域，和一个指向下一个节点引用的指针next,具体的更详细的大家可以参考相关资料解释，再说说删除操作，同样需要找到数据所在的位置，然后进行删除，不同的是，删除的时候，链表只需要改变一下前后节点的引用关系即可，就完成了节点的删除，而没有像数组那样触发一次全部数据的移动，从这个描述来看，链表在进行删除的时候，速度比数组快<br>链表有很多种形式包括单链表，双向链表，循环链表等，本文主要内容是单向链表。</p>
 <h2 id="创建节点类"><a href="#创建节点类" class="headerlink" title="创建节点类"></a>创建节点类</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//链表类，并重写了toString方法</span><br><span class="line">class HeroNode&#123;</span><br><span class="line">   public int no;</span><br><span class="line">   public String name;</span><br><span class="line">   public HeroNode next;</span><br><span class="line"></span><br><span class="line">   public HeroNode(int no,String name)&#123;</span><br><span class="line">       this.name=name;</span><br><span class="line">       this.no=no;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;HeroNode&#123;&quot; +</span><br><span class="line">                &quot;no=&quot; + no +</span><br><span class="line">                &quot;, name=&#x27;&quot; + name +&quot;&#125;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="用一个SingleLinkedList类封来表示链表和封装方法"><a href="#用一个SingleLinkedList类封来表示链表和封装方法" class="headerlink" title="用一个SingleLinkedList类封来表示链表和封装方法"></a>用一个SingleLinkedList类封来表示链表和封装方法</h2><ul>
@@ -383,40 +383,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public SingleLinkedlist merge(SingleLinkedlist s)&#123;</span><br><span class="line">    SingleLinkedlist newone = new SingleLinkedlist();</span><br><span class="line">    HeroNode temp =newone.head;</span><br><span class="line">    HeroNode temp1=head.next;</span><br><span class="line">    HeroNode temp2=s.head.next;</span><br><span class="line">    while(temp1!=null||temp2!=null)&#123;</span><br><span class="line">        if(temp1==null)&#123;</span><br><span class="line">            temp.next=temp2;</span><br><span class="line">            temp2=temp2.next;</span><br><span class="line">        &#125; else if(temp2==null)&#123;</span><br><span class="line">            temp.next=temp1;</span><br><span class="line">            temp1=temp1.next;</span><br><span class="line">        &#125;</span><br><span class="line">        if(temp1!=null&amp;&amp;temp2!=null) &#123;</span><br><span class="line">            if(temp1.no&gt;temp2.no)&#123;</span><br><span class="line">                temp.next=temp2;</span><br><span class="line">                temp2=temp2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(temp1.no&lt;temp2.no)&#123;</span><br><span class="line">                temp.next=temp1;</span><br><span class="line">                temp1=temp1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(temp1.no==temp2.no)&#123;</span><br><span class="line">                temp.next=temp1;</span><br><span class="line">                temp1=temp1.next;</span><br><span class="line">                temp2=temp2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">    return newone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h1 id="创建main类简单测试"><a href="#创建main类简单测试" class="headerlink" title="创建main类简单测试"></a>创建main类简单测试</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) throws Exception &#123;</span><br><span class="line">    SingleLinkedlist hero =new SingleLinkedlist();</span><br><span class="line">    SingleLinkedlist hero2 =new SingleLinkedlist();</span><br><span class="line">    HeroNode a=new HeroNode(1,&quot;蜘蛛侠&quot;);</span><br><span class="line">    HeroNode b=new HeroNode(2,&quot;钢铁侠&quot;);</span><br><span class="line">    HeroNode c=new HeroNode(3,&quot;绿巨人&quot;);</span><br><span class="line">    HeroNode d=new HeroNode(4,&quot;雷神&quot;);</span><br><span class="line">    HeroNode e=new HeroNode(5,&quot;黑寡妇&quot;);</span><br><span class="line">    HeroNode f=new HeroNode(6,&quot;美国队长&quot;);</span><br><span class="line"></span><br><span class="line">    hero.addByorder(a);</span><br><span class="line">    hero.addByorder(c);</span><br><span class="line">    hero2.addByorder(b);</span><br><span class="line">    hero2.addByorder(d);</span><br><span class="line">    hero.addByorder(e);</span><br><span class="line">    hero2.addByorder(f);</span><br><span class="line"></span><br><span class="line">    SingleLinkedlist newone=hero.merge(hero2);</span><br><span class="line">    newone.list();</span><br></pre></td></tr></table></figure>
-<h2 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h2><p><img src="/2022/03/23/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8D%95%E9%93%BE%E8%A1%A8/1.png" alt="结果" title=" 排名不分先后"></p>
-]]></content>
-      <categories>
-        <category>java笔记</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>学习笔记</tag>
-        <tag>算法笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>java算法笔记-双向链表和约瑟夫环</title>
-    <url>/2022/03/24/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E5%92%8C%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/</url>
-    <content><![CDATA[<h1 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h1><h2 id="概念介绍"><a href="#概念介绍" class="headerlink" title="概念介绍"></a>概念介绍</h2><p>顾名思义，如果你知道单向链表只能朝着一个方向遍历的话，那么双向链表就是可以向两个方向遍历。双向链表每个结点存在两个指针域，分别存储该结点的前驱结点引用和后继结点引用，从任意一个结点出发，都能通过前驱引用以及后继引用完成整个链表结点的访问。</p>
-<p>所以不难看出，单向链表能干的事，双向链表也能干！但是正是因为这一特性，相比于单链表，双向链表在访问其他结点上带来方便的同时，将占用更多的资源，因此在使用的时候可以根据自己的场景来决定使用何种数据结构。</p>
-<h2 id="节点结构"><a href="#节点结构" class="headerlink" title="节点结构"></a>节点结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class DataNode&#123;</span><br><span class="line">    int date;</span><br><span class="line">    DataNode pre;</span><br><span class="line">    DataNode next;</span><br><span class="line"></span><br><span class="line">    public DataNode(int num)&#123;</span><br><span class="line">        this.date=num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;DataNode&#123;&quot; +</span><br><span class="line">                &quot;date=&quot; + date +</span><br><span class="line">                &#x27;&#125;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>不难看出，双向链表只是在单链表的基础上加立一个前驱指针pre</p>
-<h2 id="用一个DoubleLinkedList类来表示双向链表和封装方法"><a href="#用一个DoubleLinkedList类来表示双向链表和封装方法" class="headerlink" title="用一个DoubleLinkedList类来表示双向链表和封装方法"></a>用一个DoubleLinkedList类来表示双向链表和封装方法</h2><h3 id="代码全局"><a href="#代码全局" class="headerlink" title="代码全局"></a>代码全局</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class DoubleLinkedLIst &#123;</span><br><span class="line">    //头指针</span><br><span class="line">    public DataNode head =new DataNode(0);</span><br><span class="line"></span><br><span class="line">    //将一个节点加入队尾</span><br><span class="line">    public void add(DataNode dataNode)&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //按序加入，并且重复元素不加入</span><br><span class="line">    public void addByorder(DataNode dataNode)&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //遍历</span><br><span class="line">    public void list()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    // 在不重复的链表中删除对应数据</span><br><span class="line">    public void delete(int num) throws Exception &#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="将一个节点加入队尾"><a href="#将一个节点加入队尾" class="headerlink" title="将一个节点加入队尾"></a>将一个节点加入队尾</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void add(DataNode dataNode)&#123;</span><br><span class="line">    DataNode temp =head;</span><br><span class="line">    while(temp.next!=null)&#123;</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">    temp.next=dataNode;</span><br><span class="line">    dataNode.pre=temp;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="按序加入，并且重复元素不加入"><a href="#按序加入，并且重复元素不加入" class="headerlink" title="按序加入，并且重复元素不加入"></a>按序加入，并且重复元素不加入</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void addByorder(DataNode dataNode)&#123;</span><br><span class="line">        DataNode temp =head;</span><br><span class="line">        while(temp.next!=null &amp;&amp; temp.next.date&lt;dataNode.date)&#123;</span><br><span class="line">            temp=temp.next;</span><br><span class="line">        &#125;</span><br><span class="line">        if(temp.next==null)&#123;</span><br><span class="line">            add(dataNode);</span><br><span class="line">        &#125; else if(temp.next.date==dataNode.date)&#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            dataNode.next=temp.next;</span><br><span class="line">            dataNode.pre=temp;</span><br><span class="line">            temp.next.pre=dataNode;</span><br><span class="line">            temp.next=dataNode;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void list()&#123;</span><br><span class="line">        DataNode temp =head.next;</span><br><span class="line">        while(temp!=null)&#123;</span><br><span class="line">            System.out.println(temp.toString());</span><br><span class="line">            temp=temp.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="在不重复的链表中删除对应数据"><a href="#在不重复的链表中删除对应数据" class="headerlink" title="在不重复的链表中删除对应数据"></a>在不重复的链表中删除对应数据</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void delete(int num) throws Exception &#123;</span><br><span class="line">        DataNode temp =head.next;</span><br><span class="line">        if(temp==null)&#123;</span><br><span class="line">            throw new Exception();</span><br><span class="line">        &#125;</span><br><span class="line">        while(temp.date!=num)&#123;</span><br><span class="line">            temp=temp.next;</span><br><span class="line">        &#125;</span><br><span class="line">        temp.next.pre=temp.pre;</span><br><span class="line">        temp.pre.next=temp.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="简单的测试代码"><a href="#简单的测试代码" class="headerlink" title="简单的测试代码"></a>简单的测试代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        DataNode a1 =new DataNode(1);</span><br><span class="line">        DataNode a2 =new DataNode(2);</span><br><span class="line">        DataNode a3 =new DataNode(3);</span><br><span class="line">        DataNode a4 =new DataNode(4);</span><br><span class="line">        DataNode a5 =new DataNode(5);</span><br><span class="line">        DataNode a6 =new DataNode(6);</span><br><span class="line">        DoubleLinkedLIst d =new DoubleLinkedLIst();</span><br><span class="line"></span><br><span class="line">        d.addByorder(a2);</span><br><span class="line">        d.addByorder(a3);</span><br><span class="line">        d.addByorder(a1);</span><br><span class="line">        d.addByorder(a4);</span><br><span class="line">        d.addByorder(a6);</span><br><span class="line">        d.addByorder(a5);</span><br><span class="line">        d.delete(5);</span><br><span class="line"></span><br><span class="line">        d.list();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>测试结果：<br><img src="/2022/03/24/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E5%92%8C%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/1.png" alt="结果1"></p>
-<h1 id="约瑟夫环："><a href="#约瑟夫环：" class="headerlink" title="约瑟夫环："></a>约瑟夫环：</h1><h2 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h2><p>已知n个人（以编号1，2，3…n分别表示）围坐在一张圆桌周围。从编号为k的人开始报数，数到m的那个人出列；他的下一个人又从1开始报数，数到m的那个人又出列；依此规律重复下去，直到圆桌周围的人全部出列。</p>
-<h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><p>创建一个循环链表，当k为1时，直接从start节点输出n个节点。当k不为1时，创建temp指针指向start，删掉从start开始数的第k个节点并输出。然后temp向后移一位，再开始数，一直循环这个过程。当temp.next等于temp时结束循环，并输出此节点即可输出完整答案。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="Node类"><a href="#Node类" class="headerlink" title="Node类"></a>Node类</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Node&#123;</span><br><span class="line">    public int no ;</span><br><span class="line">    public Node next;</span><br><span class="line"></span><br><span class="line">    public Node(int num)&#123;</span><br><span class="line">        this.no=num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;node&#123;&quot; +</span><br><span class="line">                &quot;no=&quot; + no +</span><br><span class="line">                &#x27;&#125;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="solve-方法"><a href="#solve-方法" class="headerlink" title="solve 方法"></a>solve 方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void solve(int num ,int cunt)&#123;</span><br><span class="line">        //创建循环链表</span><br><span class="line">        Node start =new Node(1);</span><br><span class="line">        Node temp  =start;</span><br><span class="line">        for(int i=2;i&lt;=num;i++)&#123;</span><br><span class="line">            temp.next =new Node(i);</span><br><span class="line">            temp=temp.next;</span><br><span class="line">        &#125;</span><br><span class="line">        temp.next=start;</span><br><span class="line"></span><br><span class="line">        //遍历并输出结果</span><br><span class="line">        temp=start;</span><br><span class="line">        if(cunt==1)&#123;</span><br><span class="line">            for(int i=1;i&lt;=num;i++)&#123;</span><br><span class="line">                System.out.println(temp.toString());</span><br><span class="line">                temp=temp.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            while(temp.next!=temp)&#123;</span><br><span class="line">                for(int i=0;i&lt;cunt-2;i++)&#123;</span><br><span class="line">                    temp=temp.next;</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(temp.next.toString());</span><br><span class="line">                temp.next=temp.next.next;</span><br><span class="line">                temp=temp.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(temp.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="main测试"><a href="#main测试" class="headerlink" title="main测试"></a>main测试</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Scanner sc = new Scanner(System.in);</span><br><span class="line">        System.out.print(&quot;请输入人数:&quot;);</span><br><span class="line">        int people = sc.nextInt();</span><br><span class="line">        System.out.print(&quot;请输入报数数目：&quot;);</span><br><span class="line">        int cunt =sc.nextInt();</span><br><span class="line">        sc.close();</span><br><span class="line">        solve(people,cunt);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试结果：<br><img src="/2022/03/24/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E5%92%8C%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/2.png" alt="结果2"></p>
+<h2 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h2><p><img src="/2022/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8D%95%E9%93%BE%E8%A1%A8/1.png" alt="结果" title=" 排名不分先后"></p>
 ]]></content>
       <categories>
         <category>java笔记</category>
@@ -429,7 +396,7 @@
   </entry>
   <entry>
     <title>sql应该避免的一些情况</title>
-    <url>/2022/08/25/sql%E5%BA%94%E8%AF%A5%E9%81%BF%E5%85%8D%E7%9A%84%E6%83%85%E5%86%B5/</url>
+    <url>/2022/sql%E5%BA%94%E8%AF%A5%E9%81%BF%E5%85%8D%E7%9A%84%E6%83%85%E5%86%B5/</url>
     <content><![CDATA[<p><strong>sql语句平时写的很多，但是经常会写一些根本不推荐的低效写法。今天就在这里整理一下自己遇到的一些低效写法。</strong></p>
 <ol>
 <li><p>对查询进行优化，应尽量避免全表扫描，首先应考虑在<code> where</code> 及 <code>order</code> by 涉及的列上建立索引。</p>
@@ -487,49 +454,41 @@
       </tags>
   </entry>
   <entry>
-    <title>我的第一篇博客文章</title>
-    <url>/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p><a href="https://baidu.com/" title="你知道我要说什么吧">百度</a></p>
-<hr>
-<p>hello world</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">include&lt;studio.h&gt;</span><br><span class="line">    int main()&#123;</span><br><span class="line">        print(&quot;hello world&quot;)</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><p><a href="https://bing.com/" title="必应天下第一">必应</a></p>
-<hr>
-<ol>
-<li> Open the file.</li>
-<li>Find the following code block on line 21:<pre><code>  &lt;html&gt;
-   &lt;head&gt;
-     &lt;title&gt;Test&lt;/title&gt;
-  &lt;/head&gt;
- 
-</code></pre>
-</li>
-<li> Update the title to match the name of your website.<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1></li>
-</ol>
-<blockquote>
-<p>这是两个链接</p>
-<blockquote>
-<p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="https://hexo.com/">https://hexo.com</a></p>
-</blockquote>
-<p>这是我是邮箱地址</p>
-<blockquote>
-<p><a href="mailto:&#x32;&#x35;&#x36;&#x37;&#x31;&#49;&#x34;&#x33;&#x36;&#51;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#109;">&#x32;&#x35;&#x36;&#x37;&#x31;&#49;&#x34;&#x33;&#x36;&#51;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#109;</a><br><strong><a href="http://baidu.com/"><code>baidu</code></a></strong></p>
-</blockquote>
-</blockquote>
-<p><img src="/2021/09/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/beijing.png" alt="这是图片" title="这是图片"></p>
-<p>这是程序测试、、、、</p>
+    <title>java算法笔记-双向链表和约瑟夫环</title>
+    <url>/2022/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E5%92%8C%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/</url>
+    <content><![CDATA[<h1 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h1><h2 id="概念介绍"><a href="#概念介绍" class="headerlink" title="概念介绍"></a>概念介绍</h2><p>顾名思义，如果你知道单向链表只能朝着一个方向遍历的话，那么双向链表就是可以向两个方向遍历。双向链表每个结点存在两个指针域，分别存储该结点的前驱结点引用和后继结点引用，从任意一个结点出发，都能通过前驱引用以及后继引用完成整个链表结点的访问。</p>
+<p>所以不难看出，单向链表能干的事，双向链表也能干！但是正是因为这一特性，相比于单链表，双向链表在访问其他结点上带来方便的同时，将占用更多的资源，因此在使用的时候可以根据自己的场景来决定使用何种数据结构。</p>
+<h2 id="节点结构"><a href="#节点结构" class="headerlink" title="节点结构"></a>节点结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class DataNode&#123;</span><br><span class="line">    int date;</span><br><span class="line">    DataNode pre;</span><br><span class="line">    DataNode next;</span><br><span class="line"></span><br><span class="line">    public DataNode(int num)&#123;</span><br><span class="line">        this.date=num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;DataNode&#123;&quot; +</span><br><span class="line">                &quot;date=&quot; + date +</span><br><span class="line">                &#x27;&#125;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不难看出，双向链表只是在单链表的基础上加立一个前驱指针pre</p>
+<h2 id="用一个DoubleLinkedList类来表示双向链表和封装方法"><a href="#用一个DoubleLinkedList类来表示双向链表和封装方法" class="headerlink" title="用一个DoubleLinkedList类来表示双向链表和封装方法"></a>用一个DoubleLinkedList类来表示双向链表和封装方法</h2><h3 id="代码全局"><a href="#代码全局" class="headerlink" title="代码全局"></a>代码全局</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class DoubleLinkedLIst &#123;</span><br><span class="line">    //头指针</span><br><span class="line">    public DataNode head =new DataNode(0);</span><br><span class="line"></span><br><span class="line">    //将一个节点加入队尾</span><br><span class="line">    public void add(DataNode dataNode)&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //按序加入，并且重复元素不加入</span><br><span class="line">    public void addByorder(DataNode dataNode)&#123;&#125;</span><br><span class="line"></span><br><span class="line">    //遍历</span><br><span class="line">    public void list()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    // 在不重复的链表中删除对应数据</span><br><span class="line">    public void delete(int num) throws Exception &#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="将一个节点加入队尾"><a href="#将一个节点加入队尾" class="headerlink" title="将一个节点加入队尾"></a>将一个节点加入队尾</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void add(DataNode dataNode)&#123;</span><br><span class="line">    DataNode temp =head;</span><br><span class="line">    while(temp.next!=null)&#123;</span><br><span class="line">        temp=temp.next;</span><br><span class="line">    &#125;</span><br><span class="line">    temp.next=dataNode;</span><br><span class="line">    dataNode.pre=temp;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="按序加入，并且重复元素不加入"><a href="#按序加入，并且重复元素不加入" class="headerlink" title="按序加入，并且重复元素不加入"></a>按序加入，并且重复元素不加入</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void addByorder(DataNode dataNode)&#123;</span><br><span class="line">        DataNode temp =head;</span><br><span class="line">        while(temp.next!=null &amp;&amp; temp.next.date&lt;dataNode.date)&#123;</span><br><span class="line">            temp=temp.next;</span><br><span class="line">        &#125;</span><br><span class="line">        if(temp.next==null)&#123;</span><br><span class="line">            add(dataNode);</span><br><span class="line">        &#125; else if(temp.next.date==dataNode.date)&#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            dataNode.next=temp.next;</span><br><span class="line">            dataNode.pre=temp;</span><br><span class="line">            temp.next.pre=dataNode;</span><br><span class="line">            temp.next=dataNode;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void list()&#123;</span><br><span class="line">        DataNode temp =head.next;</span><br><span class="line">        while(temp!=null)&#123;</span><br><span class="line">            System.out.println(temp.toString());</span><br><span class="line">            temp=temp.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="在不重复的链表中删除对应数据"><a href="#在不重复的链表中删除对应数据" class="headerlink" title="在不重复的链表中删除对应数据"></a>在不重复的链表中删除对应数据</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void delete(int num) throws Exception &#123;</span><br><span class="line">        DataNode temp =head.next;</span><br><span class="line">        if(temp==null)&#123;</span><br><span class="line">            throw new Exception();</span><br><span class="line">        &#125;</span><br><span class="line">        while(temp.date!=num)&#123;</span><br><span class="line">            temp=temp.next;</span><br><span class="line">        &#125;</span><br><span class="line">        temp.next.pre=temp.pre;</span><br><span class="line">        temp.pre.next=temp.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="简单的测试代码"><a href="#简单的测试代码" class="headerlink" title="简单的测试代码"></a>简单的测试代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        DataNode a1 =new DataNode(1);</span><br><span class="line">        DataNode a2 =new DataNode(2);</span><br><span class="line">        DataNode a3 =new DataNode(3);</span><br><span class="line">        DataNode a4 =new DataNode(4);</span><br><span class="line">        DataNode a5 =new DataNode(5);</span><br><span class="line">        DataNode a6 =new DataNode(6);</span><br><span class="line">        DoubleLinkedLIst d =new DoubleLinkedLIst();</span><br><span class="line"></span><br><span class="line">        d.addByorder(a2);</span><br><span class="line">        d.addByorder(a3);</span><br><span class="line">        d.addByorder(a1);</span><br><span class="line">        d.addByorder(a4);</span><br><span class="line">        d.addByorder(a6);</span><br><span class="line">        d.addByorder(a5);</span><br><span class="line">        d.delete(5);</span><br><span class="line"></span><br><span class="line">        d.list();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>测试结果：<br><img src="/2022/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E5%92%8C%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/1.png" alt="结果1"></p>
+<h1 id="约瑟夫环："><a href="#约瑟夫环：" class="headerlink" title="约瑟夫环："></a>约瑟夫环：</h1><h2 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h2><p>已知n个人（以编号1，2，3…n分别表示）围坐在一张圆桌周围。从编号为k的人开始报数，数到m的那个人出列；他的下一个人又从1开始报数，数到m的那个人又出列；依此规律重复下去，直到圆桌周围的人全部出列。</p>
+<h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><p>创建一个循环链表，当k为1时，直接从start节点输出n个节点。当k不为1时，创建temp指针指向start，删掉从start开始数的第k个节点并输出。然后temp向后移一位，再开始数，一直循环这个过程。当temp.next等于temp时结束循环，并输出此节点即可输出完整答案。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="Node类"><a href="#Node类" class="headerlink" title="Node类"></a>Node类</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Node&#123;</span><br><span class="line">    public int no ;</span><br><span class="line">    public Node next;</span><br><span class="line"></span><br><span class="line">    public Node(int num)&#123;</span><br><span class="line">        this.no=num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;node&#123;&quot; +</span><br><span class="line">                &quot;no=&quot; + no +</span><br><span class="line">                &#x27;&#125;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="solve-方法"><a href="#solve-方法" class="headerlink" title="solve 方法"></a>solve 方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void solve(int num ,int cunt)&#123;</span><br><span class="line">        //创建循环链表</span><br><span class="line">        Node start =new Node(1);</span><br><span class="line">        Node temp  =start;</span><br><span class="line">        for(int i=2;i&lt;=num;i++)&#123;</span><br><span class="line">            temp.next =new Node(i);</span><br><span class="line">            temp=temp.next;</span><br><span class="line">        &#125;</span><br><span class="line">        temp.next=start;</span><br><span class="line"></span><br><span class="line">        //遍历并输出结果</span><br><span class="line">        temp=start;</span><br><span class="line">        if(cunt==1)&#123;</span><br><span class="line">            for(int i=1;i&lt;=num;i++)&#123;</span><br><span class="line">                System.out.println(temp.toString());</span><br><span class="line">                temp=temp.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            while(temp.next!=temp)&#123;</span><br><span class="line">                for(int i=0;i&lt;cunt-2;i++)&#123;</span><br><span class="line">                    temp=temp.next;</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(temp.next.toString());</span><br><span class="line">                temp.next=temp.next.next;</span><br><span class="line">                temp=temp.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(temp.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="main测试"><a href="#main测试" class="headerlink" title="main测试"></a>main测试</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Scanner sc = new Scanner(System.in);</span><br><span class="line">        System.out.print(&quot;请输入人数:&quot;);</span><br><span class="line">        int people = sc.nextInt();</span><br><span class="line">        System.out.print(&quot;请输入报数数目：&quot;);</span><br><span class="line">        int cunt =sc.nextInt();</span><br><span class="line">        sc.close();</span><br><span class="line">        solve(people,cunt);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试结果：<br><img src="/2022/java%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E5%92%8C%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/2.png" alt="结果2"></p>
 ]]></content>
       <categories>
-        <category>日常</category>
+        <category>java笔记</category>
       </categories>
       <tags>
-        <tag>练习</tag>
-        <tag>测试</tag>
+        <tag>java</tag>
+        <tag>学习笔记</tag>
+        <tag>算法笔记</tag>
       </tags>
   </entry>
   <entry>
     <title>tomcat究竟是如何运行的</title>
-    <url>/2022/09/02/tomcat%E7%A9%B6%E7%AB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84/</url>
+    <url>/2022/tomcat%E7%A9%B6%E7%AB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84/</url>
     <content><![CDATA[<h1 id="web服务器"><a href="#web服务器" class="headerlink" title="web服务器"></a>web服务器</h1><p>简单来说只要Web上的Server都叫Web Server，但是大家分工不同，解决的问题也不同，所以根据Web Server提供的功能，每个Web Server的名字也会不一样。</p>
 <p>但是按功能来分web服务器主要分为<strong>http server</strong>和<strong>application server</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">|- Web Server</span><br><span class="line">        |- Http Server</span><br><span class="line">        |- Application Server</span><br><span class="line">            |- Servlet Container</span><br><span class="line">            |- CGI Server</span><br><span class="line">            |- ......</span><br></pre></td></tr></table></figure>
@@ -547,13 +506,13 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 管理Servlet程序的生命周期；</span><br><span class="line">2. 将URL映射到指定的Servlet进行处理；</span><br><span class="line">3. 与Servlet程序合作处理HTTP请求——根据HTTP请求生成HttpServletRequest/Response对象并传递给Servlet进行处理，将Servlet中的HttpServletResponse对象生成的内容返回给浏览器；</span><br></pre></td></tr></table></figure>
 
 <p>所以 Tomcat 属于是一个「Application Server」，但是更准确的来说，是一个「Servlet/JSP」应用的容器</p>
-<h1 id="tomcat的内部结构"><a href="#tomcat的内部结构" class="headerlink" title="tomcat的内部结构"></a>tomcat的内部结构</h1><p><img src="/2022/09/02/tomcat%E7%A9%B6%E7%AB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84/2.jpg"></p>
+<h1 id="tomcat的内部结构"><a href="#tomcat的内部结构" class="headerlink" title="tomcat的内部结构"></a>tomcat的内部结构</h1><p><img src="/2022/tomcat%E7%A9%B6%E7%AB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84/2.jpg"></p>
 <p>从上图就可以看出tomcat的内部结构的核心主要分为两部分<strong>连接器（Connector）</strong>和<strong>容器（Container）</strong>而他们的主要作用如下</p>
 <ul>
 <li>Connector用于处理连接相关的事情，并提供Socket与Request和Response相关的转化;</li>
 <li>Container用于封装和管理Servlet，以及具体处理Request请求；</li>
 </ul>
-<p>一个Tomcat中只有一个Server，一个Server可以包含多个Service，一个Service只有一个Container，但是可以有多个Connectors，这是因为一个服务可以有多个连接，如同时提供Http和Https链接，也可以提供向相同协议不同端口的连接,示意图如下<br><img src="/2022/09/02/tomcat%E7%A9%B6%E7%AB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84/conn.png" alt="connectors"></p>
+<p>一个Tomcat中只有一个Server，一个Server可以包含多个Service，一个Service只有一个Container，但是可以有多个Connectors，这是因为一个服务可以有多个连接，如同时提供Http和Https链接，也可以提供向相同协议不同端口的连接,示意图如下<br><img src="/2022/tomcat%E7%A9%B6%E7%AB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84/conn.png" alt="connectors"></p>
 <h2 id="connector-架构分析"><a href="#connector-架构分析" class="headerlink" title="connector 架构分析"></a>connector 架构分析</h2><p>Connector用于接受请求并将请求封装成Request和Response，然后交给Container进行处理，Container处理完之后在交给Connector返回给客户端。<br>因此，我们可以把Connector分为四个方面进行理解：</p>
 <ul>
 <li>Connector如何接受请求的？</li>
@@ -561,14 +520,14 @@
 <li>封装完之后的Request和Response如何交给Container进行处理的？</li>
 <li>Container处理完之后如何交给Connector并返回给客户端的？</li>
 </ul>
-<p>下图是Connector的结构图<br><img src="/2022/09/02/tomcat%E7%A9%B6%E7%AB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84/conn2.png" alt="conn2"></p>
+<p>下图是Connector的结构图<br><img src="/2022/tomcat%E7%A9%B6%E7%AB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84/conn2.png" alt="conn2"></p>
 <p>Connector就是使用ProtocolHandler来处理请求的，不同的ProtocolHandler代表不同的连接类型，比如：Http11Protocol使用的是普通Socket来连接的，Http11NioProtocol使用的是NioSocket来连接的。</p>
 <p>其中ProtocolHandler由包含了三个部件：Endpoint、Processor、Adapter。</p>
 <ul>
 <li><strong>Endpoint用来处理底层Socket的网络连接，Processor用于将Endpoint接收到的Socket封装成Request，Adapter用于将Request交给Container进行具体的处理。</strong></li>
 </ul>
 <p>此时前三个问题就可以解答了，但是第四个问题还要看container的架构</p>
-<h2 id="container-架构分析"><a href="#container-架构分析" class="headerlink" title="container 架构分析"></a>container 架构分析</h2><p>首先先看container的架构图<br><img src="/2022/09/02/tomcat%E7%A9%B6%E7%AB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84/container.png" alt="container"></p>
+<h2 id="container-架构分析"><a href="#container-架构分析" class="headerlink" title="container 架构分析"></a>container 架构分析</h2><p>首先先看container的架构图<br><img src="/2022/tomcat%E7%A9%B6%E7%AB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84/container.png" alt="container"></p>
 <p>从图中可以看到container有4个子容器Engine、Host、Context、Wrapper它们的作用分别是：</p>
 <ul>
 <li>Engine：引擎，用来管理多个站点，一个Service最多只能有一个Engine；</li>
@@ -603,49 +562,49 @@
       </tags>
   </entry>
   <entry>
-    <title>编码那些事</title>
-    <url>/2022/08/24/%E7%BC%96%E7%A0%81%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
-    <content><![CDATA[<p>原因是今天写项目的时候，引入github上面的xml文件，还有就是执行SQL命令的时候出现了编码错误。虽然idea给出了一键解决方法，但是这个编码错误让我<br>想起了以前做汇编实验的时候也出现许多由于编码错误而出现的乱码。于是就称今天的时间，好好的研究一下编码这回事。</p>
-<h1 id="什么是编码"><a href="#什么是编码" class="headerlink" title="什么是编码"></a>什么是编码</h1><p><em>编码是信息从一种形式或格式转换为另一种形式的过程，也称为计算机编程语言的代码简称编码。用预先规定的方法将文字、数字或其它对象编成数码，或将信息、数据转换成规定的电脉冲信号。编码在电子计算机、电视、遥控和通讯等方面广泛使用。编码是信息从一种形式或格式转换为另一种形式的过程。解码，是编码的逆过程。</em>  这是从百度百科里面抄下来的专业术语。其实简单来说就是计算机只能储存0，1这两种信号。所以当我们要储存英文字母，中文字符或者更加复杂的字符时。就要按一定的规则，将字符转换为计算机可以储存的0,1信号。这个转换的过程就是所谓的编码和解码。</p>
-<h1 id="编码的种类和历史"><a href="#编码的种类和历史" class="headerlink" title="编码的种类和历史"></a>编码的种类和历史</h1><h2 id="常用的编码方式"><a href="#常用的编码方式" class="headerlink" title="常用的编码方式"></a>常用的编码方式</h2><ul>
-<li>ASCII 码</li>
-<li>扩展的ASCII码</li>
-<li>Unicode符号集</li>
-<li>UTF-8</li>
-<li>GBK/GB2312/GB18030(win10中文系统默认编码方式一般是GBK)</li>
-</ul>
-<h2 id="编码的历史"><a href="#编码的历史" class="headerlink" title="编码的历史"></a>编码的历史</h2><blockquote>
-<p>计算机最早是由美国人在使用，于是由他们制定了二进制编码中8bit为一个字节(0~255)，划定了0-32的控制码、26个大小写英文字母以及若干个英文符号的二进制编码，将一个字节使用到了127号，因此在ASCII码中一个字节就是一个英文字母，很好计算。这种编码方式就是ANSI的ASCII码，这也是计算机最初使用的编码方式。</p>
-</blockquote>
+    <title>我的第一篇博客文章</title>
+    <url>/2022/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p><a href="https://baidu.com/" title="你知道我要说什么吧">百度</a></p>
+<hr>
+<p>hello world</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">include&lt;studio.h&gt;</span><br><span class="line">    int main()&#123;</span><br><span class="line">        print(&quot;hello world&quot;)</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><p><a href="https://bing.com/" title="必应天下第一">必应</a></p>
+<hr>
+<ol>
+<li> Open the file.</li>
+<li>Find the following code block on line 21:<pre><code>  &lt;html&gt;
+   &lt;head&gt;
+     &lt;title&gt;Test&lt;/title&gt;
+  &lt;/head&gt;
+ 
+</code></pre>
+</li>
+<li> Update the title to match the name of your website.<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1></li>
+</ol>
 <blockquote>
-<p>随后很多欧洲国家也开始使用计算机，进而占用了一个字节的剩余128~255的位置，称为 ISO 8859-1</p>
-</blockquote>
+<p>这是两个链接</p>
 <blockquote>
-<p>随后计算机逐渐在中国日本等国家流行开来，这时候就需要一种对应中文的编码方式。如果只是延续ASCII码的规则的话，常用汉字就有6000多个，之前针对英文字符定义的8bit=1字节完全不够用。于是就想到了对于ASCII码进行扩展，用两个字节表示。并且将这种编码方式命令为GB2312</p>
+<p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="https://hexo.com/">https://hexo.com</a></p>
 </blockquote>
+<p>这是我是邮箱地址</p>
 <blockquote>
-<p>但是中文的系统比较复杂，GB2312本身不够完善，所以随着时间发展就产生了GBK（也是现在中文系统最常用的），GB18030等字符集。他们都是中文字符的编码规则，但可以编码的内容存在一些不同。</p>
+<p><a href="mailto:&#50;&#53;&#54;&#x37;&#49;&#49;&#x34;&#x33;&#x36;&#x33;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#109;">&#50;&#53;&#54;&#x37;&#49;&#49;&#x34;&#x33;&#x36;&#x33;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#109;</a><br><strong><a href="http://baidu.com/"><code>baidu</code></a></strong></p>
 </blockquote>
-<blockquote>
-<p>既然中文会有中文专有的编码，那么日文韩文这种肯定也会有自己的编码。为了解决各个国家编码方式不互通。导致乱码无法交流。出现了一个叫 ISO 组织（国际标准化组织）决定着手解决这个问题。他们采用的方法很简单：废了所有的地区性编码方案，重新搞一个包括了地球上所有文化、所有字母和符号 的编码。这就是Unicode。unicode在很长一段时间内无法推广，直到互联网的出现，为解决unicode如何在网络上传输的问题，于是面向传输的众多 UTF（UCS Transfer Format）标准出现了。顾名思义，UTF-8就是每次8个位传输数据，而UTF-16就是每次16个位。UTF-8就是在互联网上使用最广的一种unicode的实现方式，这是为传输而设计的编码，并使编码无国界，这样就可以显示全世界上所有文化的字符了。到这主流的编码方式已经发展的很完善了。</p>
 </blockquote>
-<h1 id="为什么会乱码"><a href="#为什么会乱码" class="headerlink" title="为什么会乱码"></a>为什么会乱码</h1><h2 id="乱码出现的常见原因"><a href="#乱码出现的常见原因" class="headerlink" title="乱码出现的常见原因"></a>乱码出现的常见原因</h2><p>（这里单指编码方式导致的乱码）</p>
-<p>众所周知，计算机使用文档要经过 编写-储存-读取-使用 这些过程。所谓的编码就是将你输入的字符按规则编写成二进制码而储存在硬盘中。而解码就是读取你的二进制文件按编码规则逆过程将解码出来的字符集输出到你的屏幕上（也不是必须要输出）。很容易看出来这个编码和解码的过程使用的字符集和编码方式必须要是同一种。否则就会出现乱码。</p>
-<h2 id="我们平时在用哪些编码方式"><a href="#我们平时在用哪些编码方式" class="headerlink" title="我们平时在用哪些编码方式"></a>我们平时在用哪些编码方式</h2><p>看完上面，这个时候就有疑问那么键盘输入的时候使用的是什么编码。其实输入法在往程序输入的时候，程序会指定自己想要的编码方式。在输入法输入后会在内部进行一个转换。转换成对应的编码方式。同样的解码时程序也会有一个指定的解码方式。如果编码解码时找不到这个指定的编码方式，那么就会采用系统默认的编码法方式。win10系统默认编码方式可以cmd输入命令chcp查看。</p>
-<h1 id="关于自己遇到错误的解决"><a href="#关于自己遇到错误的解决" class="headerlink" title="关于自己遇到错误的解决"></a>关于自己遇到错误的解决</h1><h2 id="xml文件乱码"><a href="#xml文件乱码" class="headerlink" title="xml文件乱码"></a>xml文件乱码</h2><p>从设置中我可以找到自己的idea设置默认编码方式是GBk，但是从github下载下来XMl的文件编码方式是UTF-8,系统默认的解决方式是对文件重新编码。转换成了对应GBK编码的文件，同样的我将默认的编码方式转换成了UTF-8在导入原来的xml文件也可以正常读取。</p>
-<h2 id="SQL语句乱码"><a href="#SQL语句乱码" class="headerlink" title="SQL语句乱码"></a>SQL语句乱码</h2><p>这个错误最多就是出现在时区的设置，如果不指定encoding—UTF-8那么就会出现很多乱码错误。其实这个错误和上一个是一样的。都是编码方式的不匹配。</p>
+<p><img src="/2022/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/beijing.png" alt="这是图片" title="这是图片"></p>
+<p>这是程序测试、、、、</p>
 ]]></content>
       <categories>
         <category>日常</category>
       </categories>
       <tags>
-        <tag>学习笔记</tag>
-        <tag>计算机基础</tag>
+        <tag>练习</tag>
+        <tag>测试</tag>
       </tags>
   </entry>
   <entry>
     <title>算法笔记-数组实现循环队列</title>
-    <url>/2022/03/16/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97-1/</url>
+    <url>/2022/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97-1/</url>
     <content><![CDATA[<h2 id="队列介绍"><a href="#队列介绍" class="headerlink" title="队列介绍"></a>队列介绍</h2><p>队列是一个有序列表，可以用数组和链表来实现（这里采用数组实现的方式）</p>
 <p>​ 队列有一个原则。即：先存入队列的数据要先取出。后存入的要后取出。</p>
 <h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><p>因为队列的输出、输入分别从前后端来处理，因此需要两个变量front及rear分别记录队列前后端的下标，front会随着输出而改变，而rear则是随着数据输入而改变。而MaxSize则是数组队列的大小。</p>
@@ -692,7 +651,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class ArryQueneDemo &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)throws Exception &#123;</span><br><span class="line"></span><br><span class="line">        Arryqueue q =new Arryqueue(3);</span><br><span class="line">        q.show();</span><br><span class="line">        System.out.println(&quot;1,2,3入队&quot;);</span><br><span class="line">        q.add(1);</span><br><span class="line">        q.add(2);</span><br><span class="line">        q.add(3);</span><br><span class="line">        q.show();</span><br><span class="line">        System.out.println(&quot;出队1,2，入队4,5:&quot;);</span><br><span class="line">        q.get();</span><br><span class="line">        q.add(4);</span><br><span class="line">        q.get();</span><br><span class="line">        q.add(5);</span><br><span class="line">        q.get();</span><br><span class="line">        q.show();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>测试效果：</p>
-<p><img src="/2022/03/16/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97-1/a.png" alt="效果图" title="好随意的例子。。。"></p>
+<p><img src="/2022/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97-1/a.png" alt="效果图" title="好随意的例子。。。"></p>
 ]]></content>
       <categories>
         <category>java笔记</category>
@@ -703,8 +662,49 @@
       </tags>
   </entry>
   <entry>
+    <title>编码那些事</title>
+    <url>/2022/%E7%BC%96%E7%A0%81%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
+    <content><![CDATA[<p>原因是今天写项目的时候，引入github上面的xml文件，还有就是执行SQL命令的时候出现了编码错误。虽然idea给出了一键解决方法，但是这个编码错误让我<br>想起了以前做汇编实验的时候也出现许多由于编码错误而出现的乱码。于是就称今天的时间，好好的研究一下编码这回事。</p>
+<h1 id="什么是编码"><a href="#什么是编码" class="headerlink" title="什么是编码"></a>什么是编码</h1><p><em>编码是信息从一种形式或格式转换为另一种形式的过程，也称为计算机编程语言的代码简称编码。用预先规定的方法将文字、数字或其它对象编成数码，或将信息、数据转换成规定的电脉冲信号。编码在电子计算机、电视、遥控和通讯等方面广泛使用。编码是信息从一种形式或格式转换为另一种形式的过程。解码，是编码的逆过程。</em>  这是从百度百科里面抄下来的专业术语。其实简单来说就是计算机只能储存0，1这两种信号。所以当我们要储存英文字母，中文字符或者更加复杂的字符时。就要按一定的规则，将字符转换为计算机可以储存的0,1信号。这个转换的过程就是所谓的编码和解码。</p>
+<h1 id="编码的种类和历史"><a href="#编码的种类和历史" class="headerlink" title="编码的种类和历史"></a>编码的种类和历史</h1><h2 id="常用的编码方式"><a href="#常用的编码方式" class="headerlink" title="常用的编码方式"></a>常用的编码方式</h2><ul>
+<li>ASCII 码</li>
+<li>扩展的ASCII码</li>
+<li>Unicode符号集</li>
+<li>UTF-8</li>
+<li>GBK/GB2312/GB18030(win10中文系统默认编码方式一般是GBK)</li>
+</ul>
+<h2 id="编码的历史"><a href="#编码的历史" class="headerlink" title="编码的历史"></a>编码的历史</h2><blockquote>
+<p>计算机最早是由美国人在使用，于是由他们制定了二进制编码中8bit为一个字节(0~255)，划定了0-32的控制码、26个大小写英文字母以及若干个英文符号的二进制编码，将一个字节使用到了127号，因此在ASCII码中一个字节就是一个英文字母，很好计算。这种编码方式就是ANSI的ASCII码，这也是计算机最初使用的编码方式。</p>
+</blockquote>
+<blockquote>
+<p>随后很多欧洲国家也开始使用计算机，进而占用了一个字节的剩余128~255的位置，称为 ISO 8859-1</p>
+</blockquote>
+<blockquote>
+<p>随后计算机逐渐在中国日本等国家流行开来，这时候就需要一种对应中文的编码方式。如果只是延续ASCII码的规则的话，常用汉字就有6000多个，之前针对英文字符定义的8bit=1字节完全不够用。于是就想到了对于ASCII码进行扩展，用两个字节表示。并且将这种编码方式命令为GB2312</p>
+</blockquote>
+<blockquote>
+<p>但是中文的系统比较复杂，GB2312本身不够完善，所以随着时间发展就产生了GBK（也是现在中文系统最常用的），GB18030等字符集。他们都是中文字符的编码规则，但可以编码的内容存在一些不同。</p>
+</blockquote>
+<blockquote>
+<p>既然中文会有中文专有的编码，那么日文韩文这种肯定也会有自己的编码。为了解决各个国家编码方式不互通。导致乱码无法交流。出现了一个叫 ISO 组织（国际标准化组织）决定着手解决这个问题。他们采用的方法很简单：废了所有的地区性编码方案，重新搞一个包括了地球上所有文化、所有字母和符号 的编码。这就是Unicode。unicode在很长一段时间内无法推广，直到互联网的出现，为解决unicode如何在网络上传输的问题，于是面向传输的众多 UTF（UCS Transfer Format）标准出现了。顾名思义，UTF-8就是每次8个位传输数据，而UTF-16就是每次16个位。UTF-8就是在互联网上使用最广的一种unicode的实现方式，这是为传输而设计的编码，并使编码无国界，这样就可以显示全世界上所有文化的字符了。到这主流的编码方式已经发展的很完善了。</p>
+</blockquote>
+<h1 id="为什么会乱码"><a href="#为什么会乱码" class="headerlink" title="为什么会乱码"></a>为什么会乱码</h1><h2 id="乱码出现的常见原因"><a href="#乱码出现的常见原因" class="headerlink" title="乱码出现的常见原因"></a>乱码出现的常见原因</h2><p>（这里单指编码方式导致的乱码）</p>
+<p>众所周知，计算机使用文档要经过 编写-储存-读取-使用 这些过程。所谓的编码就是将你输入的字符按规则编写成二进制码而储存在硬盘中。而解码就是读取你的二进制文件按编码规则逆过程将解码出来的字符集输出到你的屏幕上（也不是必须要输出）。很容易看出来这个编码和解码的过程使用的字符集和编码方式必须要是同一种。否则就会出现乱码。</p>
+<h2 id="我们平时在用哪些编码方式"><a href="#我们平时在用哪些编码方式" class="headerlink" title="我们平时在用哪些编码方式"></a>我们平时在用哪些编码方式</h2><p>看完上面，这个时候就有疑问那么键盘输入的时候使用的是什么编码。其实输入法在往程序输入的时候，程序会指定自己想要的编码方式。在输入法输入后会在内部进行一个转换。转换成对应的编码方式。同样的解码时程序也会有一个指定的解码方式。如果编码解码时找不到这个指定的编码方式，那么就会采用系统默认的编码法方式。win10系统默认编码方式可以cmd输入命令chcp查看。</p>
+<h1 id="关于自己遇到错误的解决"><a href="#关于自己遇到错误的解决" class="headerlink" title="关于自己遇到错误的解决"></a>关于自己遇到错误的解决</h1><h2 id="xml文件乱码"><a href="#xml文件乱码" class="headerlink" title="xml文件乱码"></a>xml文件乱码</h2><p>从设置中我可以找到自己的idea设置默认编码方式是GBk，但是从github下载下来XMl的文件编码方式是UTF-8,系统默认的解决方式是对文件重新编码。转换成了对应GBK编码的文件，同样的我将默认的编码方式转换成了UTF-8在导入原来的xml文件也可以正常读取。</p>
+<h2 id="SQL语句乱码"><a href="#SQL语句乱码" class="headerlink" title="SQL语句乱码"></a>SQL语句乱码</h2><p>这个错误最多就是出现在时区的设置，如果不指定encoding—UTF-8那么就会出现很多乱码错误。其实这个错误和上一个是一样的。都是编码方式的不匹配。</p>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+        <tag>计算机基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决hexo图片无法显示问题</title>
-    <url>/2022/09/19/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
+    <url>/2022/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>好长时间没写过带有图片内容的hexo博客了，之前这个问题在刚开始建立hexo博客的时候就解决过，但是今天又炸了。只能又重新在网上搜索解决办法了😭</p>
 <h1 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h1><h2 id="1-安装hexo-asset-image插件"><a href="#1-安装hexo-asset-image插件" class="headerlink" title="1.安装hexo-asset-image插件"></a>1.安装hexo-asset-image插件</h2><p>安装代码，在根目录安装</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
@@ -720,7 +720,7 @@
 <h2 id="5-上传部署"><a href="#5-上传部署" class="headerlink" title="5.上传部署"></a>5.上传部署</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
 <p>此时就可以查看是否已经修改好。或者使用<code>hexo s</code>先在本地看看效果</p>
 <p><strong>例如：</strong></p>
-<p><img src="/2022/09/19/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/beijing.png" alt="我滴任务完成了，哈哈哈哈哈-----" title="我滴任务完成了，哈--哈--哈--哈哈-----"></p>
+<p><img src="/2022/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/beijing.png" alt="我滴任务完成了，哈哈哈哈哈-----" title="我滴任务完成了，哈--哈--哈--哈哈-----"></p>
 ]]></content>
       <categories>
         <category>日常</category>
